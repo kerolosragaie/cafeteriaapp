@@ -7,9 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="gray">#E0E0E0</color>
 
-    <color name="colorPrimary">#FF3700B3</color>
-    <color name="colorPrimaryVariant">#FF6200EE</color>
-    <color name="colorSecondary">#FFBB86FC</color>
+    <!--Main three colors of the app:-->
+    <!--For buttons-->
+    <color name="colorPrimary">#FF6200EE</color>
+    <!--For System UI-->
+    <color name="colorPrimaryVariant">#FF3700B3</color>
+    <!---->
+    <color name="colorSecondary">#FF03DAC5</color>
 
 </resources>

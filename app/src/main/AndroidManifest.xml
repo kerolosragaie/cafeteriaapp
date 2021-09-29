@@ -11,6 +11,9 @@
         android:theme="@style/Theme.CafeteriaApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.HomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.TestActivity"
             android:exported="true" />
         <activity

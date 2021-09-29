@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Cafeteria App</string>
+
+    <!--Login Activity-->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget password?</string>
+    <string name="login">Login</string>
+
+    <!--Home activity-->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 </resources>
