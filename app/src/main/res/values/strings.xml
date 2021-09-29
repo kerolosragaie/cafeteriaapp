@@ -11,4 +11,28 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+
+    <!--Sendotp activity-->
+    <string name="otp_verification">OTP Verification</string>
+    <string name="we_will_send">We will send you a One Time Password on this mobile number</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="_20">+20-</string>
+    <string name="num_hint">0123456789</string>
+    <string name="get_otp">GET OTP</string>
+
+    <!--Verifyotp activity-->
+    <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
+    <string name="didn_t_receive_the_otp">Didn\'t receive the OTP?</string>
+    <string name="resend_otp">RESEND OTP</string>
+    <string name="verify">verify</string>
+
+    <!--Newpassword activity-->
+    <string name="new_credentials">NEW CREDENTIALS</string>
+    <string name="update">UPDATE</string>
+    <string name="set_your_new_password">Your identity has been verified \n Set your new password</string>
+    <string name="confirm_password">Confirm Password</string>
+
+
+
+
 </resources>

@@ -28,6 +28,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.NewPasswordActivity"
+            android:exported="true" >
+
+        </activity >
+        <activity
+            android:name=".activities.VerifyOTPActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.SendOTPActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
