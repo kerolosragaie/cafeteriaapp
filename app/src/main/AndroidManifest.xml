@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.evapharma.cafeteriaapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!--
+    ?Add both lines in every  activity to run in portrait mode only:
+    android:screenOrientation="portrait"
+    tools:ignore="LockedOrientationActivity"
+    -->
 
     <!--Should delete before publish => usesCleartextTraffic-->
     <application
@@ -14,13 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeteriaApp">
         <activity
-            android:name=".activities.HomeActivity"
-            android:exported="true" />
-        <activity
-            android:name=".activities.LoginActivity"
-            android:exported="true" />
-        <activity
             android:name=".activities.SplashActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,13 +32,29 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activities.HomeActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.NewPasswordActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:exported="true" />
         <activity
             android:name=".activities.VerifyOTPActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:exported="true" />
         <activity
             android:name=".activities.SendOTPActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
             android:exported="true" />
     </application>
 
