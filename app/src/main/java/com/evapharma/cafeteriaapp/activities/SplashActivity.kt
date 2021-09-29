@@ -32,8 +32,8 @@ class SplashActivity : AppCompatActivity() {
      * */
     private fun splashEffect() {
         Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
-            //startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
-            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+            //startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
             Animatoo.animateShrink(this@SplashActivity)
             finish()
         }
