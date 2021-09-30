@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tb_home"
             android:layout_width="match_parent"
@@ -58,6 +59,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

@@ -4,7 +4,7 @@
     package="com.evapharma.cafeteriaapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <!--
     ?Add both lines in every  activity to run in portrait mode only:
     android:screenOrientation="portrait"

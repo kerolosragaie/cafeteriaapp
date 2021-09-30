@@ -13,7 +13,13 @@
 
     <!--Drawer-->
     <string name="myaccount">My account</string>
+    <string name="users_accounts">Users accounts</string>
     <string name="logout">Log out</string>
+
+    <!--Error layout-->
+    <string name="error">Error</string>
+    <string name="error_message">Something went wrong, please try again later!</string>
+    <string name="retry">Retry</string>
 
 
     <!--Sendotp activity-->

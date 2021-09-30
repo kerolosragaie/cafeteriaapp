@@ -7,6 +7,11 @@
         android:title="@string/myaccount"/>
 
     <item
+        android:id="@+id/item_drawer_usersaccounts"
+        android:icon="@drawable/ic_users_accounts"
+        android:title="@string/users_accounts"/>
+
+    <item
         android:id="@+id/item_drawer_logout"
         android:icon="@drawable/ic_logout"
         android:title="@string/logout"/>

@@ -52,6 +52,9 @@ class HomeActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.item_drawer_myaccount ->{
                 }
+                R.id.item_drawer_usersaccounts ->{
+
+                }
                 R.id.item_drawer_logout ->{
                     startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
                     Animatoo.animateCard(this@HomeActivity)

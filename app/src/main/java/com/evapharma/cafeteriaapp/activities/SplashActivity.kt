@@ -1,5 +1,6 @@
 package com.evapharma.cafeteriaapp.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import com.evapharma.cafeteriaapp.databinding.ActivitySplashBinding
 import java.util.*
 import kotlin.concurrent.schedule
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
 
