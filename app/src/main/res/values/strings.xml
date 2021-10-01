@@ -41,6 +41,13 @@
     <string name="update">UPDATE</string>
     <string name="set_your_new_password">Your identity has been verified \n Set your new password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="total_number_of_orders">Total number of orders:</string>
+
+    <!--Order item layout-->
+    <string name="cant_be_null">*****:</string>
+    <string name="order_id">Order ID:</string>
+    <string name="employee_name">Employee Name:</string>
+    <string name="department_name">Department Name:</string>
 
 
 </resources>
