@@ -12,7 +12,8 @@
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_new_password.xml" value="0.20697463768115942" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_send_otpactivity.xml" value="0.20697463768115942" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_verify_otpactivity.xml" value="0.20697463768115942" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/fragment_home.xml" value="0.20697463768115942" />
+        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/order_item.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25092592592592594" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/bottom_nav_round_corners.xml" value="0.225" />

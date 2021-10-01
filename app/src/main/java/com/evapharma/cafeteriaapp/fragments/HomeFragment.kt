@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.helpers.OrdersAdapter
+import com.evapharma.cafeteriaapp.orders
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +40,17 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+
+        return inflater.inflate(R.layout.fragment_home, container, false).apply{
+            findViewById<TextView>(R.id.tv_home_ordercount).apply{
+                text=text.toString()+" "+orders.size.toString()
+            }
+            val adapter = OrdersAdapter(orders)
+            val recycler = findViewById<RecyclerView>(R.id.rv_home_orders)
+            recycler.layoutManager = LinearLayoutManager(context)
+            recycler.adapter = adapter
+        }
     }
 
     companion object {
