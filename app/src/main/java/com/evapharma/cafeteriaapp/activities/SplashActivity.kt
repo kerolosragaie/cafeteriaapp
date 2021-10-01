@@ -1,17 +1,17 @@
 package com.evapharma.cafeteriaapp.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
+import com.evapharma.cafeteriaapp.SPLASH_TIME_OUT
 import com.evapharma.cafeteriaapp.databinding.ActivitySplashBinding
 import java.util.*
 import kotlin.concurrent.schedule
 
-//Constants:
-private const val SPLASH_TIME_OUT: Long = 2500
-
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
 

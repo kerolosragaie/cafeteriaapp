@@ -4,16 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
+import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.databinding.ActivitySendOtpactivityBinding
-import com.evapharma.cafeteriaapp.shortToast
-import com.evapharma.cafeteriaapp.longToast
-import com.evapharma.cafeteriaapp.PHONE_NUMBER
-
-const val STARTER:String="0"
-const val PHONE_LENGTH:Int=11
 
 class SendOTPActivity : AppCompatActivity() {
-
     lateinit var binding: ActivitySendOtpactivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +16,6 @@ class SendOTPActivity : AppCompatActivity() {
         setContentView(binding.root)
         initButtons()
         initEditTexts()
-
     }
 
     private fun isFormatPhone(phone:String):Boolean{
@@ -58,7 +51,7 @@ class SendOTPActivity : AppCompatActivity() {
         return true
     }
 
-    fun initButtons(){
+    private fun initButtons(){
         binding.btnGetotpSendotp.setOnClickListener {
             if(getOtp(PHONE_NUMBER)){
                 val intent = Intent(this, VerifyOTPActivity::class.java)

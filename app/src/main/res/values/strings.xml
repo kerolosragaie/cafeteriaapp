@@ -11,6 +11,16 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <!--Drawer-->
+    <string name="myaccount">My account</string>
+    <string name="users_accounts">Users accounts</string>
+    <string name="logout">Log out</string>
+
+    <!--Error layout-->
+    <string name="error">Error</string>
+    <string name="error_message">Something went wrong, please try again later!</string>
+    <string name="retry">Retry</string>
+
 
     <!--Sendotp activity-->
     <string name="otp_verification">OTP Verification</string>
@@ -31,14 +41,6 @@
     <string name="update">UPDATE</string>
     <string name="set_your_new_password">Your identity has been verified \n Set your new password</string>
     <string name="confirm_password">Confirm Password</string>
-
-    <!--Home fragment-->
-    <string name="order_id">Order ID:</string>
-    <string name="employee_name">Employee Name:</string>
-    <string name="department_name">Department Name:</string>
-    <string name="cant_be_null">cant_be_null</string>
-    <string name="num_of_orders">Num of orders:</string>
-    <string name="total_number_of_orders">Total number of orders:</string>
 
 
 </resources>

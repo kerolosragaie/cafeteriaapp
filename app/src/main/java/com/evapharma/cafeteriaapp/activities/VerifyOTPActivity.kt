@@ -6,16 +6,15 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import androidx.core.widget.addTextChangedListener
 import com.evapharma.cafeteriaapp.databinding.ActivityVerifyOtpactivityBinding
 import com.evapharma.cafeteriaapp.PHONE_NUMBER
 
 
 class VerifyOTPActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityVerifyOtpactivityBinding
-    var listOfet: List<EditText> = listOf()
-    var sizeofets:Int=0
+    private lateinit var binding: ActivityVerifyOtpactivityBinding
+    private var listOfet: List<EditText> = listOf()
+    private var sizeofets:Int=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyOtpactivityBinding.inflate(layoutInflater)
@@ -29,7 +28,7 @@ class VerifyOTPActivity : AppCompatActivity() {
         //call api and get the otp code of the user
         return "123456"
     }
-    fun setViewPhonenumber(){
+    private fun setViewPhonenumber(){
         binding.tvVerifyotpMobilenumber.text=PHONE_NUMBER
     }
     private fun initEditTexts(){
@@ -72,7 +71,7 @@ class VerifyOTPActivity : AppCompatActivity() {
     }
 
 
-    fun initButtons(){
+    private fun initButtons(){
         binding.btnOnverifyVerifyotp.setOnClickListener {
 
                 if(isVerifiedOTP(getInput(),apiGetOTP() )){

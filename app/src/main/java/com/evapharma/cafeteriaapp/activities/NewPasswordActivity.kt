@@ -3,11 +3,10 @@ package com.evapharma.cafeteriaapp.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
+import com.evapharma.cafeteriaapp.MIN_PASSWORD_LENGTH
 import com.evapharma.cafeteriaapp.databinding.ActivityNewPasswordBinding
 import com.evapharma.cafeteriaapp.shortToast
 
-
-val MIN_PASSWORD_LENGTH=8
 
 class NewPasswordActivity : AppCompatActivity() {
     
@@ -47,7 +46,7 @@ class NewPasswordActivity : AppCompatActivity() {
         }
     }
 
-    fun isNotValid(str1:String,str2:String,len:Int):Boolean{
+    private fun isNotValid(str1:String, str2:String, len:Int):Boolean{
 
         return (str1.length < len) || (str1!=str2)
 
