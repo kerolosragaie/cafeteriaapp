@@ -3,45 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/drawable-v24/background_button.xml" value="0.25092592592592594" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/drawable-v24/ic_baseline_error_outline_24.xml" value="0.25092592592592594" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/drawable-v24/ic_baseline_lock_24.xml" value="0.25092592592592594" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/drawable/bottom_nav_round_corners.xml" value="0.25092592592592594" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/drawable/btn_background.xml" value="0.25092592592592594" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/drawable/ic_home.xml" value="0.25092592592592594" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_new_password.xml" value="0.20697463768115942" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_send_otpactivity.xml" value="0.20697463768115942" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_splash.xml" value="0.13125" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/activity_verify_otpactivity.xml" value="0.20697463768115942" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/drawer_navigation_header.xml" value="0.13125" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/error.xml" value="0.152" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/fragment_home.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/fragment_meals.xml" value="0.13125" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/fragment_offers.xml" value="0.13125" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/order_item.xml" value="0.4" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25092592592592594" />
+        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/fragment_home.xml" value="0.20697463768115942" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/bottom_nav_round_corners.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/btn_background.xml" value="0.28958333333333336" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/button_bg.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/edittext_bg.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/et_background.xml" value="0.28958333333333336" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_drawer_menu.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_home.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28958333333333336" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_meals.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_offers.xml" value="0.225" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_profile.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/ic_warning.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_second.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_splash.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_test.xml" value="0.26927083333333335" />
-        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_home.xml" value="0.2046875" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/drawer_navigation_header.xml" value="0.4" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/error.xml" value="0.264" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_meals.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_offers.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_profile.xml" value="0.2046875" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_item.xml" value="0.4" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/tool_bar.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/menu/drawer_nav_menu.xml" value="0.2046875" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/menu/drawer_navigation_menu.xml" value="0.2007150153217569" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/menu/nav_menu.xml" value="0.2046875" />
       </map>
     </option>

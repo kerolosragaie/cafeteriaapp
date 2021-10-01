@@ -2,7 +2,8 @@ package com.evapharma.cafeteriaapp
 
 import com.evapharma.cafeteriaapp.models.Order
 
-//GLOBALS
+//? Constants of fragments:
+//! Home fragments
 var PHONE_NUMBER:String=""
 var OTP_CODE=""
 

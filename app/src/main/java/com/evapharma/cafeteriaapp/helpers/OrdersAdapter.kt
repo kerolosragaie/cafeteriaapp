@@ -3,7 +3,6 @@ package com.evapharma.cafeteriaapp.helpers
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +12,7 @@ import com.evapharma.cafeteriaapp.models.Order
 
 
 class OrdersAdapter(private val orders: MutableList<Order>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<OrderViewHolder>() {
 
     fun updateData(newOrders: List<Order>){
         orders.clear()
@@ -25,12 +24,8 @@ class OrdersAdapter(private val orders: MutableList<Order>) :
         return orders.size
     }
 
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-
-
             val view: View = inflater.inflate(R.layout.order_item, parent, false)
             return  OrderViewHolder(view).apply {
                     orderview.setOnClickListener {
@@ -39,19 +34,14 @@ class OrdersAdapter(private val orders: MutableList<Order>) :
                 }
             }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (holder) {
-            is OrderViewHolder -> {
-                val order: Order = orders[position]
-                holder.orderID.text = order.orderID.toString()
-                holder.employeeName.text = order.employeeName
-                holder.employeeDepartment.text = order.employeeDepartment
-            }
-        }
+    override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
+        val order: Order = orders[position]
+        holder.orderID.text = order.orderID.toString()
+        holder.employeeName.text = order.employeeName
+        holder.employeeDepartment.text = order.employeeDepartment
     }
 
 }
-
 
 class OrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var orderview:ConstraintLayout = view.findViewById(R.id.view_home_orderview)
@@ -59,11 +49,3 @@ class OrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     var employeeName: TextView = view.findViewById(R.id.tv_home_empname)
     var employeeDepartment: TextView = view.findViewById(R.id.tv_home_depname)
 }
-
-/*
-class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    var title: TextView = view.findViewById(R.id.tv_Titlw)
-    var icon: ImageView = view.findViewById(R.id.iv_icon)
-}
-
-*/
