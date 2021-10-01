@@ -1,14 +1,16 @@
 package com.evapharma.cafeteriaapp.services
 
+import android.content.Context
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object ServiceBuilder {
-    //BASE URL
-    private const val BASE_URL = "API here"
+//BASE URL
+private const val BASE_URL = "API here"
+
+class ApiClient(context: Context) {
 
     //create logger:
     private val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -34,17 +36,18 @@ object ServiceBuilder {
         //call == read and write and connect timeouts
         .callTimeout(5, TimeUnit.SECONDS)
         //.addInterceptor(headerInterceptor)
+        .addInterceptor(RequestInterceptor(context))
         .addInterceptor(logger)
 
 
-    private val builder= Retrofit.Builder()
+    private val builder = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttp.build())
 
-    private val retrofit:Retrofit = builder.build()
+    private val retrofit: Retrofit = builder.build()
 
-    fun <T> buildService(serviceType:Class<T>):T{
+    fun <T> buildService(serviceType: Class<T>): T {
         return retrofit.create(serviceType)
     }
 }
