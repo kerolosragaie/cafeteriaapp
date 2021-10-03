@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.models.Order
@@ -13,6 +14,16 @@ import com.evapharma.cafeteriaapp.models.Order
 
 class OrdersAdapter(private val orders: MutableList<Order>) :
     RecyclerView.Adapter<OrderViewHolder>() {
+
+    /* *In the fragment do this:
+    override fun onResume() {
+        super.onResume()
+        val adapter = OrdersAdapter(orders)
+        adapter.updateData(orders.reversed())
+        adapter.notifyDataSetChanged()
+    }
+    ?cannot used notifyDataSetChanged() Only
+     */
 
     fun updateData(newOrders: List<Order>){
         orders.clear()

@@ -41,13 +41,6 @@
     <string name="update">UPDATE</string>
     <string name="set_your_new_password">Your identity has been verified \n Set your new password</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="total_number_of_orders">Total number of orders:</string>
-
-    <!--Order item layout-->
-    <string name="cant_be_null">*****:</string>
-    <string name="order_id">Order ID:</string>
-    <string name="employee_name">Employee Name:</string>
-    <string name="department_name">Department Name:</string>
 
     <!--Order item layout-->
     <string name="cant_be_null">*****:</string>
@@ -55,6 +48,17 @@
     <string name="employee_name">Employee Name:</string>
     <string name="department_name">Department Name:</string>
     <string name="total_number_of_orders">Total orders:</string>
+
+    <!--Meals item layout-->
+    <string name="drinks">Drinks</string>
+    <string name="description">Description here</string>
+
+    <!--Food item layout-->
+    <string name="Hamburger">Hamburger</string>
+    <string name="rating_stars">4.5</string>
+
+    <!--Meals fragment layout-->
+    <string name="search">Search</string>
 
 
 </resources>

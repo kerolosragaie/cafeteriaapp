@@ -37,8 +37,6 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-
-
         <FrameLayout
             android:id="@+id/fragment_home_container"
             android:layout_width="match_parent"

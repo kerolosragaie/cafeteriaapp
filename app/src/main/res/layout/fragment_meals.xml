@@ -1,13 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.MealsFragment">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/ll_topbar"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rv_meals"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Meals Fragment" />
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <EditText
+            android:id="@+id/et_meals_search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_rounded_corner"
+            android:drawableStart="@drawable/ic_search"
+            android:hint="@string/search"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/iv_meals_add"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_outline"/>
+
+    </LinearLayout>
+
+    <!--To show nothing found on search-->
+    <include
+        android:id="@+id/error_meals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        layout="@layout/error_nothing_found"/>
+
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+        android:id="@+id/rv_meals"
+        app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/meals_item"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

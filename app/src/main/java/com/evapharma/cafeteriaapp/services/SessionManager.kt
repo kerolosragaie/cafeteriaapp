@@ -2,7 +2,10 @@ package com.evapharma.cafeteriaapp.services
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.models.UserResponse
+import com.google.gson.Gson
 
 /**
  * Session manager for storing and retrieving sessions from SharedPreferences
@@ -18,17 +21,22 @@ class SessionManager(context: Context) {
     /**
      * save access_token
      */
-    fun saveAccessToken(token: String) {
+    fun saveAccessToken(userResponse: UserResponse) {
         val editor = prefs.edit()
-        editor.putString(ACCESS_TOKEN, token)
-            .apply()
+        val gson = Gson()
+        val json = gson.toJson(userResponse)
+        editor.putString(ACCESS_TOKEN,json).apply()
+        Log.d(ACCESS_TOKEN,"Access token saved successfully")
     }
 
     /**
      * get access_token
      */
-    fun fetchAccessToken(): String? {
-        return prefs.getString(ACCESS_TOKEN, null)
+    fun fetchAccessToken(): UserResponse? {
+        //prefs.getString(ACCESS_TOKEN, null)
+        val gson = Gson()
+        val json = prefs.getString(ACCESS_TOKEN, null)
+        return gson.fromJson(json, UserResponse::class.java)
     }
 
     /**
@@ -38,6 +46,7 @@ class SessionManager(context: Context) {
         val editor = prefs.edit()
         editor.clear()
             .apply()
+        Log.d(ACCESS_TOKEN,"Access token deleted successfully")
     }
 
 }

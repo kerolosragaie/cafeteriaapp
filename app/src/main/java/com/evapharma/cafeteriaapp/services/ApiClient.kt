@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 //BASE URL
-private const val BASE_URL = "API here"
+private const val BASE_URL = "http://daniel100-001-site1.ftempurl.com/"
 
 class ApiClient(context: Context) {
 
@@ -34,9 +34,10 @@ class ApiClient(context: Context) {
     private val okHttp = OkHttpClient.Builder()
         //The normal time out is 10 seconds
         //call == read and write and connect timeouts
-        .callTimeout(5, TimeUnit.SECONDS)
+        .callTimeout(8, TimeUnit.SECONDS)
         //.addInterceptor(headerInterceptor)
         .addInterceptor(RequestInterceptor(context))
+        .authenticator(TokenAuthenticator(context))
         .addInterceptor(logger)
 
 

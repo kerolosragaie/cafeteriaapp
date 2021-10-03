@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF0000</color>
     <color name="gray">#E0E0E0</color>
+    <color name="yellow">#ffc107</color>
 
     <!--Main three colors of the app:-->
     <!--For buttons-->

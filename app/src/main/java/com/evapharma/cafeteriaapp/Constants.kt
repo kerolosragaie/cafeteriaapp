@@ -1,9 +1,11 @@
 package com.evapharma.cafeteriaapp
 
+import com.evapharma.cafeteriaapp.models.FoodItem
+import com.evapharma.cafeteriaapp.models.Menu
 import com.evapharma.cafeteriaapp.models.Order
 
 //? Constants of fragments:
-//! Home fragments
+//! Orders fragment
 var PHONE_NUMBER:String=""
 var OTP_CODE=""
 
@@ -18,11 +20,22 @@ var orders = mutableListOf<Order>().apply{
     add(Order(orderID = 122 ,employeeName = "Sam David", employeeDepartment = "Pharma"))
 }
 
+//! Meals fragment
+var pizzaMenu = mutableListOf<FoodItem>().apply{
+    add(FoodItem(0,"Cheese pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",28.5))
+}
+
+var menusList = mutableListOf<Menu>().apply{
+    add(Menu(0,"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg","Pizza","dummy text",pizzaMenu))
+}
+
+
 
 //? Constants of activities:
 //! Splash activity
 const val SPLASH_TIME_OUT: Long = 2500
 //! Login activity
+const val USER_DATA:String="USER_DATA"
 //! New password activity
 const val MIN_PASSWORD_LENGTH=8
 //! Send OTP activity
