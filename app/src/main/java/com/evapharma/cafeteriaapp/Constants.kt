@@ -1,14 +1,21 @@
 package com.evapharma.cafeteriaapp
 
-import com.evapharma.cafeteriaapp.models.FoodItem
-import com.evapharma.cafeteriaapp.models.Menu
-import com.evapharma.cafeteriaapp.models.Order
-import com.evapharma.cafeteriaapp.models.PhoneResponse
+import com.evapharma.cafeteriaapp.models.*
 
 //? Constants of fragments:
 //! Orders fragment
 var PHONE_NUMBER:String=""
 var OTP_CODE=""
+
+
+var orderDetailsList = mutableListOf<OrderDetailsItem>().apply{
+    add(OrderDetailsItem(item_name = "Korolos Ragie", qty = 1, price = 5.0))
+    add(OrderDetailsItem(item_name = "Habiba Khaled", qty =1 , price = 3.0))
+    add(OrderDetailsItem(item_name = "Fries", qty = 1, price = 10.0))
+    add(OrderDetailsItem(item_name = "Burger", qty = 3, price = 15.0))
+    add(OrderDetailsItem(item_name = "Pizza", qty = 3, price = 20.0))
+    add(OrderDetailsItem(item_name = "Indoomie", qty = 1, price = 3.5))
+}
 
 var orders = mutableListOf<Order>().apply{
     add(Order(orderID = 109, employeeName = "Ahmed Rabie", employeeDepartment = "Pharma"))
@@ -20,6 +27,8 @@ var orders = mutableListOf<Order>().apply{
     add(Order(orderID = 111, employeeName = "Raghad Ahmed", employeeDepartment = "Pharma"))
     add(Order(orderID = 122 ,employeeName = "Sam David", employeeDepartment = "Pharma"))
 }
+
+
 
 //! Meals fragment
 var pizzaMenu = mutableListOf<FoodItem>().apply{

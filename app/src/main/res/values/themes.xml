@@ -15,4 +15,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <!-- Collapse Toolbar theme. -->
+    <style name="collapsingToolbarLayoutTitleColor" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

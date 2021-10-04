@@ -34,9 +34,9 @@ class SplashActivity : AppCompatActivity() {
      * Gives splash effect to logo on start
      * */
     private fun splashEffect() {
-        Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
-            //startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
-            isLoggedInBefore()
+            Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
+            startActivity(Intent(this@SplashActivity, OrderDetailsActivity::class.java))
+            //isLoggedInBefore()
         }
     }
 

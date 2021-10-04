@@ -48,6 +48,14 @@
     <string name="employee_name">Employee Name:</string>
     <string name="department_name">Department Name:</string>
     <string name="total_number_of_orders">Total orders:</string>
+    <string name="total_price">Total Price:</string>
+
+    <!-- Order details  -->
+    <string name="item_name">Item Name</string>
+    <string name="qty">Qty</string>
+    <string name="price">Price</string>
+    <string name="dummy_name">dummy name</string>
+
 
     <!--Meals item layout-->
     <string name="drinks">Drinks</string>
@@ -59,6 +67,7 @@
 
     <!--Meals fragment layout-->
     <string name="search">Search</string>
+
 
 
 </resources>

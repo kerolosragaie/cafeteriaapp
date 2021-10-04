@@ -27,4 +27,5 @@
     <color name="colorTextSecondary">#757575</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorSuccess">#5cb85c</color>
 </resources>
