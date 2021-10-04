@@ -41,8 +41,7 @@ class SendOTPActivity : AppCompatActivity() {
     private fun isCorrectLength(phone:String,target_length:Int):Boolean{
         return phone.length==target_length
     }
-    private fun isValidPhone(phone:String):PhoneResponse?{
-        var phoneResponse:PhoneResponse?=null
+    private fun callAPI(phone:String){
         //call api here:
         loadingDialog.show()
         binding.btnGetotpSendotp.isActivated=false
@@ -51,8 +50,14 @@ class SendOTPActivity : AppCompatActivity() {
         requestCall.enqueue(object: Callback<PhoneResponse>{
             override fun onResponse(call: Call<PhoneResponse>, response: Response<PhoneResponse>) {
                 if(response.isSuccessful){
-                    phoneResponse = response.body()
-                    //TODO: go to change password page
+                    //TODO: go to verify OTP and send with it phone (intent)
+                    loadingDialog.dismiss()
+                    binding.btnGetotpSendotp.isActivated=true
+                    val intent = Intent(this@SendOTPActivity, VerifyOTPActivity::class.java)
+                    intent.putExtra(PHONE_RESPONSE,binding.etSendotpInputmobile.text)
+                    startActivity(intent)
+                    Animatoo.animateSlideRight(this@SendOTPActivity)
+                    finish()
                 }else{
                     val errorCode:String = when(response.code()){
                         400 -> {
@@ -74,7 +79,6 @@ class SendOTPActivity : AppCompatActivity() {
                         .setTitleText("ERROR!")
                         .setContentText(errorCode)
                         .show()
-                    phoneResponse = null
                 }
             }
 
@@ -85,11 +89,9 @@ class SendOTPActivity : AppCompatActivity() {
                     .setTitleText("ERROR!")
                     .setContentText("$t")
                     .show()
-                phoneResponse = null
             }
 
         })
-        return phoneResponse
     }
     private fun getOtp(phone:String):Boolean{
        if ( !isFormatPhone(phone)){
@@ -105,12 +107,14 @@ class SendOTPActivity : AppCompatActivity() {
     }
     private fun initButtons(){
         binding.btnGetotpSendotp.setOnClickListener {
-            if(binding.etSendotpInputmobile.text.isNotEmpty()){
-                val intent = Intent(this@SendOTPActivity, VerifyOTPActivity::class.java)
-                intent.putExtra(PHONE_RESPONSE,binding.etSendotpInputmobile.text)
-                startActivity(intent)
-                Animatoo.animateSplit(this@SendOTPActivity)
-                finish()
+            if(binding.etSendotpInputmobile.text.isNotEmpty() && binding.etSendotpInputmobile.text.length==PHONE_LENGTH){
+                callAPI(binding.etSendotpInputmobile.text.toString())
+
+            }else{
+                IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR!")
+                    .setContentText("Wrong phone format!")
+                    .show()
             }
         }
     }
