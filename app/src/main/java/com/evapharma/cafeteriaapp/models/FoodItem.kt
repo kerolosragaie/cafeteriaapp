@@ -7,3 +7,4 @@ data class FoodItem(
     val imageUrl:String,
     val price:Double,
 )
+

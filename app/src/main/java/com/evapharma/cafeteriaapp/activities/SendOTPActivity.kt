@@ -3,37 +3,95 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.databinding.ActivitySendOtpactivityBinding
+import com.evapharma.cafeteriaapp.models.PhoneResponse
+import com.evapharma.cafeteriaapp.models.SendPhoneRequest
+import com.evapharma.cafeteriaapp.models.UserRequest
+import com.evapharma.cafeteriaapp.services.ApiClient
+import com.evapharma.cafeteriaapp.services.ResetPasswordService
+import id.ionbit.ionalert.IonAlert
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SendOTPActivity : AppCompatActivity() {
     lateinit var binding: ActivitySendOtpactivityBinding
+    //to show or hide loading:
+    private lateinit var loadingDialog : IonAlert
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySendOtpactivityBinding.inflate(layoutInflater)
+
+        loadingDialog = IonAlert(this@SendOTPActivity, IonAlert.PROGRESS_TYPE)
+            .setSpinKit("ThreeBounce")
+
         setContentView(binding.root)
         initButtons()
         initEditTexts()
     }
-
     private fun isFormatPhone(phone:String):Boolean{
         return phone.startsWith(STARTER)
     }
-
     private fun isCorrectLength(phone:String,target_length:Int):Boolean{
         return phone.length==target_length
     }
+    private fun isValidPhone(phone:String):PhoneResponse?{
+        var phoneResponse:PhoneResponse?=null
+        //call api here:
+        loadingDialog.show()
+        binding.btnGetotpSendotp.isActivated=false
+        val resetPasswordService:ResetPasswordService = ApiClient(this@SendOTPActivity).buildService(ResetPasswordService::class.java)
+        val requestCall : Call<PhoneResponse> = resetPasswordService.sendPhoneNumber(SendPhoneRequest(phone))
+        requestCall.enqueue(object: Callback<PhoneResponse>{
+            override fun onResponse(call: Call<PhoneResponse>, response: Response<PhoneResponse>) {
+                if(response.isSuccessful){
+                    phoneResponse = response.body()
+                    //TODO: go to change password page
+                }else{
+                    val errorCode:String = when(response.code()){
+                        400 -> {
+                            "Phone number is not existed."
+                        }
+                        404 -> {
+                            "404 not found"
+                        }
+                        500 -> {
+                            "500 server broken"
+                        }
+                        else ->{
+                            "Unknown error!"
+                        }
+                    }
+                    loadingDialog.dismiss()
+                    binding.btnGetotpSendotp.isActivated=true
+                    IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
+                        .setTitleText("ERROR!")
+                        .setContentText(errorCode)
+                        .show()
+                    phoneResponse = null
+                }
+            }
 
-    private fun isValidPhone(phone:String):Boolean{
-        //api call to verify yes or no
+            override fun onFailure(call: Call<PhoneResponse>, t: Throwable) {
+                loadingDialog.dismiss()
+                binding.btnGetotpSendotp.isActivated=true
+                IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR!")
+                    .setContentText("$t")
+                    .show()
+                phoneResponse = null
+            }
 
-        return true // change later
+        })
+        return phoneResponse
     }
-
     private fun getOtp(phone:String):Boolean{
-
        if ( !isFormatPhone(phone)){
            shortToast(this,"Wrong phone format!")
            return false
@@ -43,19 +101,15 @@ class SendOTPActivity : AppCompatActivity() {
             return false
         }
 
-        if ( !isValidPhone(phone)){
-            longToast(this,"Enter the correct phone number assigned to your account!")
-            return false
-        }
-
         return true
     }
-
     private fun initButtons(){
         binding.btnGetotpSendotp.setOnClickListener {
-            if(getOtp(PHONE_NUMBER)){
-                val intent = Intent(this, VerifyOTPActivity::class.java)
+            if(binding.etSendotpInputmobile.text.isNotEmpty()){
+                val intent = Intent(this@SendOTPActivity, VerifyOTPActivity::class.java)
+                intent.putExtra(PHONE_RESPONSE,binding.etSendotpInputmobile.text)
                 startActivity(intent)
+                Animatoo.animateSplit(this@SendOTPActivity)
                 finish()
             }
         }
@@ -65,4 +119,11 @@ class SendOTPActivity : AppCompatActivity() {
             PHONE_NUMBER= text.toString()
         }
     }
+
+    //when back pressed animate backward:
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Animatoo.animateSlideRight(this@SendOTPActivity)
+    }
+
 }

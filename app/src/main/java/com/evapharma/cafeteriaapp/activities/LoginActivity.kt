@@ -3,12 +3,10 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.databinding.ActivityLoginBinding
 import com.evapharma.cafeteriaapp.helpers.UserHelper
-import com.evapharma.cafeteriaapp.models.User
 import com.evapharma.cafeteriaapp.models.UserRequest
 import com.evapharma.cafeteriaapp.models.UserResponse
 import com.evapharma.cafeteriaapp.services.ApiClient
@@ -42,19 +40,16 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        //check if user was logged in
-        isLoggedInBefore()
-    }
-
     /**
      * Set up views UI:
      * */
     private fun initUI(){
+
+        //!Login button
         binding.btnLoginLogin.setOnClickListener {
+            binding.btnLoginLogin.isActivated = false
             //first validate the fields:
-            if(UserHelper.validateData(this@LoginActivity, binding.etLoginEmail, binding.etLoginPassword,)){
+            if(UserHelper.validateData(this@LoginActivity, binding.etLoginEmail, binding.etLoginPassword)){
                 loadingDialog.show()
                 //second check if email or password are correct:
                 val userRequest = UserRequest(binding.etLoginEmail.text.toString(),binding.etLoginPassword.text.toString())
@@ -68,6 +63,8 @@ class LoginActivity : AppCompatActivity() {
                                 loadingDialog.dismiss()
                                 goToHome(response.body()!!)
                             }else{
+                                loadingDialog.dismiss()
+                                binding.btnLoginLogin.isActivated = true
                                 IonAlert(this@LoginActivity, IonAlert.ERROR_TYPE)
                                     .setTitleText("ERROR!")
                                     .setContentText("Only admins can login.")
@@ -89,15 +86,17 @@ class LoginActivity : AppCompatActivity() {
                                 }
                             }
                             loadingDialog.dismiss()
+                            binding.btnLoginLogin.isActivated = true
                             IonAlert(this@LoginActivity, IonAlert.ERROR_TYPE)
                                 .setTitleText("ERROR!")
-                                .setContentText("$errorCode")
+                                .setContentText(errorCode)
                                 .show()
                         }
                     }
 
                     override fun onFailure(call: Call<UserResponse>, t: Throwable) {
                         loadingDialog.dismiss()
+                        binding.btnLoginLogin.isActivated = true
                         IonAlert(this@LoginActivity, IonAlert.ERROR_TYPE)
                             .setTitleText("ERROR!")
                             .setContentText("$t")
@@ -108,18 +107,17 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
-    }
 
-    //To check if user logged in before
-    private fun isLoggedInBefore(){
-        loadingDialog.show()
-        val userResponse :UserResponse? =  sessionManager.fetchAccessToken()
-        if(userResponse!= null){
-            goToHome(userResponse)
+        //!Reset password button
+        binding.tvLoginForgetpass.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, SendOTPActivity::class.java))
+            Animatoo.animateSlideLeft(this@LoginActivity)
         }
-        loadingDialog.dismiss()
     }
 
+    /**
+     * To go to home page with user response data:
+     * */
     private fun goToHome(userResponse: UserResponse){
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         intent.putExtra(USER_DATA,userResponse)

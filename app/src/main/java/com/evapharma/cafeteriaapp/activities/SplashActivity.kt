@@ -7,7 +7,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.SPLASH_TIME_OUT
+import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.databinding.ActivitySplashBinding
+import com.evapharma.cafeteriaapp.models.UserResponse
+import com.evapharma.cafeteriaapp.services.SessionManager
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -33,6 +36,20 @@ class SplashActivity : AppCompatActivity() {
     private fun splashEffect() {
         Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
             //startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+            isLoggedInBefore()
+        }
+    }
+
+    //To check if user logged in before
+    private fun isLoggedInBefore(){
+        val userResponse : UserResponse? =  SessionManager(this@SplashActivity).fetchAccessToken()
+        if(userResponse!= null){
+            val intent = Intent(this@SplashActivity, HomeActivity::class.java)
+            intent.putExtra(USER_DATA,userResponse)
+            startActivity(intent)
+            Animatoo.animateShrink(this@SplashActivity)
+            finish()
+        }else{
             startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
             Animatoo.animateShrink(this@SplashActivity)
             finish()

@@ -3,12 +3,10 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.se.omapi.Session
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.R
@@ -124,7 +122,7 @@ class HomeActivity : AppCompatActivity() {
     //to get user data and show in the drawer:
     private fun loadUserData(){
         val bundle:Bundle? = intent.extras
-        if(bundle?.containsKey(USER_DATA)!=null){
+        if(bundle?.containsKey(USER_DATA)!!){
             val userResponse = intent.extras?.get(USER_DATA) as UserResponse
             val navigationDrawerHeader : View = binding.nvHomeDrawer.getHeaderView(0)
             navigationDrawerHeader.findViewById<TextView>(R.id.tv_drawer_username).apply {

@@ -30,11 +30,11 @@
             android:layout_weight="1"/>
 
         <ImageView
-            android:id="@+id/iv_meals_add"
+            android:id="@+id/iv_meals_addmenu"
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_outline"/>
+            android:src="@drawable/ic_add_outline_white"/>
 
     </LinearLayout>
 

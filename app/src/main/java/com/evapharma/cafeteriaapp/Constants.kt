@@ -3,6 +3,7 @@ package com.evapharma.cafeteriaapp
 import com.evapharma.cafeteriaapp.models.FoodItem
 import com.evapharma.cafeteriaapp.models.Menu
 import com.evapharma.cafeteriaapp.models.Order
+import com.evapharma.cafeteriaapp.models.PhoneResponse
 
 //? Constants of fragments:
 //! Orders fragment
@@ -23,10 +24,17 @@ var orders = mutableListOf<Order>().apply{
 //! Meals fragment
 var pizzaMenu = mutableListOf<FoodItem>().apply{
     add(FoodItem(0,"Cheese pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",28.5))
+    add(FoodItem(1,"Meat pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",50.5))
+}
+
+var sandwichesMenu = mutableListOf<FoodItem>().apply{
+    add(FoodItem(0,"Hot dog","dummy text","https://images.media-allrecipes.com/userphotos/9391099.jpg",10.5))
+    add(FoodItem(1,"Hamburger","dummy text","https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg",22.5))
 }
 
 var menusList = mutableListOf<Menu>().apply{
     add(Menu(0,"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg","Pizza","dummy text",pizzaMenu))
+    add(Menu(1,"https://images.media-allrecipes.com/userphotos/9391099.jpg","Sandwiches","dummy text",pizzaMenu))
 }
 
 
@@ -41,6 +49,7 @@ const val MIN_PASSWORD_LENGTH=8
 //! Send OTP activity
 const val STARTER:String="0"
 const val PHONE_LENGTH:Int=11
+const val PHONE_RESPONSE:String="PHONE_RESPONSE"
 
 //------------------------------------------------------
 //? Constants of helpers:

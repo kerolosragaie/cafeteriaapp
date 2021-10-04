@@ -66,10 +66,18 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <ImageView
+                    android:id="@+id/iv_meals_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:paddingHorizontal="5dp"/>
+
+                <ImageView
                     android:id="@+id/iv_meals_delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_delete"/>
+                    android:src="@drawable/ic_delete"
+                    android:paddingHorizontal="5dp"/>
 
             </LinearLayout>
 
