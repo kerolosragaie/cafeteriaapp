@@ -24,9 +24,6 @@ class MealsFragment: Fragment() {
     lateinit var errorLayout:CardView
     lateinit var etSearchForMenus:EditText
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +37,7 @@ class MealsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         errorLayout = view.findViewById(R.id.error_meals)
         etSearchForMenus = view.findViewById(R.id.et_meals_search)
-        recyclerView = view.findViewById(R.id.rv_meals)
+        recyclerView = view.findViewById(R.id.rv_meals_category)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         etSearchForMenus.addTextChangedListener(object : TextWatcher{
@@ -70,7 +67,7 @@ class MealsFragment: Fragment() {
     }
 
     /**
-     * A function to search in the adapter with connecting to DB
+     * A function to search in the adapter without connecting to DB
      * */
     private fun searchFun(strTyped: String) {
         val filteredList = arrayListOf<Menu>()
@@ -89,9 +86,8 @@ class MealsFragment: Fragment() {
             errorLayout.visibility=View.GONE
         }
 
-        menuAdapter.updateList(filteredList,menuAdapter)
+        menuAdapter.updateList(filteredList)
 
     }
-
 
 }

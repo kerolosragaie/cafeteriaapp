@@ -34,7 +34,7 @@ class ApiClient(context: Context) {
     private val okHttp = OkHttpClient.Builder()
         //The normal time out is 10 seconds
         //call == read and write and connect timeouts
-        .callTimeout(8, TimeUnit.SECONDS)
+        .callTimeout(14, TimeUnit.SECONDS)
         //.addInterceptor(headerInterceptor)
         .addInterceptor(RequestInterceptor(context))
         .authenticator(TokenAuthenticator(context))

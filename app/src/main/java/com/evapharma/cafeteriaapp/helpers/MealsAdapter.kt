@@ -1,19 +1,21 @@
 package com.evapharma.cafeteriaapp.helpers
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.ColorFilter
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.view.menu.MenuAdapter
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.evapharma.cafeteriaapp.MEALS_MENU
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.activities.MealDetailsActivity
 import com.evapharma.cafeteriaapp.models.Menu
 import id.ionbit.ionalert.IonAlert
+import java.io.Serializable
 import java.util.ArrayList
 
 
@@ -23,7 +25,6 @@ class MealsAdapter(val context:Context,private var menuList:MutableList<Menu>) :
         inner class MealsViewHolder(view: View):RecyclerView.ViewHolder(view){
             val imageView: ImageView = view.findViewById(R.id.iv_meals_image)
             val menuName: TextView = view.findViewById(R.id.tv_meals_name)
-            val description: TextView = view.findViewById(R.id.tv_meals_description)
             val deleteImage: ImageView = view.findViewById(R.id.iv_meals_delete)
             val editImage: ImageView = view.findViewById(R.id.iv_meals_edit)
         }
@@ -37,7 +38,6 @@ class MealsAdapter(val context:Context,private var menuList:MutableList<Menu>) :
     override fun onBindViewHolder(holder: MealsViewHolder, position: Int) {
         val singleMenu = menuList[position]
         holder.menuName.text = singleMenu.name
-        holder.description.text = singleMenu.description
 
         //WHEN PRESS DELETE:
         holder.deleteImage.setOnClickListener {
@@ -48,14 +48,12 @@ class MealsAdapter(val context:Context,private var menuList:MutableList<Menu>) :
                 .setCancelText("No")
                 .setConfirmClickListener {
                     //on press yes delete it
-                }
-                .show()
+                }.show()
         }
 
         //go to edit page:
         holder.editImage.setOnClickListener {
-            //TODO: make edit page:
-
+            //TODO: make edit page
         }
 
         //show loading for glide:
@@ -68,9 +66,14 @@ class MealsAdapter(val context:Context,private var menuList:MutableList<Menu>) :
             .load(singleMenu.imageUrl)
             .placeholder(circularProgressDrawable)
             .into(holder.imageView)
+
         //When press on card item:
         holder.itemView.setOnClickListener {
             //go to page to view list of foods in this menu:
+            //TODO: send id to next page (when connect to DB)
+            val intent = Intent(holder.itemView.context, MealDetailsActivity::class.java)
+            intent.putExtra(MEALS_MENU, singleMenu.items as Serializable)
+            startActivity(holder.itemView.context,intent,null)
         }
     }
 
@@ -82,9 +85,10 @@ class MealsAdapter(val context:Context,private var menuList:MutableList<Menu>) :
      * For search functionality:
      * Added here to access main list which works on it
      * */
-    fun updateList(filteredList: ArrayList<Menu>,adapter: MealsAdapter) {
+    fun updateList(filteredList: ArrayList<Menu>) {
+        //ADD it to the Meals Fragment, like food list
         menuList = filteredList
-        adapter.notifyDataSetChanged()
+        notifyDataSetChanged()
     }
 
 }

@@ -32,20 +32,21 @@ var orders = mutableListOf<Order>().apply{
 
 //! Meals fragment
 var pizzaMenu = mutableListOf<FoodItem>().apply{
-    add(FoodItem(0,"Cheese pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",28.5))
-    add(FoodItem(1,"Meat pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",50.5))
+    add(FoodItem(0,"Cheese pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",28.5,2.5))
+    add(FoodItem(1,"Meat pizza","dummy text","https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",50.5,3.0))
 }
 
 var sandwichesMenu = mutableListOf<FoodItem>().apply{
-    add(FoodItem(0,"Hot dog","dummy text","https://images.media-allrecipes.com/userphotos/9391099.jpg",10.5))
-    add(FoodItem(1,"Hamburger","dummy text","https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg",22.5))
+    add(FoodItem(0,"Hot dog","dummy text","https://images.media-allrecipes.com/userphotos/9391099.jpg",10.5,4.5))
+    add(FoodItem(1,"Hamburger","dummy text","https://assets.epicurious.com/photos/57c5c6d9cf9e9ad43de2d96e/master/pass/the-ultimate-hamburger.jpg",22.5,1.5))
 }
 
 var menusList = mutableListOf<Menu>().apply{
-    add(Menu(0,"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg","Pizza","dummy text",pizzaMenu))
-    add(Menu(1,"https://images.media-allrecipes.com/userphotos/9391099.jpg","Sandwiches","dummy text",pizzaMenu))
+    add(Menu(0,"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg","Pizza",pizzaMenu))
+    add(Menu(1,"https://images.media-allrecipes.com/userphotos/9391099.jpg","Sandwiches",sandwichesMenu))
 }
 
+const val MEALS_MENU = "MEALS_MENU"
 
 
 //? Constants of activities:

@@ -5,19 +5,19 @@
     <item
         android:id="@+id/item_bottomnav_meals"
         android:icon="@drawable/ic_meals"
-        android:title="Meals"
+        android:title="MEALS"
         app:cnb_iconColor="@color/white"/>
 
     <item
         android:id="@+id/item_bottomnav_home"
         android:icon="@drawable/ic_home"
-        android:title="Home"
+        android:title="HOME"
         app:cnb_iconColor="@color/white"/>
 
     <item
         android:id="@+id/item_bottomnav_offers"
         android:icon="@drawable/ic_offers"
-        android:title="Offers"
+        android:title="OFFERS"
         app:cnb_iconColor="@color/white"/>
 
 </menu>

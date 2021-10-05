@@ -21,7 +21,6 @@
     <string name="error_message">Something went wrong, please try again later!</string>
     <string name="retry">Retry</string>
 
-
     <!--Sendotp activity-->
     <string name="otp_verification">OTP Verification</string>
     <string name="we_will_send">We will send you a One Time Password on this mobile number</string>
@@ -61,9 +60,15 @@
     <string name="drinks">Drinks</string>
     <string name="description">Description here</string>
 
+    <!--Radio button sort-->
+    <string name="cost_low_to_high">Cost (Low to High)</string>
+    <string name="cost_high_to_low">Cost (High to Low)</string>
+    <string name="rating">Rating</string>
+
     <!--Food item layout-->
     <string name="Hamburger">Hamburger</string>
     <string name="rating_stars">4.5</string>
+    <string name="food_price">18.89</string>
 
     <!--Meals fragment layout-->
     <string name="search">Search</string>

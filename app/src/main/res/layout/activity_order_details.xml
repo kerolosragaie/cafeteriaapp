@@ -106,9 +106,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rv_orderdetails">
-
-            </androidx.recyclerview.widget.RecyclerView>
+                android:id="@+id/rv_orderdetails"
+                tools:listitem="@layout/order_details_item"
+                tools:itemCount="6"/>
 
             <TextView
                 android:id="@+id/tv_orderdetails_totalprice"
@@ -119,8 +119,7 @@
                 android:gravity="center"
                 android:textSize="20sp"
                 android:fontFamily="@font/roboto_medium"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -134,8 +133,7 @@
         android:id="@+id/btn_orderdetails_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back"
-        />
+        android:src="@drawable/ic_back" />
 
 
 

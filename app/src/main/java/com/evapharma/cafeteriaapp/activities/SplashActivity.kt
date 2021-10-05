@@ -26,6 +26,11 @@ class SplashActivity : AppCompatActivity() {
         //Close night mode:
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         //Setting up splash effect:
         splashEffect()
     }
@@ -35,8 +40,8 @@ class SplashActivity : AppCompatActivity() {
      * */
     private fun splashEffect() {
             Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
-            startActivity(Intent(this@SplashActivity, UpdateDeleteCategoryActivity::class.java))
-            //isLoggedInBefore()
+            //startActivity(Intent(this@SplashActivity, MealDetailsActivity::class.java))
+            isLoggedInBefore()
         }
     }
 
