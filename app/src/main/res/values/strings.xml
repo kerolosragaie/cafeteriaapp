@@ -51,11 +51,11 @@
     <string name="total_price">Total Price:</string>
 
     <!-- Order details  -->
+    <string name="order_is_ready">ORDER IS READY</string>
     <string name="item_name">Item Name</string>
     <string name="qty">Qty</string>
     <string name="price">Price</string>
     <string name="dummy_name">dummy name</string>
-
 
     <!--Meals item layout-->
     <string name="drinks">Drinks</string>
@@ -67,7 +67,16 @@
 
     <!--Meals fragment layout-->
     <string name="search">Search</string>
+    <string name="meal_name">Meal Name</string>
+    
+    <!-- Add Food Item layout-->
+    <string name="upload_meal_photo">Upload meal photo</string>
+    <string name="description2">Description</string>
+    <string name="add_meal">Add Meal</string>
+    <string name="image_url">Image Url</string>
 
+    <!--Add Category-->
+    <string name="category_name">Category Name</string>
 
 
 </resources>

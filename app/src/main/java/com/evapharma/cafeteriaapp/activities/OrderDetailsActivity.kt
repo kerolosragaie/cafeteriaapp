@@ -2,6 +2,7 @@ package com.evapharma.cafeteriaapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,33 +17,60 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.evapharma.cafeteriaapp.orderDetailsList
+import com.evapharma.cafeteriaapp.helpers.AppBarStateChangeListener
+
+
+
 
 class OrderDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order_details)
-        findViewById<CollapsingToolbarLayout>(R.id.ct_orderdetails).apply{
 
+            initCollapsingToolbar()
+            initButtons()
+            initAppBar()
+            initRecyclerView()
+            initTotalPrice()
+        }
+
+    private fun initCollapsingToolbar(){
+        findViewById<CollapsingToolbarLayout>(R.id.ct_orderdetails).apply{
             setExpandedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor);
             setCollapsedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor);
         }
-
+    }
+    private fun initButtons(){
         findViewById<ImageView>(R.id.btn_orderdetails_back).setOnClickListener{
-             finish()
+            finish()
+        }
+
+    }
+    private fun initAppBar(){
+        findViewById<AppBarLayout>(R.id.appbar_orderdetails).addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            val btnready:Button=findViewById<Button>(R.id.btn_orderdetails_orderready)
+            if (Math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
+                //  Collapsed
+                btnready.visibility= View.INVISIBLE
+            } else {
+                //Expanded
+                btnready.visibility= View.VISIBLE
             }
+        })
+    }
+    private fun initRecyclerView(){
         val adapter = OrderDetailsItemsAdapter(orderDetailsList)
         val recycler = findViewById<RecyclerView>(R.id.rv_orderdetails)
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
+    }
 
-
-        var tv_total:TextView=findViewById<TextView>(R.id.tv_orderdetails_totalprice)
+    private fun initTotalPrice(){
+        val tv_total:TextView=findViewById<TextView>(R.id.tv_orderdetails_totalprice)
         tv_total.text= tv_total.text.toString() +"  "+ sumPrice(orderDetailsList).toString()
+    }
 
-        }
-
-
-    fun sumPrice(list:List<OrderDetailsItem>): Double {
+    private fun sumPrice(list:List<OrderDetailsItem>): Double {
         var total=0.0
         list.forEach {
             total+=it.price

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:overScrollMode="never"
+    android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+
+            >
+
+            <ImageView
+                android:id="@+id/iv_addfooditem_mealimg"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:contentDescription="@string/app_name"
+
+                android:src="@drawable/ic_meal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_addfooditem_upmealimg"
+                android:layout_width="44dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="96dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:id="@+id/textinputlayout_addfooditem_mealimgurl"
+                app:startIconDrawable="@drawable/ic_image"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error_sign"
+                app:hintEnabled="false"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_addfooditem_mealimgurl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/image_url"
+                    android:inputType="textMultiLine"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textinputlayout_addfooditem_mealname"
+                app:startIconDrawable="@drawable/ic_mealname"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error_sign"
+                app:hintEnabled="false"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_addfooditem_mealname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/meal_name"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:id="@+id/textinputlayout_addfooditem_mealprice"
+                app:startIconDrawable="@drawable/ic_pound"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error_sign"
+                app:hintEnabled="false"
+                >
+                <me.abhinay.input.CurrencyEditText
+                    android:id="@+id/et_addfooditem_mealprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/price"
+                    android:inputType="number"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:id="@+id/textinputlayout_addfooditem_mealdescription"
+                app:startIconDrawable="@drawable/ic_description"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_error_sign"
+                app:hintEnabled="false"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_addfooditem_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/description2"
+                    android:inputType="textMultiLine"
+                    android:maxLines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_addfooditem_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/btn_background"
+            android:text="@string/add_meal"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</ScrollView>

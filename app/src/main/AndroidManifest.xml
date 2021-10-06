@@ -5,15 +5,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--To connect to http-->
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CafeteriaApp">
+        android:theme="@style/Theme.CafeteriaApp"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activities.AddCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.AddFoodItemActivity"
+            android:exported="true" />
         <activity
             android:name=".activities.MealDetailsActivity"
             android:exported="true" />
@@ -53,7 +58,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".activities.OrderDetailsActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
     </application>
-
 
 </manifest>
