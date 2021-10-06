@@ -55,6 +55,7 @@ class MealsAdapter(val context:Context,private var menuList:MutableList<Menu>) :
         //go to edit page:
         holder.editImage.setOnClickListener {
             //TODO: make edit page:
+
         }
 
         //show loading for glide:

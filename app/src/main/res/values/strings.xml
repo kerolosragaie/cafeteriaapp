@@ -68,7 +68,7 @@
     <!--Meals fragment layout-->
     <string name="search">Search</string>
     <string name="meal_name">Meal Name</string>
-    
+
     <!-- Add Food Item layout-->
     <string name="upload_meal_photo">Upload meal photo</string>
     <string name="description2">Description</string>
@@ -77,6 +77,13 @@
 
     <!--Add Category-->
     <string name="category_name">Category Name</string>
+    <string name="add_category">Add Category</string>
+
+
+    <!-- Update Delete Category -->
+    <string name="update_category">Update Category</string>
+    <string name="delete">Delete</string>
+
 
 
 </resources>

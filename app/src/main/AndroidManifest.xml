@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CafeteriaApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activities.UpdateDeleteCategoryActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.AddCategoryActivity"
             android:exported="true" />
         <activity
