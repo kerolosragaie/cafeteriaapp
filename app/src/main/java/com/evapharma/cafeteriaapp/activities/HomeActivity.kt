@@ -3,9 +3,9 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.view.Window
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
@@ -15,7 +15,8 @@ import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.databinding.ActivityHomeBinding
 import com.evapharma.cafeteriaapp.fragments.*
 import com.evapharma.cafeteriaapp.models.UserResponse
-import com.evapharma.cafeteriaapp.services.SessionManager
+import com.evapharma.cafeteriaapp.api.SessionManager
+import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -123,7 +124,7 @@ class HomeActivity : AppCompatActivity() {
     //to get user data and show in the drawer:
     private fun loadUserData(){
         val bundle:Bundle? = intent.extras
-        if(bundle?.containsKey(USER_DATA)!!){
+        if(bundle?.containsKey(USER_DATA)!=null){
             val userResponse = intent.extras?.get(USER_DATA) as UserResponse
             val navigationDrawerHeader : View = binding.nvHomeDrawer.getHeaderView(0)
             navigationDrawerHeader.findViewById<TextView>(R.id.tv_drawer_username).apply {
@@ -132,6 +133,9 @@ class HomeActivity : AppCompatActivity() {
             navigationDrawerHeader.findViewById<TextView>(R.id.tv_drawer_email).apply {
                 text = userResponse.email
             }
+        }else{
+            //TODO: handle unauthorized token user
+            Log.d("SHOW","error")
         }
     }
 

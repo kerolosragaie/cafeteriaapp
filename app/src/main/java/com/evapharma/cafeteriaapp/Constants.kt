@@ -47,6 +47,7 @@ var menusList = mutableListOf<Menu>().apply{
 }
 
 const val MEALS_MENU = "MEALS_MENU"
+const val CATEGORY_PRODUCTS = "CATEGORY_PRODUCTS"
 
 
 //? Constants of activities:

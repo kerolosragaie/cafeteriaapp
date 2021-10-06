@@ -10,7 +10,7 @@ import com.evapharma.cafeteriaapp.SPLASH_TIME_OUT
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.databinding.ActivitySplashBinding
 import com.evapharma.cafeteriaapp.models.UserResponse
-import com.evapharma.cafeteriaapp.services.SessionManager
+import com.evapharma.cafeteriaapp.api.SessionManager
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -40,7 +40,7 @@ class SplashActivity : AppCompatActivity() {
      * */
     private fun splashEffect() {
             Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
-            //startActivity(Intent(this@SplashActivity, MealDetailsActivity::class.java))
+            //startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
             isLoggedInBefore()
         }
     }

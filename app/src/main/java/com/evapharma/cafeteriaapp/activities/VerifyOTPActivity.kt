@@ -12,10 +12,9 @@ import com.evapharma.cafeteriaapp.databinding.ActivityVerifyOtpactivityBinding
 import com.evapharma.cafeteriaapp.PHONE_NUMBER
 import com.evapharma.cafeteriaapp.PHONE_RESPONSE
 import com.evapharma.cafeteriaapp.USER_DATA
-import com.evapharma.cafeteriaapp.models.PhoneResponse
+import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.models.SendOtpRequest
 import com.evapharma.cafeteriaapp.models.SendOtpResponse
-import com.evapharma.cafeteriaapp.services.ApiClient
 import com.evapharma.cafeteriaapp.services.ResetPasswordService
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call

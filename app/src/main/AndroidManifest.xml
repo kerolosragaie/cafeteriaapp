@@ -23,7 +23,7 @@
             android:name=".activities.AddFoodItemActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.MealDetailsActivity"
+            android:name=".activities.CategoryDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".activities.SplashActivity"

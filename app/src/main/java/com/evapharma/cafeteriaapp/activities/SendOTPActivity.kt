@@ -3,16 +3,13 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.*
+import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivitySendOtpactivityBinding
 import com.evapharma.cafeteriaapp.models.PhoneResponse
 import com.evapharma.cafeteriaapp.models.SendPhoneRequest
-import com.evapharma.cafeteriaapp.models.UserRequest
-import com.evapharma.cafeteriaapp.services.ApiClient
 import com.evapharma.cafeteriaapp.services.ResetPasswordService
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call

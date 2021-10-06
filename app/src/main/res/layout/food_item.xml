@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center"
+                android:gravity="end"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
@@ -70,13 +70,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_edit"
-                    android:paddingHorizontal="5dp"/>
-
-                <ImageView
-                    android:id="@+id/iv_food_delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_delete"
                     android:paddingHorizontal="5dp"/>
 
             </LinearLayout>
@@ -103,7 +96,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:maxLines="1"
-                    android:maxEms="2"
+                    android:maxEms="5"
                     android:textStyle="bold"/>
 
 

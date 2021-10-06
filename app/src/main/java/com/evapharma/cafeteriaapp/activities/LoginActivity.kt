@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.USER_DATA
+import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityLoginBinding
 import com.evapharma.cafeteriaapp.helpers.UserHelper
 import com.evapharma.cafeteriaapp.models.UserRequest
 import com.evapharma.cafeteriaapp.models.UserResponse
-import com.evapharma.cafeteriaapp.services.ApiClient
 import com.evapharma.cafeteriaapp.services.LoginService
-import com.evapharma.cafeteriaapp.services.SessionManager
+import com.evapharma.cafeteriaapp.api.SessionManager
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
     //to show or hide loading:
     private lateinit var loadingDialog : IonAlert
     //To get access token:
-    private lateinit var sessionManager:SessionManager
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

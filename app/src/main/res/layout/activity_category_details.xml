@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MealDetailsActivity">
+    tools:context=".activities.CategoryDetailsActivity">
 
     <LinearLayout
         android:id="@+id/ll_topbar"
@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <include
-        android:id="@+id/error_mealdetails"
+        android:id="@+id/error_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
@@ -69,6 +69,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         tools:listitem="@layout/food_item"/>
+
+    <include
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        layout="@layout/error"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

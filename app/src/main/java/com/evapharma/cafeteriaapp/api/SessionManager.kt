@@ -1,4 +1,4 @@
-package com.evapharma.cafeteriaapp.services
+package com.evapharma.cafeteriaapp.api
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -8,12 +8,11 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.MIN_PASSWORD_LENGTH
 import com.evapharma.cafeteriaapp.PHONE_RESPONSE
 import com.evapharma.cafeteriaapp.USER_DATA
+import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityNewPasswordBinding
 import com.evapharma.cafeteriaapp.models.ResetPasswordRequest
 import com.evapharma.cafeteriaapp.models.ResetPasswordResponse
-import com.evapharma.cafeteriaapp.services.ApiClient
 import com.evapharma.cafeteriaapp.services.ResetPasswordService
-import com.evapharma.cafeteriaapp.shortToast
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
 import retrofit2.Callback

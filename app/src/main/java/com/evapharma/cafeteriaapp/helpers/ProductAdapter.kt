@@ -11,11 +11,12 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.models.FoodItem
+import com.evapharma.cafeteriaapp.models.ProductResponse
 import id.ionbit.ionalert.IonAlert
 import java.util.ArrayList
 
-class FoodAdapter(val context: Context, private var foodList:MutableList<FoodItem>)
-    : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
+class ProductAdapter(val context: Context, private var productsList:MutableList<ProductResponse>)
+    : RecyclerView.Adapter<ProductAdapter.FoodViewHolder>(){
 
         inner class FoodViewHolder(view: View): RecyclerView.ViewHolder(view){
             val imageView: ImageView = view.findViewById(R.id.iv_food_image)
@@ -23,7 +24,6 @@ class FoodAdapter(val context: Context, private var foodList:MutableList<FoodIte
             val description: TextView = view.findViewById(R.id.tv_food_description)
             val rating: TextView = view.findViewById(R.id.tv_food_rating)
             val price: TextView = view.findViewById(R.id.tv_food_price)
-            val deleteImage: ImageView = view.findViewById(R.id.iv_food_delete)
             val editImage: ImageView = view.findViewById(R.id.iv_food_edit)
         }
 
@@ -34,24 +34,12 @@ class FoodAdapter(val context: Context, private var foodList:MutableList<FoodIte
     }
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
-        val singleItem : FoodItem = foodList[position]
+        val singleProduct : ProductResponse = productsList[position]
 
-        holder.foodName.text = singleItem.name
-        holder.description.text = singleItem.description
-        holder.rating.text = singleItem.rate.toString()
-        holder.price.text = singleItem.price.toString()
-
-        //WHEN PRESS DELETE:
-        holder.deleteImage.setOnClickListener {
-            IonAlert(context, IonAlert.WARNING_TYPE)
-                .setTitleText("WARNING")
-                .setContentText("Are you sure you want to delete this item?")
-                .setConfirmText("Yes")
-                .setCancelText("No")
-                .setConfirmClickListener {
-                    //on press yes delete it
-                }.show()
-        }
+        holder.foodName.text = singleProduct.name
+        holder.description.text = "singleProduct.description need to be added by DB"
+        holder.rating.text = "singleProduct.rate, need to be added by DB"
+        holder.price.text = singleProduct.price.toString()
 
         //go to edit page:
         holder.editImage.setOnClickListener {
@@ -65,16 +53,22 @@ class FoodAdapter(val context: Context, private var foodList:MutableList<FoodIte
         circularProgressDrawable.start()
 
         Glide.with(holder.imageView)
-            .load(singleItem.imageUrl)
+            .load(singleProduct.imageUrl)
             .placeholder(circularProgressDrawable)
             .into(holder.imageView)
 
     }
 
     override fun getItemCount(): Int {
-        return foodList.size
+        return productsList.size
     }
 
-
+    /**
+     * For search functionality:
+     * */
+    fun updateList(filteredList: ArrayList<ProductResponse>) {
+        productsList = filteredList
+        notifyDataSetChanged()
+    }
 
 }
