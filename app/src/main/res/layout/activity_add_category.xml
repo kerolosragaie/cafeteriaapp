@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:id="@+id/textinputlayout_addcat_catimgurl"
+            android:id="@+id/ti_addcat_catimgurl"
             app:startIconDrawable="@drawable/ic_image"
             app:errorEnabled="true"
             app:errorIconDrawable="@drawable/ic_error_sign"
@@ -82,12 +82,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:id="@+id/textinputlayout_addcat_catname"
-            app:startIconDrawable="@drawable/ic_mealname"
+            android:id="@+id/ti_addcat_catname"
+            app:startIconDrawable="@drawable/ic_meals"
             app:errorEnabled="true"
             app:errorIconDrawable="@drawable/ic_error_sign"
-            app:hintEnabled="false"
-            >
+            app:hintEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_addcat_catname"
@@ -104,7 +103,7 @@
 
     <Button
         android:id="@+id/btn_addcat_add"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/btn_background"

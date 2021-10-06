@@ -4,11 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.widget.doOnTextChanged
-import com.bumptech.glide.Glide
-import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.databinding.ActivityAddCategoryBinding
-import com.evapharma.cafeteriaapp.databinding.ActivityAddFoodItemBinding
 
 class AddCategoryActivity : AppCompatActivity() {
 
@@ -21,20 +17,10 @@ class AddCategoryActivity : AppCompatActivity() {
 
         initbtnClickAdd()
         initUploadimg()
-        binding.etAddcatCatimgurl.doOnTextChanged { text, start, before, count ->
-            Glide.with(this)
-                .load(text.toString()) // image url
-                .placeholder(R.drawable.ic_meal) // any placeholder to load at start
-                .error(R.drawable.ic_error_sign)  // any image in case of error
-                .override(139, 130) // resizing
-                .centerCrop()
-                .into(binding.ivAddcatCatimg)  // imageview object
-        }
     }
 
     fun isValid():Boolean{
-        return  binding.etAddcatCatname.text.toString().isNotEmpty() &&
-                binding.textinputlayoutAddcatCatimgurl.error==null
+        return  binding.etAddcatCatname.text.toString().isNotEmpty()
     }
 
     private fun initbtnClickAdd(){
@@ -47,7 +33,6 @@ class AddCategoryActivity : AppCompatActivity() {
        }
     }
 
-
     private fun imageChooser() {
 
         // create an instance of the
@@ -56,8 +41,7 @@ class AddCategoryActivity : AppCompatActivity() {
         i.type = "image/*"
         i.action = Intent.ACTION_GET_CONTENT
 
-        // pass the constant to compare it
-        // with the returned requestCode
+        // pass the constant to compare it with the returned requestCode
         startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE)
     }
 

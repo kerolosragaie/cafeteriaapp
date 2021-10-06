@@ -98,10 +98,8 @@ class HomeActivity : AppCompatActivity() {
      * */
    private fun replaceFragment(fragment: Fragment){
        //To switch between fragments:
-       if(fragment!=null){
-           val transaction = supportFragmentManager.beginTransaction()
-           transaction.replace(R.id.fragment_home_container,fragment).commit()
-       }
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_home_container,fragment).commit()
 
        binding.bottomNavBar.setOnItemSelectedListener {
            when(it){
@@ -134,7 +132,7 @@ class HomeActivity : AppCompatActivity() {
                 text = userResponse.email
             }
         }else{
-            //TODO: handle unauthorized token user
+            //TODO: handle unathurized token user
             Log.d("SHOW","error")
         }
     }

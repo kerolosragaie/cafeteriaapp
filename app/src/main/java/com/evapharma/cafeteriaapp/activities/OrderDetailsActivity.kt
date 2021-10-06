@@ -10,16 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.helpers.OrderDetailsItemsAdapter
-import com.evapharma.cafeteriaapp.helpers.OrdersAdapter
 import com.evapharma.cafeteriaapp.models.OrderDetailsItem
-import com.evapharma.cafeteriaapp.shortToast
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.evapharma.cafeteriaapp.orderDetailsList
-import com.evapharma.cafeteriaapp.helpers.AppBarStateChangeListener
-
-
 
 
 class OrderDetailsActivity : AppCompatActivity() {

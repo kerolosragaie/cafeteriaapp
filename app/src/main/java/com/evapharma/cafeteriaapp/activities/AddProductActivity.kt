@@ -1,35 +1,30 @@
 package com.evapharma.cafeteriaapp.activities
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.StrictMode
 import com.evapharma.cafeteriaapp.R
 import android.widget.EditText
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
-import com.evapharma.cafeteriaapp.databinding.ActivityAddFoodItemBinding
 import com.evapharma.cafeteriaapp.shortToast
 import com.google.android.material.textfield.TextInputLayout
 import java.net.URL
 import android.content.Intent
 import android.net.Uri
+import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
 
-import androidx.core.app.ActivityCompat.startActivityForResult
 
-
-class AddFoodItemActivity : AppCompatActivity() {
+class AddProductActivity : AppCompatActivity() {
 
     var mealsEditTextList = mutableListOf<EditText>()
     var mealsTextLayoutList = mutableListOf<TextInputLayout>()
-    private lateinit var binding:ActivityAddFoodItemBinding
+    private lateinit var binding:ActivityAddProductItemBinding
     private val MIN_LEN =3
     private var SELECT_PICTURE = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityAddFoodItemBinding.inflate(layoutInflater)
+        binding= ActivityAddProductItemBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
@@ -88,12 +83,12 @@ class AddFoodItemActivity : AppCompatActivity() {
         )
     }
 
-    //text input layout initalization
+    //text input layout initialization
     private fun initTilsList(){
         mealsTextLayoutList = mutableListOf<TextInputLayout>(
             binding.textinputlayoutAddfooditemMealname,
-            binding.textinputlayoutAddfooditemMealprice,
-            binding.textinputlayoutAddfooditemMealdescription
+            binding.tiAddfooditemMealprice,
+            binding.tiAddfooditemMealdescription
         )
     }
 
