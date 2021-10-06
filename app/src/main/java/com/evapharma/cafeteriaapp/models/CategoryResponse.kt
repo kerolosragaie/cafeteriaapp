@@ -3,15 +3,15 @@ package com.evapharma.cafeteriaapp.models
 import java.io.Serializable
 
 
-data class CategoryResponse(
-    val id: Int,
-    val imageUrl: String,
-    val name: String,
-    val products: List<Any>
-):Serializable
-
 
 data class CategoryRequest(
-    val imageUrl: String,
-    val name: String
-)
+    var imageUrl: String ?=null,
+    var name: String ?=null
+):Serializable
+
+data class CategoryResponse(
+    var id: Int?=null,
+    var imageUrl: String?=null,
+    var name: String?=null,
+    var products: List<Any>?=null
+):Serializable

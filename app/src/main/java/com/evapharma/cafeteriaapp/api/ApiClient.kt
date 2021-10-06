@@ -1,7 +1,9 @@
 package com.evapharma.cafeteriaapp.api
 
 import android.content.Context
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,29 +17,29 @@ class ApiClient(context: Context) {
     //create logger:
     private val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
+
+    //To get token and attach it to interceptor:
+    private val sessionManager = SessionManager(context)
+
     /**
      * Create custom interceptor to apply Headers application wide
      * Note: for every call (CRUD) the interceptor will show headers
      * */
-    /*private val headerInterceptor: Interceptor = object : Interceptor {
-        override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
-            var request: Request = chain.request()
-            request = request.newBuilder()
-                .addHeader("x-device-type", Build.DEVICE)
-                .addHeader("Accept-Language", Locale.getDefault().language)
-                .build()
-            return chain.proceed(request)
-        }
-    }*/
+    private val headerInterceptor: Interceptor = Interceptor { chain ->
+        var request: Request = chain.request()
+        request = request.newBuilder()
+            .addHeader("Authorization", "${sessionManager.fetchAccessToken()?:"Null"}")
+            .build()
+        chain.proceed(request)
+    }
 
     // Create OkHttp Client
     private val okHttp = OkHttpClient.Builder()
         //The normal time out is 10 seconds
         //call == read and write and connect timeouts
         .callTimeout(14, TimeUnit.SECONDS)
-        //.addInterceptor(headerInterceptor)
-        .addInterceptor(RequestInterceptor(context))
-        .authenticator(TokenAuthenticator(context))
+        .addInterceptor(headerInterceptor)
+        //.authenticator(TokenAuthenticator(context))
         .addInterceptor(logger)
 
 

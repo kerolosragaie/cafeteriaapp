@@ -30,10 +30,10 @@ interface ProductService {
     fun createProduct(@Body productRequest: ProductRequest): Call<ProductResponse>
 
     /**Update category by id*/
-    @PUT("Product/updateProduct/{id}")
-    fun updateProduct(@Path("id") id:Int):Call<String>
+    @PUT("Product/updateProduct")
+    fun updateProduct(@Query("id") id:Int,@Body productRequest: ProductRequest):Call<Unit>
 
     /**Delete category by id*/
-    @DELETE("Product/deleteProduct/{id}")
-    fun deleteProduct(@Path("id") id:Int):Call<String>
+    @DELETE("Product/deleteProduct")
+    fun deleteProduct(@Query("id") id:Int):Call<Unit>
 }

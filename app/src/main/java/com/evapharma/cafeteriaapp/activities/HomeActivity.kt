@@ -16,7 +16,6 @@ import com.evapharma.cafeteriaapp.databinding.ActivityHomeBinding
 import com.evapharma.cafeteriaapp.fragments.*
 import com.evapharma.cafeteriaapp.models.UserResponse
 import com.evapharma.cafeteriaapp.api.SessionManager
-import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding

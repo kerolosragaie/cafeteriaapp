@@ -1,6 +1,7 @@
 package com.evapharma.cafeteriaapp.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.activities.AddCategoryActivity
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.helpers.CategoryAdapter
 import com.evapharma.cafeteriaapp.menusList
@@ -38,6 +41,7 @@ class MealsFragment: Fragment(){
     private lateinit var errorLayout: ConstraintLayout
     lateinit var etSearchForMenus:EditText
     private lateinit var fragContext:Context
+    private lateinit var addNewCatImage:ImageView
 
 
     override fun onCreateView(
@@ -57,6 +61,7 @@ class MealsFragment: Fragment(){
         etSearchForMenus = view.findViewById(R.id.et_meals_search)
         recyclerView = view.findViewById(R.id.rv_meals_category)
         recyclerView.layoutManager = LinearLayoutManager(context)
+        addNewCatImage = view.findViewById(R.id.iv_meals_addmenu)
 
         etSearchForMenus.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -71,6 +76,13 @@ class MealsFragment: Fragment(){
             }
 
         })
+
+
+        addNewCatImage.setOnClickListener {
+            startActivity(Intent(view.context,AddCategoryActivity::class.java))
+        }
+
+
     }
 
     override fun onResume() {
@@ -141,9 +153,7 @@ class MealsFragment: Fragment(){
         val filteredList = arrayListOf<CategoryResponse>()
 
         for (item in categoryList) {
-            if (item.name.lowercase(Locale.ROOT)
-                    .contains(strTyped.lowercase(Locale.ROOT))
-            ) {
+            if (item.name!!.lowercase(Locale.ROOT).contains(strTyped.lowercase(Locale.ROOT))) {
                 filteredList.add(item)
             }
         }

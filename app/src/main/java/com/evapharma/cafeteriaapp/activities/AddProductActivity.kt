@@ -11,16 +11,29 @@ import com.google.android.material.textfield.TextInputLayout
 import java.net.URL
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
+import com.evapharma.cafeteriaapp.CATEGORY_DATA
+import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
+import com.evapharma.cafeteriaapp.models.*
+import com.evapharma.cafeteriaapp.services.CategoryService
+import com.evapharma.cafeteriaapp.services.ProductService
+import id.ionbit.ionalert.IonAlert
+import retrofit2.*
 
 
 class AddProductActivity : AppCompatActivity() {
-
     var mealsEditTextList = mutableListOf<EditText>()
     var mealsTextLayoutList = mutableListOf<TextInputLayout>()
     private lateinit var binding:ActivityAddProductItemBinding
     private val MIN_LEN =3
     private var SELECT_PICTURE = 200
+
+    //Current category
+    private lateinit var currentCatResponse: CategoryResponse
+
+    //to show or hide loading:
+    private lateinit var loadingDialog : IonAlert
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +41,23 @@ class AddProductActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        loadingDialog = IonAlert(this@AddProductActivity, IonAlert.PROGRESS_TYPE)
+            .setSpinKit("ThreeBounce")
+
         initEtsList()
         initTilsList()
         initTextLayoutsEts()
         initbtnClickAdd()
         initUploadimg()
-
+        loadCurrentCatData()
     }
 
     private fun initUploadimg(){
         binding.imgAddfooditemUpmealimg.setOnClickListener {
             imageChooser()
+        }
+        binding.btnAddfooditemAdd.setOnClickListener {
+            callAddProductApi()
         }
     }
 
@@ -140,5 +159,65 @@ class AddProductActivity : AppCompatActivity() {
         return true
     }
 
+    //Get current category data from last page:
+    private fun loadCurrentCatData(){
+        val bundle:Bundle? = intent.extras
+        if(bundle?.containsKey(CATEGORY_DATA)!!){
+            currentCatResponse = intent.extras?.get(CATEGORY_DATA) as CategoryResponse
+        }
+    }
+
+    private fun callAddProductApi(){
+        loadingDialog.show()
+        val createProRequest = ProductRequest()
+        createProRequest.imageUrl=binding.etAddfooditemMealimgurl.text.toString()
+        createProRequest.price = binding.etAddfooditemMealprice.text.toString().toDouble()
+        createProRequest.name = binding.etAddfooditemMealname.text.toString()
+        createProRequest.inOffers = binding.switcherAddFoodOffers.isChecked
+        createProRequest.categoryId = currentCatResponse.id
+
+        val productService:ProductService = ApiClient(this@AddProductActivity).buildService(ProductService::class.java)
+        val requestCall : Call<ProductResponse> = productService.createProduct(createProRequest)
+        requestCall.enqueue(object: Callback<ProductResponse> {
+            override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
+                if(response.isSuccessful){
+                    loadingDialog.dismiss()
+                    IonAlert(this@AddProductActivity, IonAlert.SUCCESS_TYPE)
+                        .setTitleText("ADDED")
+                        .setContentText("Current category added successfully")
+                        .setConfirmClickListener {
+                            finish()
+                        }
+                        .show()
+                }else{
+                    loadingDialog.dismiss()
+                    val errorCode:String = when(response.code()){
+                        404 -> {
+                            "404 not found"
+                        }
+                        500 -> {
+                            "500 server broken"
+                        }
+                        else ->{
+                            "Unknown error!"
+                        }
+                    }
+                    IonAlert(this@AddProductActivity, IonAlert.ERROR_TYPE)
+                        .setTitleText("ERROR")
+                        .setContentText("Something went wrong, ${response.errorBody()}")
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+                loadingDialog.dismiss()
+                IonAlert(this@AddProductActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR")
+                    .setContentText("Something went wrong, $t")
+                    .show()
+            }
+
+        })
+    }
 
 }

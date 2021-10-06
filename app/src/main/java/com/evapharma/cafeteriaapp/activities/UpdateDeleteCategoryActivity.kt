@@ -3,49 +3,73 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
+import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityUpdateDeleteCategoryBinding
+import com.evapharma.cafeteriaapp.models.CategoryRequest
+import com.evapharma.cafeteriaapp.models.CategoryResponse
+import com.evapharma.cafeteriaapp.services.CategoryService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import id.ionbit.ionalert.IonAlert
+
+
+
 
 class UpdateDeleteCategoryActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityUpdateDeleteCategoryBinding
+
+    //to show or hide loading:
+    private lateinit var loadingDialog : IonAlert
+
+    //Current category
+    private lateinit var currentCatResponse: CategoryResponse
+    private lateinit var categoryService:CategoryService
+
     private var SELECT_PICTURE = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding= ActivityUpdateDeleteCategoryBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        //recieve and unpack intent (category name,image) and the category id for api calls del/update
-        //figure it out ya korlos
 
+        loadingDialog = IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.PROGRESS_TYPE)
+            .setSpinKit("ThreeBounce")
+
+        categoryService = ApiClient(this@UpdateDeleteCategoryActivity).buildService(CategoryService::class.java)
+
+        setContentView(binding.root)
         initBtnUploadImg()
-        binding.etUdcatCatimgurl.doOnTextChanged { text, start, before, count ->
-            Glide.with(this)
-                .load(text.toString()) // image url
-                .placeholder(R.drawable.ic_meal) // any placeholder to load at start
-                .error(R.drawable.ic_error_sign)  // any image in case of error
-                .override(139, 130) // resizing
-                .centerCrop()
-                .into(binding.ivUdcatCatimg)  // imageview object
-        }
+        loadCurrentCatData()
     }
 
-    fun initBtnUploadImg(){
+    private fun initBtnUploadImg(){
         binding.imgUdcatUpcatimg.setOnClickListener {
             imageChooser()
         }
+        binding.btnUdcatUpdate.setOnClickListener {
+            updateAPI()
+        }
+        binding.btnUdcatDelete.setOnClickListener {
+            deleteAPI()
+        }
+        binding.etUdcatCatimgurl.doOnTextChanged { text, start, before, count ->
+            Glide.with(this)
+                .load(text.toString())
+                .placeholder(R.drawable.ic_meal)
+                .error(R.drawable.ic_error_sign)
+                .override(139, 130)
+                .centerCrop()
+                .into(binding.ivUdcatCatimg)
+        }
     }
 
-    fun initbtnclick(){
-        //update listener
-
-        //delete listener
-    }
-
-    fun imageChooser() {
+    private fun imageChooser() {
         // create an instance of the
         // intent of the type image
         val i = Intent()
@@ -77,4 +101,111 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
         }
     }
 
+    //Get current category data from last page:
+    private fun loadCurrentCatData(){
+        val bundle:Bundle? = intent.extras
+        if(bundle?.containsKey(CATEGORY_DATA)!!){
+            currentCatResponse = intent.extras?.get(CATEGORY_DATA) as CategoryResponse
+        }
+        binding.etUdcatCatimgurl.setText(currentCatResponse.imageUrl)
+        binding.etUdcatCatname.setText(currentCatResponse.name)
+    }
+
+    /**Call api to update*/
+    private fun updateAPI(){
+        loadingDialog.show()
+        val updateCatRequest = CategoryRequest(
+            binding.etUdcatCatimgurl.text.toString(),
+            binding.etUdcatCatname.text.toString(),
+        )
+        val requestCall: Call<CategoryResponse> = categoryService.updateCategory(
+            currentCatResponse.id!!,
+            updateCatRequest
+        )
+        requestCall.enqueue(object :Callback<CategoryResponse>{
+            override fun onResponse(call: Call<CategoryResponse>, response: Response<CategoryResponse>) {
+                if(response.isSuccessful){
+                    loadingDialog.dismiss()
+                    IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.SUCCESS_TYPE)
+                        .setTitleText("UPDATED")
+                        .setContentText("Current category updated successfully")
+                        .setConfirmClickListener {
+                            finish()
+                        }
+                        .show()
+                }else{
+                    loadingDialog.dismiss()
+                    val errorCode:String = when(response.code()){
+                        404 -> {
+                            "404 not found"
+                        }
+                        500 -> {
+                            "500 server broken"
+                        }
+                        else ->{
+                            "Unknown error!"
+                        }
+                    }
+                    IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
+                        .setTitleText("ERROR")
+                        .setContentText("Something went wrong, ${response.code()}")
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<CategoryResponse>, t: Throwable) {
+                loadingDialog.dismiss()
+                IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR")
+                    .setContentText("Something went wrong, $t")
+                    .show()
+            }
+
+        })
+    }
+    /**Call api to delete*/
+    private fun deleteAPI(){
+        loadingDialog.show()
+        val requestCall : Call<Unit> = categoryService.deleteCategory(currentCatResponse.id!!)
+        requestCall.enqueue(object: Callback<Unit>{
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if(response.isSuccessful){
+                    loadingDialog.dismiss()
+                    IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.SUCCESS_TYPE)
+                        .setTitleText("DELETED")
+                        .setContentText("Current category deleted successfully")
+                        .setConfirmClickListener {
+                            finish()
+                        }
+                        .show()
+                }else{
+                    loadingDialog.dismiss()
+                    val errorCode:String = when(response.code()){
+                        404 -> {
+                            "404 not found"
+                        }
+                        500 -> {
+                            "500 server broken"
+                        }
+                        else ->{
+                            "Unknown error!"
+                        }
+                    }
+                    IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
+                        .setTitleText("ERROR")
+                        .setContentText("Something went wrong, ${response.code()}")
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                loadingDialog.dismiss()
+                IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR")
+                    .setContentText("Something went wrong, $t")
+                    .show()
+            }
+
+        })
+    }
 }

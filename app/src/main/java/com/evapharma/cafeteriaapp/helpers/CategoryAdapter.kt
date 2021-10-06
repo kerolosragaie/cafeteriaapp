@@ -10,11 +10,11 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
-import com.evapharma.cafeteriaapp.CATEGORY_PRODUCTS
+import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.activities.CategoryDetailsActivity
+import com.evapharma.cafeteriaapp.activities.UpdateDeleteCategoryActivity
 import com.evapharma.cafeteriaapp.models.CategoryResponse
-import id.ionbit.ionalert.IonAlert
 import java.io.Serializable
 import java.util.ArrayList
 
@@ -40,7 +40,9 @@ class CategoryAdapter(val context:Context, private var categoryList:List<Categor
 
         //go to edit page:
         holder.editImage.setOnClickListener {
-            //TODO: make edit page (contains update and delete)
+            val intent = Intent(holder.itemView.context, UpdateDeleteCategoryActivity::class.java)
+            intent.putExtra(CATEGORY_DATA, singleCategory as Serializable)
+            startActivity(holder.itemView.context,intent,null)
         }
 
         //show loading for glide:
@@ -59,7 +61,7 @@ class CategoryAdapter(val context:Context, private var categoryList:List<Categor
         holder.itemView.setOnClickListener {
             //go to page to view list of foods in this menu:
             val intent = Intent(holder.itemView.context, CategoryDetailsActivity::class.java)
-            intent.putExtra(CATEGORY_PRODUCTS, singleCategory as Serializable)
+            intent.putExtra(CATEGORY_DATA, singleCategory as Serializable)
             startActivity(holder.itemView.context,intent,null)
         }
     }

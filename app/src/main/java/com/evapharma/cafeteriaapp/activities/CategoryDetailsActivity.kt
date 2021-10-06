@@ -1,17 +1,16 @@
 package com.evapharma.cafeteriaapp.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.RadioButton
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.evapharma.cafeteriaapp.CATEGORY_PRODUCTS
+import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityCategoryDetailsBinding
@@ -22,6 +21,7 @@ import com.evapharma.cafeteriaapp.services.ProductService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.Serializable
 import java.util.*
 
 
@@ -52,7 +52,7 @@ class CategoryDetailsActivity : AppCompatActivity() {
 
     //sort according to cost(decreasing)
     var costComparator = Comparator<ProductResponse> { rest1, rest2 ->
-        rest1.price.compareTo(rest2.price)
+        rest1.price!!.compareTo(rest2.price!!)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,7 +95,11 @@ class CategoryDetailsActivity : AppCompatActivity() {
         })
 
         //Add new meal button
-        binding.ivMealdetailsAddmenu.setOnClickListener { }
+        binding.ivMealdetailsAddmenu.setOnClickListener {
+            val intent = Intent(this@CategoryDetailsActivity, AddProductActivity::class.java)
+            intent.putExtra(CATEGORY_DATA, currentCatResponse as Serializable)
+            startActivity(intent)
+        }
 
         //Sort recycler view button:
         binding.ivMealdetailsSortmenu.setOnClickListener {
@@ -134,7 +138,7 @@ class CategoryDetailsActivity : AppCompatActivity() {
         val filteredList = arrayListOf<ProductResponse>()
 
         for (item in productsList) {
-            if (item.name.lowercase(Locale.ROOT)
+            if (item.name!!.lowercase(Locale.ROOT)
                     .contains(strTyped.lowercase(Locale.ROOT))
             ) {
                 filteredList.add(item)
@@ -170,8 +174,8 @@ class CategoryDetailsActivity : AppCompatActivity() {
     //Get current category data from last page:
     private fun loadCurrentCatData(){
         val bundle:Bundle? = intent.extras
-        if(bundle?.containsKey(CATEGORY_PRODUCTS)!!){
-            currentCatResponse = intent.extras?.get(CATEGORY_PRODUCTS) as CategoryResponse
+        if(bundle?.containsKey(CATEGORY_DATA)!!){
+            currentCatResponse = intent.extras?.get(CATEGORY_DATA) as CategoryResponse
         }
     }
 

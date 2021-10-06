@@ -77,6 +77,9 @@ dependencies {
     //Radio buttons:
     implementation 'me.omidh:liquidradiobutton:1.0.01'
 
+    //switcher (for on or off)
+    implementation 'com.bitvale:switcher:1.1.1'
+
     //Currency EditText
     implementation 'me.abhinay.input:currency-edittext:1.1'
 }
