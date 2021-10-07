@@ -6,7 +6,8 @@ import com.evapharma.cafeteriaapp.models.*
 //! Orders fragment
 var PHONE_NUMBER:String=""
 var OTP_CODE=""
-
+const val IMG_HEIGHT:Int=130
+const val IMG_WIDTH:Int =139
 
 var orderDetailsList = mutableListOf<OrderDetailsItem>().apply{
     add(OrderDetailsItem(item_name = "Korolos Ragie", qty = 1, price = 5.0))

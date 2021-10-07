@@ -2,17 +2,15 @@ package com.evapharma.cafeteriaapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.evapharma.cafeteriaapp.R
 import android.widget.EditText
 import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
-import com.evapharma.cafeteriaapp.shortToast
 import com.google.android.material.textfield.TextInputLayout
 import java.net.URL
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
-import com.evapharma.cafeteriaapp.CATEGORY_DATA
+import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
 import com.evapharma.cafeteriaapp.models.*
@@ -24,9 +22,7 @@ import retrofit2.*
 
 class AddProductActivity : AppCompatActivity() {
     var mealsEditTextList = mutableListOf<EditText>()
-    var mealsTextLayoutList = mutableListOf<TextInputLayout>()
     private lateinit var binding:ActivityAddProductItemBinding
-    private val MIN_LEN =3
     private var SELECT_PICTURE = 200
 
     //Current category
@@ -44,20 +40,15 @@ class AddProductActivity : AppCompatActivity() {
         loadingDialog = IonAlert(this@AddProductActivity, IonAlert.PROGRESS_TYPE)
             .setSpinKit("ThreeBounce")
 
-        initEtsList()
-        initTilsList()
-        initTextLayoutsEts()
+        initEts()
         initbtnClickAdd()
         initUploadimg()
-        loadCurrentCatData()
+        //loadCurrentCatData()
     }
 
     private fun initUploadimg(){
-        binding.imgAddfooditemUpmealimg.setOnClickListener {
+        binding.imgAddproductitemUpmealimg.setOnClickListener {
             imageChooser()
-        }
-        binding.btnAddfooditemAdd.setOnClickListener {
-            callAddProductApi()
         }
     }
 
@@ -87,77 +78,71 @@ class AddProductActivity : AppCompatActivity() {
                 val selectedImageUri: Uri? = data!!.data
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
-                    binding.ivAddfooditemMealimg.setImageDrawable(null);
-                    binding.ivAddfooditemMealimg.setImageURI(selectedImageUri)
+                    binding.ivAddproductitemMealimg.setImageDrawable(null);
+                    binding.ivAddproductitemMealimg.setImageURI(selectedImageUri)
                 }
             }
         }
     }
 
-    private fun initEtsList(){
-        mealsEditTextList = mutableListOf<EditText>(
-            binding.etAddfooditemMealname,
-            binding.etAddfooditemMealprice,
-            binding.etAddfooditemDescription,
-        )
-    }
-
-    //text input layout initialization
-    private fun initTilsList(){
-        mealsTextLayoutList = mutableListOf<TextInputLayout>(
-            binding.textinputlayoutAddfooditemMealname,
-            binding.tiAddfooditemMealprice,
-            binding.tiAddfooditemMealdescription
-        )
-    }
-
-    private fun initTextLayoutsEts() {
-        for (idx in 0 until mealsEditTextList.size)
-            mealsEditTextList[idx].doOnTextChanged { text, start, before, count ->
-                if (text.toString().trim().length < MIN_LEN) {
-                    mealsTextLayoutList[idx].error =
-                        "Minimum Characters for this field is $MIN_LEN"
-                } else {
-                    mealsTextLayoutList[idx].error = null
-                }
+    private fun validateForm(){
+        mutableListOf(
+            binding.etAddproductitemMealname,
+            binding.etAddproductitemMealprice,
+            binding.etAddproductitemDescription
+        ).forEach{
+            if(it.text.toString().isEmpty())
+                it.error="Can't be empty"
+            else
+                it.error=null
+        }
+        binding.etAddproductitemMealimgurl.also {
+            if(!isValidUrl(it.text.toString().trim())){
+                it.error="Invalid Url"
+            }else{
+                it.error=null
             }
+        }
+    }
 
-        binding.etAddfooditemMealimgurl.doOnTextChanged { text, start, before, count ->
+    private fun isValid():Boolean{
+        mutableListOf(
+            binding.etAddproductitemMealname,
+            binding.etAddproductitemMealprice,
+            binding.etAddproductitemDescription
+        ).forEach{
+            if(it.text.toString().isEmpty())
+                return false
+        }
+
+        if(!isValidUrl(binding.etAddproductitemMealimgurl.text.toString().trim()))
+            return false
+
+        return true
+    }
+
+    private fun initbtnClickAdd(){
+        binding.btnAddproductitemAdd.setOnClickListener {
+            validateForm()
+            if(isValid()){
+                //call api
+                shortToast(this,"Hello there korlos we hate you a lot")
+            }
+        }
+    }
+
+    private fun initEts() {
+        binding.etAddproductitemMealimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
                 .load(text.toString()) // image url
                 .placeholder(R.drawable.ic_meal) // any placeholder to load at start
                 .error(R.drawable.ic_error_sign)  // any image in case of error
-                .override(139, 130) // resizing
+                .override(IMG_WIDTH, IMG_HEIGHT) // resizing
                 .centerCrop()
-                .into(binding.ivAddfooditemMealimg)  // imageview object
-        }
-
-    }
-
-    private fun urlHasImage(url:String):Boolean{
-        val connection = URL(url).openConnection()
-        val contentType = connection.getHeaderField("Content-Type")
-        val image:Boolean = contentType.startsWith("image/")
-        return image
-    }
-
-    private fun initbtnClickAdd(){
-        binding.btnAddfooditemAdd.setOnClickListener {
-            println(isValidMeal())
+                .into(binding.ivAddproductitemMealimg)  // imageview object
         }
     }
 
-    private fun isValidMeal():Boolean{
-        mealsEditTextList.forEach{
-            if(it.text.toString().trim().length<MIN_LEN)
-            {
-                shortToast(this,"Is NOT VALID YA KALB")
-                return false
-            }
-        }
-        shortToast(this,"Is valid ya negm")
-        return true
-    }
 
     //Get current category data from last page:
     private fun loadCurrentCatData(){
@@ -170,9 +155,9 @@ class AddProductActivity : AppCompatActivity() {
     private fun callAddProductApi(){
         loadingDialog.show()
         val createProRequest = ProductRequest()
-        createProRequest.imageUrl=binding.etAddfooditemMealimgurl.text.toString()
-        createProRequest.price = binding.etAddfooditemMealprice.text.toString().toDouble()
-        createProRequest.name = binding.etAddfooditemMealname.text.toString()
+        createProRequest.imageUrl=binding.etAddproductitemMealimgurl.text.toString()
+        createProRequest.price = binding.etAddproductitemMealprice.text.toString().toDouble()
+        createProRequest.name = binding.etAddproductitemMealname.text.toString()
         createProRequest.inOffers = binding.switcherAddFoodOffers.isChecked
         createProRequest.categoryId = currentCatResponse.id
 

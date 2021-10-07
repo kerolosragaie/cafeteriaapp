@@ -1,24 +1,21 @@
 package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
-import com.evapharma.cafeteriaapp.CATEGORY_DATA
-import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityUpdateDeleteCategoryBinding
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
 import com.evapharma.cafeteriaapp.services.CategoryService
+import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import id.ionbit.ionalert.IonAlert
-
-
 
 
 class UpdateDeleteCategoryActivity : AppCompatActivity() {
@@ -32,7 +29,8 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
     private lateinit var currentCatResponse: CategoryResponse
     private lateinit var categoryService:CategoryService
 
-    private var SELECT_PICTURE = 200
+    private val SELECT_PICTURE = 200
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,28 +43,62 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         initBtnUploadImg()
-        loadCurrentCatData()
+        initBtnsClick()
+        initEt()
+        //loadCurrentCatData()
+    }
+
+    private fun initBtnsClick(){
+        binding.btnUdcatUpdate.setOnClickListener {
+            validateForm()
+            if(isValid()){
+                //updateAPI()
+                Toast.makeText(this,"Hi12", Toast.LENGTH_LONG).show()
+            }
+        }
+        binding.btnUdcatDelete.setOnClickListener {
+            if (isValid()){
+                Toast.makeText(this,"Hi23",Toast.LENGTH_LONG).show()
+                //deleteAPI()
+            }
+        }
     }
 
     private fun initBtnUploadImg(){
         binding.imgUdcatUpcatimg.setOnClickListener {
             imageChooser()
         }
-        binding.btnUdcatUpdate.setOnClickListener {
-            updateAPI()
-        }
-        binding.btnUdcatDelete.setOnClickListener {
-            deleteAPI()
-        }
+    }
+
+    private fun initEt(){
         binding.etUdcatCatimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
                 .load(text.toString())
                 .placeholder(R.drawable.ic_meal)
                 .error(R.drawable.ic_error_sign)
-                .override(139, 130)
+                .override(IMG_WIDTH, IMG_HEIGHT)
                 .centerCrop()
                 .into(binding.ivUdcatCatimg)
         }
+    }
+
+    private fun validateForm(){
+        binding.etUdcatCatimgurl.also {
+            if(!isValidUrl(it.text.toString())){
+                it.error="Invalid Url"
+            }else it.error=null
+        }
+        binding.etUdcatCatname.also{
+            if(it.text.toString().isEmpty()){
+                it.error="Can't be empty"
+            }else it.error=null
+        }
+
+    }
+
+    private fun isValid():Boolean{
+        return binding.etUdcatCatname.text.toString().isNotEmpty() &&
+                isValidUrl(binding.etUdcatCatimgurl.text.toString())
     }
 
     private fun imageChooser() {
@@ -94,7 +126,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                 val selectedImageUri: Uri? = data!!.data
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
-                    binding.ivUdcatCatimg.setImageDrawable(null);
+                    binding.ivUdcatCatimg.setImageResource(0)
                     binding.ivUdcatCatimg.setImageURI(selectedImageUri)
                 }
             }
