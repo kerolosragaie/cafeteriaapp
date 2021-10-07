@@ -17,20 +17,19 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.activities.AddCategoryActivity
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.helpers.CategoryAdapter
-import com.evapharma.cafeteriaapp.menusList
 import com.evapharma.cafeteriaapp.models.CategoryResponse
-import com.evapharma.cafeteriaapp.models.Menu
 import com.evapharma.cafeteriaapp.services.CategoryService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+import java.util.stream.Stream
+import kotlin.streams.asSequence
 
 
 class MealsFragment: Fragment(){
@@ -42,7 +41,6 @@ class MealsFragment: Fragment(){
     lateinit var etSearchForMenus:EditText
     private lateinit var fragContext:Context
     private lateinit var addNewCatImage:ImageView
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,11 +75,9 @@ class MealsFragment: Fragment(){
 
         })
 
-
         addNewCatImage.setOnClickListener {
             startActivity(Intent(view.context,AddCategoryActivity::class.java))
         }
-
 
     }
 
@@ -91,15 +87,18 @@ class MealsFragment: Fragment(){
     }
 
 
+
     private fun callAPI(){
         recyclerView.showShimmerAdapter()
         errorLayout.visibility=View.GONE
 
         val categoryService:CategoryService = ApiClient(fragContext).buildService(CategoryService::class.java)
         val requestCall: Call<List<CategoryResponse>> = categoryService.getCategories()
+
         requestCall.enqueue(object: Callback<List<CategoryResponse>> {
             override fun onResponse(call: Call<List<CategoryResponse>>, response: Response<List<CategoryResponse>>) {
                 if(response.isSuccessful){
+
                     categoryList = response.body()!!
                     categoryAdapter = CategoryAdapter(fragContext,categoryList)
                     recyclerView.adapter=categoryAdapter

@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.core.widget.doOnTextChanged
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.bumptech.glide.Glide
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.api.ApiClient
+import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityAddCategoryBinding
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
@@ -97,7 +99,6 @@ class AddCategoryActivity : AppCompatActivity() {
         sendCategory.imageUrl = binding.etAddcatCatimgurl.text.toString()
         sendCategory.name = binding.etAddcatCatname.text.toString()
 
-
         val categoryService: CategoryService = ApiClient(this@AddCategoryActivity).buildService(CategoryService::class.java)
         val requestCall : Call<CategoryResponse> = categoryService.createCategory(sendCategory)
         requestCall.enqueue(object : Callback<CategoryResponse> {
@@ -113,7 +114,21 @@ class AddCategoryActivity : AppCompatActivity() {
                         .show()
                 }else{
                     loadingDialog.dismiss()
-                    val errorCode:String = when(response.code()){
+                    val errorCode:Any = when(response.code()){
+                        401 -> {
+                            IonAlert(this@AddCategoryActivity, IonAlert.ERROR_TYPE)
+                                .setTitleText("ERROR")
+                                .setContentText("401 unauthorized user, please login")
+                                .setConfirmClickListener {
+                                    SessionManager(this@AddCategoryActivity).deleteAccessToken()
+                                    it.hide()
+                                    finishAffinity()
+                                    startActivity(Intent(this@AddCategoryActivity, LoginActivity::class.java))
+                                    Animatoo.animateSplit(this@AddCategoryActivity)
+                                }
+                                .show()
+                            return
+                        }
                         404 -> {
                             "404 not found"
                         }
@@ -126,7 +141,7 @@ class AddCategoryActivity : AppCompatActivity() {
                     }
                     IonAlert(this@AddCategoryActivity, IonAlert.ERROR_TYPE)
                         .setTitleText("ERROR")
-                        .setContentText("Something went wrong, ${response.errorBody()}")
+                        .setContentText(errorCode.toString())
                         .show()
                 }
             }

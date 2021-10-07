@@ -1,6 +1,8 @@
 package com.evapharma.cafeteriaapp.api
 
 import android.content.Context
+import com.evapharma.cafeteriaapp.helpers.ProductAdapter
+import com.evapharma.cafeteriaapp.services.ProductService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -25,21 +27,21 @@ class ApiClient(context: Context) {
      * Create custom interceptor to apply Headers application wide
      * Note: for every call (CRUD) the interceptor will show headers
      * */
-    private val headerInterceptor: Interceptor = Interceptor { chain ->
+    /*private val headerInterceptor: Interceptor = Interceptor { chain ->
         var request: Request = chain.request()
         request = request.newBuilder()
-            .addHeader("Authorization", "${sessionManager.fetchAccessToken()?:"Null"}")
+            .addHeader("Authorization", "Bearer "+"${sessionManager.fetchAccessToken()!!.token?:"Null"}")
             .build()
         chain.proceed(request)
-    }
+    }*/
 
     // Create OkHttp Client
     private val okHttp = OkHttpClient.Builder()
         //The normal time out is 10 seconds
         //call == read and write and connect timeouts
         .callTimeout(14, TimeUnit.SECONDS)
-        .addInterceptor(headerInterceptor)
-        //.authenticator(TokenAuthenticator(context))
+        //.addInterceptor(headerInterceptor)
+        .authenticator(TokenAuthenticator(context))
         .addInterceptor(logger)
 
 

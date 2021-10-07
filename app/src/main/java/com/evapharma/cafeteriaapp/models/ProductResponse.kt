@@ -9,7 +9,8 @@ data class ProductResponse(
     val imageUrl: String?= null,
     val inOffers: Boolean?= null,
     val name: String?= null,
-    val price: Double?= null
+    val price: Double?= null,
+    val description:String?=null
 ):Serializable
 
 data class ProductRequest(

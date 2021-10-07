@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
+    app:contentPadding="2dp"
+    app:cardBackgroundColor="@color/colorSecondary"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_review_userimg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_review_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kerollos Ragaie"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toEndOf="@id/iv_review_userimg"
+                app:layout_constraintTop_toTopOf="@id/iv_review_userimg"/>
+
+
+
+            <com.aurelhubert.simpleratingbar.SimpleRatingBar
+                android:id="@+id/simple_rating_bar"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                app:drawableWidth="25dp"
+                app:drawableHeight="20dp"
+                app:enable="false"
+                app:maxRating="5"
+                app:rating="2"
+                app:layout_constraintTop_toBottomOf="@id/tv_review_username"
+                app:layout_constraintStart_toEndOf="@id/iv_review_userimg" />
+
+            <View
+                android:layout_width="200dp"
+                android:layout_height="0.5dp"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/iv_review_userimg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tv_review_description"/>
+
+            <TextView
+                android:id="@+id/tv_review_description"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:text="A great meal."
+                android:layout_marginStart="6dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:maxLines="3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_review_userimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.cardview.widget.CardView>

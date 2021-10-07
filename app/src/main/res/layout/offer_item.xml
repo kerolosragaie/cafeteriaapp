@@ -21,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/offer_image"
+                android:id="@+id/iv_offer_image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
 
 
             <TextView
-                android:id="@+id/offer_title"
+                android:id="@+id/tv_offer_title"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:ellipsize="end"
@@ -52,6 +52,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Buy 2 get 1 free"
+                android:textAllCaps="true"
                 android:textSize="18sp"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -85,9 +86,9 @@
 
             </FrameLayout>
 
-
+            <!--Add time of offer, For later on-->
             <TextView
-                android:id="@+id/offer_timeleft"
+                android:id="@+id/tv_offer_timeleft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -98,7 +99,8 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
 
 
 

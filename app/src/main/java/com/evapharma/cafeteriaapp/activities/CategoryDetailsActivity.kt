@@ -105,7 +105,6 @@ class CategoryDetailsActivity : AppCompatActivity() {
         binding.ivMealdetailsSortmenu.setOnClickListener {
             radioButtonView =
                 View.inflate(this@CategoryDetailsActivity, R.layout.btn_sort_radio, null)
-
             AlertDialog.Builder(this@CategoryDetailsActivity)
                 .setTitle("Sort By?")
                 .setView(radioButtonView)
@@ -113,16 +112,18 @@ class CategoryDetailsActivity : AppCompatActivity() {
                     if (radioButtonView.findViewById<RadioButton>(R.id.radio_high_to_low).isChecked) {
                         Collections.sort(productsList, costComparator)
                         productsList.reverse()
+                        productAdapter.notifyDataSetChanged()
                     }
                     if (radioButtonView.findViewById<RadioButton>(R.id.radio_low_to_high).isChecked) {
                         Collections.sort(productsList, costComparator)
+                        productAdapter.notifyDataSetChanged()
                     }
                     /*if (radioButtonView.findViewById<RadioButton>(R.id.radio_rating).isChecked) {
                         Collections.sort(productsList, ratingComparator)
                         productsList.reverse()
 
                     }*/
-                    productAdapter.notifyDataSetChanged()
+
                 }
                 .setNegativeButton("Cancel") { _, _ ->
                 }

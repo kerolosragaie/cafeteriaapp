@@ -68,7 +68,7 @@
     <!--Food item layout-->
     <string name="Hamburger">Hamburger</string>
     <string name="rating_stars">4.5</string>
-    <string name="food_price">18.89</string>
+    <string name="food_price">18.89 LE</string>
 
     <!--Meals fragment layout-->
     <string name="search">Search</string>

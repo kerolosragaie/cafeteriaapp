@@ -12,8 +12,10 @@ import java.net.URL
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.api.ApiClient
+import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
 import com.evapharma.cafeteriaapp.models.*
 import com.evapharma.cafeteriaapp.services.CategoryService
@@ -191,7 +193,21 @@ class AddProductActivity : AppCompatActivity() {
                         .show()
                 }else{
                     loadingDialog.dismiss()
-                    val errorCode:String = when(response.code()){
+                    val errorCode:Any= when(response.code()){
+                        401 -> {
+                            IonAlert(this@AddProductActivity, IonAlert.ERROR_TYPE)
+                                .setTitleText("ERROR")
+                                .setContentText("401 unauthorized user, please login")
+                                .setConfirmClickListener {
+                                    SessionManager(this@AddProductActivity).deleteAccessToken()
+                                    it.hide()
+                                    finishAffinity()
+                                    startActivity(Intent(this@AddProductActivity, LoginActivity::class.java))
+                                    Animatoo.animateSplit(this@AddProductActivity)
+                                }
+                                .show()
+                            return
+                        }
                         404 -> {
                             "404 not found"
                         }
@@ -204,7 +220,7 @@ class AddProductActivity : AppCompatActivity() {
                     }
                     IonAlert(this@AddProductActivity, IonAlert.ERROR_TYPE)
                         .setTitleText("ERROR")
-                        .setContentText("Something went wrong, ${response.errorBody()}")
+                        .setContentText(errorCode.toString())
                         .show()
                 }
             }

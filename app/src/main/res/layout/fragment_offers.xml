@@ -7,12 +7,23 @@
     tools:context=".fragments.OffersFragment">
 
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+        android:id="@+id/rv_offers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/offers_item"/>
+        tools:listitem="@layout/offer_item"/>
+
+    <include
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        layout="@layout/error"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

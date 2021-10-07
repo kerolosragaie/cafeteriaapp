@@ -1,5 +1,6 @@
 package com.evapharma.cafeteriaapp.services
 
+import android.database.Observable
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
 import retrofit2.Call
@@ -9,14 +10,19 @@ interface CategoryService {
 
     /**Get all categories*/
     @GET("Category/getCategories")
+    @Streaming
     fun getCategories() : Call<List<CategoryResponse>>
+
+    /*
+    @GET("Category/getCategories")
+    fun getCategories() : Call<List<CategoryResponse>>
+     */
 
     /**Get single category by ID*/
     @GET("Category/getCategory")
     fun getSingleCategory(@Query("id") id:Int):Call<CategoryResponse>
 
     /**Create new category*/
-    @Headers("Accept: application/json")
     @POST("Category/createCategory")
     fun createCategory(@Body categoryRequest: CategoryRequest):Call<CategoryResponse>
 

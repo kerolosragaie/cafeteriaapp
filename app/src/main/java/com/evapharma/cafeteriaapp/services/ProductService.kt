@@ -8,11 +8,10 @@ import retrofit2.http.*
 
 interface ProductService {
     /**
-     * Get all products
-     *@param category can get all products with current category name
+     * Get all products which are in offer
      * */
-    @GET("Product/getAllProducts")
-    fun getProducts(@Query("category") category:String?=null) : Call<List<ProductResponse>>
+    @GET("Product/getOffers")
+    fun getProductsInOffer() : Call<List<ProductResponse>>
 
     /**
      * Get all products using category id

@@ -1,14 +1,18 @@
 package com.evapharma.cafeteriaapp.activities
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.bumptech.glide.Glide
 import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.api.ApiClient
+import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityUpdateDeleteCategoryBinding
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
@@ -56,7 +60,16 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
             updateAPI()
         }
         binding.btnUdcatDelete.setOnClickListener {
-            deleteAPI()
+            IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("Won't be able to recover this item!")
+                .setConfirmText("Delete")
+                .setCancelText("Cancel")
+                .setConfirmClickListener {
+                    it.hide()
+                    deleteAPI()
+                }
+                .show()
         }
         binding.etUdcatCatimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
@@ -135,7 +148,11 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                         .show()
                 }else{
                     loadingDialog.dismiss()
-                    val errorCode:String = when(response.code()){
+                    val errorCode:Any= when(response.code()){
+                        401 -> {
+                            logoutUser()
+                            return
+                        }
                         404 -> {
                             "404 not found"
                         }
@@ -148,7 +165,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                     }
                     IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
                         .setTitleText("ERROR")
-                        .setContentText("Something went wrong, ${response.code()}")
+                        .setContentText(errorCode.toString())
                         .show()
                 }
             }
@@ -180,7 +197,11 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                         .show()
                 }else{
                     loadingDialog.dismiss()
-                    val errorCode:String = when(response.code()){
+                    val errorCode:Any= when(response.code()){
+                        401 -> {
+                            logoutUser()
+                            return
+                        }
                         404 -> {
                             "404 not found"
                         }
@@ -193,7 +214,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                     }
                     IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
                         .setTitleText("ERROR")
-                        .setContentText("Something went wrong, ${response.code()}")
+                        .setContentText(errorCode.toString())
                         .show()
                 }
             }
@@ -208,4 +229,19 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
 
         })
     }
+
+    fun logoutUser(){
+        IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.ERROR_TYPE)
+            .setTitleText("ERROR")
+            .setContentText("401 unauthorized user, please login")
+            .setConfirmClickListener {
+                SessionManager(this@UpdateDeleteCategoryActivity).deleteAccessToken()
+                it.hide()
+                finishAffinity()
+                startActivity(Intent(this@UpdateDeleteCategoryActivity, LoginActivity::class.java))
+                Animatoo.animateSplit(this@UpdateDeleteCategoryActivity)
+            }
+            .show()
+    }
+
 }

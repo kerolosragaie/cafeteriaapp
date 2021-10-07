@@ -7,10 +7,11 @@
     tools:context=".activities.SplashActivity">
 
     <ImageView
-        android:id="@+id/iv_splash_logo"
+        android:id="@+id/logo"
         android:src="@drawable/logo"
         android:layout_width="160dp"
         android:layout_height="160dp"
+        android:transitionName="logo_transition"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
