@@ -85,8 +85,16 @@
     <string name="update_category">Update Category</string>
     <string name="category_name">Category Name</string>
     <string name="delete">Delete</string>
+
+
+    <!--My account activity-->
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="my_reviews">My Reviews</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="lionfischer_gmail_com">lionfischer@gmail.com</string>
+    <string name="lion_fischer">Lion Fischer</string>
 
 
 </resources>

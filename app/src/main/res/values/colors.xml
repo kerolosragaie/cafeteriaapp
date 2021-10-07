@@ -13,11 +13,11 @@
 
     <!--Main three colors of the app:-->
     <!--For buttons-->
-    <color name="colorPrimary">#FF6200EE</color>
+    <color name="colorPrimary">#053776</color>
      <!--For System UI-->
     <color name="colorPrimaryVariant">#FF3700B3</color>
     <!---->
-    <color name="colorSecondary">#FF03DAC5</color>
+    <color name="colorSecondary">#FAE007</color>
 
     <!--Messed UP Stuff-->
     <!--  <color name="colorPrimary">#536DFE</color> -->
