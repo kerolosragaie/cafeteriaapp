@@ -3,13 +3,10 @@ package com.evapharma.cafeteriaapp.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
-import androidx.core.widget.doOnTextChanged
 import com.bumptech.glide.Glide
-import com.google.android.material.textfield.TextInputLayout
-import java.net.URL
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
+import androidx.core.widget.doOnTextChanged
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.*
@@ -17,7 +14,6 @@ import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
 import com.evapharma.cafeteriaapp.models.*
-import com.evapharma.cafeteriaapp.services.CategoryService
 import com.evapharma.cafeteriaapp.services.ProductService
 import id.ionbit.ionalert.IonAlert
 import retrofit2.*
@@ -41,12 +37,12 @@ class AddProductActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadingDialog = IonAlert(this@AddProductActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinKit("ThreeBounce")
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
 
         initEts()
         initbtnClickAdd()
         initUploadimg()
-        //loadCurrentCatData()
+        loadCurrentCatData()
     }
 
     private fun initUploadimg(){
@@ -128,8 +124,7 @@ class AddProductActivity : AppCompatActivity() {
         binding.btnAddproductitemAdd.setOnClickListener {
             validateForm()
             if(isValid()){
-                //call api
-                shortToast(this,"Hello there korlos we hate you a lot")
+                callAddProductApi()
             }
         }
     }
@@ -161,8 +156,10 @@ class AddProductActivity : AppCompatActivity() {
         createProRequest.imageUrl=binding.etAddproductitemMealimgurl.text.toString()
         createProRequest.price = binding.etAddproductitemMealprice.text.toString().toDouble()
         createProRequest.name = binding.etAddproductitemMealname.text.toString()
-        createProRequest.inOffers = binding.switcherAddFoodOffers.isChecked
-        createProRequest.categoryId = currentCatResponse.id
+        createProRequest.inOffers = binding.switcherFoodUpdDel.isChecked
+        createProRequest.categoryId = currentCatResponse.id!!.toInt()
+        createProRequest.description = binding.etAddproductitemDescription.text.toString()
+
 
         val productService:ProductService = ApiClient(this@AddProductActivity).buildService(ProductService::class.java)
         val requestCall : Call<ProductResponse> = productService.createProduct(createProRequest)
@@ -172,8 +169,9 @@ class AddProductActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     IonAlert(this@AddProductActivity, IonAlert.SUCCESS_TYPE)
                         .setTitleText("ADDED")
-                        .setContentText("Current category added successfully")
+                        .setContentText("Current product added successfully.")
                         .setConfirmClickListener {
+                            it.hide()
                             finish()
                         }
                         .show()
@@ -183,7 +181,7 @@ class AddProductActivity : AppCompatActivity() {
                         401 -> {
                             IonAlert(this@AddProductActivity, IonAlert.ERROR_TYPE)
                                 .setTitleText("ERROR")
-                                .setContentText("401 unauthorized user, please login")
+                                .setContentText("401 unauthorized user, please login.")
                                 .setConfirmClickListener {
                                     SessionManager(this@AddProductActivity).deleteAccessToken()
                                     it.hide()

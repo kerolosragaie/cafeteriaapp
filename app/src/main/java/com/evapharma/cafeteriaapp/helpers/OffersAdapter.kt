@@ -1,17 +1,22 @@
 package com.evapharma.cafeteriaapp.helpers
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.evapharma.cafeteriaapp.PRODUCT_DATA
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.activities.UpdateDeleteProductActivity
 import com.evapharma.cafeteriaapp.models.ProductResponse
+import java.io.Serializable
 
 class OffersAdapter(val context: Context, private val offeredProducts: List<ProductResponse>)
     : RecyclerView.Adapter<OffersAdapter.ProductViewHolder>(){
@@ -31,8 +36,13 @@ class OffersAdapter(val context: Context, private val offeredProducts: List<Prod
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val singleProduct : ProductResponse = offeredProducts[position]
         holder.offerTitle.text = singleProduct.name
+
+        //go to edit page:
         holder.editOffer.setOnClickListener {
             //TODO: go to page which update/delete product
+            val intent = Intent(holder.itemView.context, UpdateDeleteProductActivity::class.java)
+            intent.putExtra(PRODUCT_DATA, singleProduct as Serializable)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
 
         //show loading for glide:

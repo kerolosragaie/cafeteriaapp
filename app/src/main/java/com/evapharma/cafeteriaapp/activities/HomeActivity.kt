@@ -16,6 +16,7 @@ import com.evapharma.cafeteriaapp.databinding.ActivityHomeBinding
 import com.evapharma.cafeteriaapp.fragments.*
 import com.evapharma.cafeteriaapp.models.UserResponse
 import com.evapharma.cafeteriaapp.api.SessionManager
+import id.ionbit.ionalert.IonAlert
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -34,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Setting up the top action bar:
+        //TODO: add my account icon and remove drawer:
         setSupportActionBar(binding.tbHome)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
@@ -131,8 +133,17 @@ class HomeActivity : AppCompatActivity() {
                 text = userResponse.email
             }
         }else{
-            //TODO: handle unathurized token user
-            Log.d("SHOW","error")
+            IonAlert(this@HomeActivity, IonAlert.ERROR_TYPE)
+                .setTitleText("ERROR")
+                .setContentText("401 unauthorized user, please login.")
+                .setConfirmClickListener {
+                    SessionManager(this@HomeActivity).deleteAccessToken()
+                    it.hide()
+                    finishAffinity()
+                    startActivity(Intent(this@HomeActivity, LoginActivity::class.java))
+                    Animatoo.animateSplit(this@HomeActivity)
+                }
+                .show()
         }
     }
 

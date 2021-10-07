@@ -31,7 +31,7 @@ class NewPasswordActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadingDialog = IonAlert(this@NewPasswordActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinKit("ThreeBounce")
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
 
         initEditTexts()
         initButtons()

@@ -42,7 +42,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
         binding= ActivityUpdateDeleteCategoryBinding.inflate(layoutInflater)
 
         loadingDialog = IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinKit("ThreeBounce")
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
 
         categoryService = ApiClient(this@UpdateDeleteCategoryActivity).buildService(CategoryService::class.java)
 
@@ -61,9 +61,16 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
             }
         }
         binding.btnUdcatDelete.setOnClickListener {
-            if (isValid()){
-                deleteAPI()
-            }
+            IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("Won't be able to recover this category!")
+                .setConfirmText("Yes")
+                .setCancelText("Cancel")
+                .setConfirmClickListener {
+                    it.hide()
+                    deleteAPI()
+                }
+                .show()
         }
     }
 
@@ -178,7 +185,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.SUCCESS_TYPE)
                         .setTitleText("UPDATED")
-                        .setContentText("Current category updated successfully")
+                        .setContentText("Current category updated successfully.")
                         .setConfirmClickListener {
                             finish()
                         }
@@ -227,7 +234,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.SUCCESS_TYPE)
                         .setTitleText("DELETED")
-                        .setContentText("Current category deleted successfully")
+                        .setContentText("Current category deleted successfully.")
                         .setConfirmClickListener {
                             finish()
                         }

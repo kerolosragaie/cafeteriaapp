@@ -4,24 +4,50 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.widget.doOnTextChanged
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.bumptech.glide.Glide
 import com.evapharma.cafeteriaapp.*
-import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
+import com.evapharma.cafeteriaapp.api.ApiClient
+import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityUpdateDeleteProductBinding
+import com.evapharma.cafeteriaapp.models.ProductRequest
+import com.evapharma.cafeteriaapp.models.ProductResponse
+import com.evapharma.cafeteriaapp.services.CategoryService
+import com.evapharma.cafeteriaapp.services.ProductService
+import id.ionbit.ionalert.IonAlert
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class UpdateDeleteProductActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityUpdateDeleteProductBinding
+
+    //to show or hide loading:
+    private lateinit var loadingDialog : IonAlert
+
+    //Current category
+    private lateinit var currentProResponse: ProductResponse
+    private lateinit var productService: ProductService
+
     private  var SELECT_PICTURE = 200
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityUpdateDeleteProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        loadingDialog = IonAlert(this@UpdateDeleteProductActivity, IonAlert.PROGRESS_TYPE)
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
+
+        productService = ApiClient(this@UpdateDeleteProductActivity).buildService(ProductService::class.java)
+
         initEts()
         initBtns()
         initUploadimg()
+        loadCurrentProData()
     }
 
     private fun initUploadimg(){
@@ -115,16 +141,164 @@ class UpdateDeleteProductActivity : AppCompatActivity() {
         binding.btnUdproductUpdate.setOnClickListener {
             validateForm()
             if(isValid()){
-                //TODO: call api to delete product
+                updateAPI()
             }
         }
-        binding.btnUdproductDelete.setOnClickListener {
-            validateForm()
-            if(isValid()){
-                //TODO:call api to update product
 
-            }
+        binding.btnUdproductDelete.setOnClickListener {
+             IonAlert(this@UpdateDeleteProductActivity, IonAlert.WARNING_TYPE)
+                 .setTitleText("Are you sure?")
+                 .setContentText("Won't be able to recover this product!")
+                 .setConfirmText("Yes")
+                 .setCancelText("Cancel")
+                 .setConfirmClickListener {
+                     deleteAPI()
+                 }
+                 .show()
         }
     }
+
+
+    //Get current product data from last page:
+    private fun loadCurrentProData(){
+        val bundle:Bundle? = intent.extras
+        if(bundle?.containsKey(PRODUCT_DATA)!!){
+            currentProResponse = intent.extras?.get(PRODUCT_DATA) as ProductResponse
+        }
+        binding.etUdproductitemMealimgurl.setText(currentProResponse.imageUrl)
+        binding.etUdproductitemDescription.setText(currentProResponse.description)
+        binding.etUdproductitemMealname.setText(currentProResponse.name)
+        binding.etUdproductitemMealprice.setText(currentProResponse.price.toString())
+        if(!currentProResponse.inOffers!!){
+            binding.switcherFoodUpdDel.setChecked(false)
+        }
+        Log.d("SEE",currentProResponse.toString())
+    }
+
+    /**Call api to update*/
+    private fun updateAPI(){
+        loadingDialog.show()
+        val updateProRequest = ProductRequest(
+            binding.etUdproductitemDescription.text.toString(),
+            currentProResponse.categoryId,
+            binding.etUdproductitemMealimgurl.text.toString(),
+            binding.switcherFoodUpdDel.isChecked,
+            binding.etUdproductitemMealname.text.toString(),
+            binding.etUdproductitemMealprice.text.toString().toDouble()
+        )
+        val requestCall: Call<Unit> = productService.updateProduct(
+            currentProResponse.id!!.toInt(),
+            updateProRequest
+        )
+        requestCall.enqueue(object : Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if(response.isSuccessful){
+                    loadingDialog.dismiss()
+                    IonAlert(this@UpdateDeleteProductActivity, IonAlert.SUCCESS_TYPE)
+                        .setTitleText("UPDATED")
+                        .setContentText("Current product updated successfully.")
+                        .setConfirmClickListener {
+                            finish()
+                        }
+                        .show()
+                }else{
+                    loadingDialog.dismiss()
+                    val errorCode:Any= when(response.code()){
+                        401 -> {
+                            logoutUser()
+                            return
+                        }
+                        404 -> {
+                            "404 not found"
+                        }
+                        500 -> {
+                            "500 server broken"
+                        }
+                        else ->{
+                            "Unknown error!"
+                        }
+                    }
+                    IonAlert(this@UpdateDeleteProductActivity, IonAlert.ERROR_TYPE)
+                        .setTitleText("ERROR")
+                        .setContentText(errorCode.toString())
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                loadingDialog.dismiss()
+                IonAlert(this@UpdateDeleteProductActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR")
+                    .setContentText("Something went wrong, $t")
+                    .show()
+            }
+
+        })
+    }
+    /**Call api to delete*/
+    private fun deleteAPI(){
+        loadingDialog.show()
+        val requestCall : Call<Unit> = productService.deleteProduct(currentProResponse.id!!)
+        requestCall.enqueue(object: Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                if(response.isSuccessful){
+                    loadingDialog.dismiss()
+                    IonAlert(this@UpdateDeleteProductActivity, IonAlert.SUCCESS_TYPE)
+                        .setTitleText("DELETED")
+                        .setContentText("Current product deleted successfully.")
+                        .setConfirmClickListener {
+                            finish()
+                        }
+                        .show()
+                }else{
+                    loadingDialog.dismiss()
+                    val errorCode:Any= when(response.code()){
+                        401 -> {
+                            logoutUser()
+                            return
+                        }
+                        404 -> {
+                            "404 not found"
+                        }
+                        500 -> {
+                            "500 server broken"
+                        }
+                        else ->{
+                            "Unknown error!"
+                        }
+                    }
+                    IonAlert(this@UpdateDeleteProductActivity, IonAlert.ERROR_TYPE)
+                        .setTitleText("ERROR")
+                        .setContentText(errorCode.toString())
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                loadingDialog.dismiss()
+                IonAlert(this@UpdateDeleteProductActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR")
+                    .setContentText("Something went wrong, $t")
+                    .show()
+            }
+
+        })
+    }
+
+
+    fun logoutUser(){
+        IonAlert(this@UpdateDeleteProductActivity, IonAlert.ERROR_TYPE)
+            .setTitleText("ERROR")
+            .setContentText("401 unauthorized user, please login.")
+            .setConfirmClickListener {
+                SessionManager(this@UpdateDeleteProductActivity).deleteAccessToken()
+                it.hide()
+                finishAffinity()
+                startActivity(Intent(this@UpdateDeleteProductActivity, LoginActivity::class.java))
+                Animatoo.animateSplit(this@UpdateDeleteProductActivity)
+            }
+            .show()
+    }
+
 
 }

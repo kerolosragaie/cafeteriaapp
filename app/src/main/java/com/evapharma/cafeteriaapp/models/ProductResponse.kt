@@ -14,6 +14,7 @@ data class ProductResponse(
 ):Serializable
 
 data class ProductRequest(
+    var description:String?=null,
     var categoryId: Int?=null,
     var imageUrl: String?=null,
     var inOffers: Boolean?=null,

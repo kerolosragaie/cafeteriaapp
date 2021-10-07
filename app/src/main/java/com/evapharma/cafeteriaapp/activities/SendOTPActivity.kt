@@ -26,7 +26,7 @@ class SendOTPActivity : AppCompatActivity() {
         binding = ActivitySendOtpactivityBinding.inflate(layoutInflater)
 
         loadingDialog = IonAlert(this@SendOTPActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinKit("ThreeBounce")
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
 
         setContentView(binding.root)
         initButtons()
@@ -92,11 +92,11 @@ class SendOTPActivity : AppCompatActivity() {
     }
     private fun getOtp(phone:String):Boolean{
        if ( !isFormatPhone(phone)){
-           shortToast(this,"Wrong phone format!")
+           shortToast(this,"Wrong phone format.")
            return false
        }
         if ( !isCorrectLength(phone, PHONE_LENGTH)){
-            shortToast(this,"Wrong Phone number length!")
+            shortToast(this,"Wrong Phone number length.")
             return false
         }
 
@@ -110,7 +110,7 @@ class SendOTPActivity : AppCompatActivity() {
             }else{
                 IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
                     .setTitleText("ERROR!")
-                    .setContentText("Wrong phone format!")
+                    .setContentText("Wrong phone format.")
                     .show()
             }
         }

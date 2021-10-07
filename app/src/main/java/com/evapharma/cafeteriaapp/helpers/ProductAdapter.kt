@@ -1,19 +1,24 @@
 package com.evapharma.cafeteriaapp.helpers
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
+import com.evapharma.cafeteriaapp.PRODUCT_DATA
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.activities.UpdateDeleteProductActivity
 import com.evapharma.cafeteriaapp.models.ProductResponse
+import java.io.Serializable
 import java.util.ArrayList
 
-class ProductAdapter(val context: Context, private var productsList:MutableList<ProductResponse>)
+class ProductAdapter(val context: Context, private var productsList:List<ProductResponse>)
     : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>(){
 
         inner class ProductViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -42,7 +47,9 @@ class ProductAdapter(val context: Context, private var productsList:MutableList<
 
         //go to edit page:
         holder.editImage.setOnClickListener {
-            //TODO: make edit page and inside it make (update and delete buttons)
+            val intent = Intent(holder.itemView.context, UpdateDeleteProductActivity::class.java)
+            intent.putExtra(PRODUCT_DATA, singleProduct as Serializable)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
 
         if(!singleProduct.inOffers!!){

@@ -28,11 +28,11 @@ interface ProductService {
     @POST("Product/createProduct")
     fun createProduct(@Body productRequest: ProductRequest): Call<ProductResponse>
 
-    /**Update category by id*/
+    /**Update product by id*/
     @PUT("Product/updateProduct")
     fun updateProduct(@Query("id") id:Int,@Body productRequest: ProductRequest):Call<Unit>
 
-    /**Delete category by id*/
+    /**Delete product by id*/
     @DELETE("Product/deleteProduct")
-    fun deleteProduct(@Query("id") id:Int):Call<Unit>
+    fun deleteProduct(@Query("id") id:Int) : Call<Unit>
 }

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
-import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityLoginBinding
@@ -32,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadingDialog = IonAlert(this@LoginActivity, IonAlert.PROGRESS_TYPE)
-        .setSpinKit("ThreeBounce")
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
 
         sessionManager = SessionManager(this@LoginActivity)
         initUI()

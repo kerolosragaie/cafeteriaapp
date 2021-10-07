@@ -37,7 +37,7 @@ class AddCategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadingDialog = IonAlert(this@AddCategoryActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinKit("ThreeBounce")
+            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
 
         initButtons()
         initEt()
@@ -135,7 +135,7 @@ class AddCategoryActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     IonAlert(this@AddCategoryActivity, IonAlert.SUCCESS_TYPE)
                         .setTitleText("ADDED")
-                        .setContentText("Current category added successfully")
+                        .setContentText("Current category added successfully.")
                         .setConfirmClickListener {
                             finish()
                         }
@@ -146,7 +146,7 @@ class AddCategoryActivity : AppCompatActivity() {
                         401 -> {
                             IonAlert(this@AddCategoryActivity, IonAlert.ERROR_TYPE)
                                 .setTitleText("ERROR")
-                                .setContentText("401 unauthorized user, please login")
+                                .setContentText("401 unauthorized user, please login.")
                                 .setConfirmClickListener {
                                     SessionManager(this@AddCategoryActivity).deleteAccessToken()
                                     it.hide()
