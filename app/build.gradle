@@ -83,6 +83,7 @@ dependencies {
     //for rating bar (by stars)
     implementation 'com.aurelhubert:simpleratingbar:0.1.5'
 
+
     //Currency EditText
     implementation 'me.abhinay.input:currency-edittext:1.1'
 }

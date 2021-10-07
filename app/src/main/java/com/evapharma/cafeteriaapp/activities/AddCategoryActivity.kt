@@ -2,20 +2,22 @@ package com.evapharma.cafeteriaapp.activities
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.bumptech.glide.Glide
+import com.evapharma.cafeteriaapp.IMG_HEIGHT
+import com.evapharma.cafeteriaapp.IMG_WIDTH
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.isValidUrl
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityAddCategoryBinding
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
 import com.evapharma.cafeteriaapp.services.CategoryService
-import com.google.gson.Gson
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,7 +29,8 @@ class AddCategoryActivity : AppCompatActivity() {
     //to show or hide loading:
     private lateinit var loadingDialog : IonAlert
 
-    private var SELECT_PICTURE = 200
+    private val SELECT_PICTURE = 200
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityAddCategoryBinding.inflate(layoutInflater)
@@ -37,27 +40,52 @@ class AddCategoryActivity : AppCompatActivity() {
             .setSpinKit("ThreeBounce")
 
         initButtons()
+        initEt()
     }
 
-    fun isValid():Boolean{
-        return  binding.etAddcatCatname.text.toString().isNotEmpty()
-    }
-
-    private fun initButtons(){
-        binding.btnAddcatAdd.setOnClickListener {
-            addNewCategoryAPI()
-        }
-        binding.imgAddmealUpcatimg.setOnClickListener {
-            imageChooser()
-        }
+    private fun initEt(){
         binding.etAddcatCatimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
                 .load(text.toString())
                 .placeholder(R.drawable.ic_meal)
                 .error(R.drawable.ic_error_sign)
-                .override(139, 130)
+                .override(IMG_WIDTH, IMG_HEIGHT)
                 .centerCrop()
                 .into(binding.ivAddcatCatimg)
+        }
+    }
+
+    private fun validateForm(){
+        binding.etAddcatCatimgurl.apply {
+            if(!isValidUrl(text.toString())){
+                error="Invalid Url"
+            }else error=null
+        }
+        binding.etAddcatCatname.apply{
+            if(text.toString().isEmpty()){
+                error="Can't be empty"
+            }else error=null
+        }
+
+
+        }
+
+    private fun isValid():Boolean{
+        return binding.etAddcatCatname.text.toString().isNotEmpty() &&
+                isValidUrl(binding.etAddcatCatimgurl.text.toString())
+    }
+
+
+    private fun initButtons(){
+        binding.btnAddcatAdd.setOnClickListener {
+            validateForm()
+            if(isValid()){
+                Toast.makeText(this,"Hi",Toast.LENGTH_LONG).show()
+                //addNewCategoryAPI()
+            }
+        }
+        binding.imgAddmealUpcatimg.setOnClickListener {
+            imageChooser()
         }
     }
 
@@ -85,7 +113,7 @@ class AddCategoryActivity : AppCompatActivity() {
                 val selectedImageUri: Uri? = data!!.data
                 if (null != selectedImageUri) {
                     // update the preview image in the layout
-                    binding.ivAddcatCatimg.setImageDrawable(null);
+                    binding.ivAddcatCatimg.setImageResource(0)
                     binding.ivAddcatCatimg.setImageURI(selectedImageUri)
                 }
             }
@@ -156,5 +184,5 @@ class AddCategoryActivity : AppCompatActivity() {
 
         })
     }
-
 }
+
