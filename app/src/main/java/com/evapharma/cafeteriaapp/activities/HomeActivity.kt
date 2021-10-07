@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
+import com.evapharma.cafeteriaapp.MyAccountFragment
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.databinding.ActivityHomeBinding
@@ -24,6 +25,7 @@ class HomeActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val mealsFragment = MealsFragment()
     private val offersFragment = OffersFragment()
+    private val myaccountFragment = MyAccountFragment()
 
     //For navigation drawer:
     private lateinit var toggle: ActionBarDrawerToggle
@@ -102,6 +104,10 @@ class HomeActivity : AppCompatActivity() {
 
        binding.bottomNavBar.setOnItemSelectedListener {
            when(it){
+               R.id.item_bottomnav_myaccount->{
+                   replaceFragment(myaccountFragment)
+                   binding.bottomNavBar.setItemSelected(it)
+               }
                R.id.item_bottomnav_home ->{
                    replaceFragment(homeFragment)
                    binding.bottomNavBar.setItemSelected(it)

@@ -140,7 +140,7 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:layout_width="180dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start">
 
@@ -148,8 +148,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Add to offers?"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryVariant"
                     android:layout_weight="1"/>
 
                 <com.bitvale.switcher.SwitcherX
@@ -157,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:switcher_icon_color="@color/white"
-                    tools:ignore="MissingClass" />
+                    tools:ignore="MissingClass"/>
 
             </LinearLayout>
 

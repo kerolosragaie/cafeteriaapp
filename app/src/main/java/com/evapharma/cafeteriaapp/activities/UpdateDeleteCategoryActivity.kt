@@ -50,21 +50,19 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
         initBtnUploadImg()
         initBtnsClick()
         initEt()
-        //loadCurrentCatData()
+        loadCurrentCatData()
     }
 
     private fun initBtnsClick(){
         binding.btnUdcatUpdate.setOnClickListener {
             validateForm()
             if(isValid()){
-                //updateAPI()
-                Toast.makeText(this,"Hi12", Toast.LENGTH_LONG).show()
+                updateAPI()
             }
         }
         binding.btnUdcatDelete.setOnClickListener {
             if (isValid()){
-                Toast.makeText(this,"Hi23",Toast.LENGTH_LONG).show()
-                //deleteAPI()
+                deleteAPI()
             }
         }
     }

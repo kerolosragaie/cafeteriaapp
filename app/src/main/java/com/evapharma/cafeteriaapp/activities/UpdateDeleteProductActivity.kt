@@ -20,7 +20,7 @@ class UpdateDeleteProductActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initEts()
-        initbtns()
+        initBtns()
         initUploadimg()
     }
 
@@ -111,19 +111,18 @@ class UpdateDeleteProductActivity : AppCompatActivity() {
         return true
     }
 
-    private fun initbtns() {
+    private fun initBtns() {
         binding.btnUdproductUpdate.setOnClickListener {
             validateForm()
             if(isValid()){
-                //call api to delete product
-                shortToast(this,"Hello there korlos we updated the product")
+                //TODO: call api to delete product
             }
         }
         binding.btnUdproductDelete.setOnClickListener {
             validateForm()
             if(isValid()){
-                //call api to update product
-                shortToast(this,"Hello there korlos we deleted the product")
+                //TODO:call api to update product
+
             }
         }
     }

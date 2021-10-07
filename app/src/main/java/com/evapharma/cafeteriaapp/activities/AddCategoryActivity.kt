@@ -80,8 +80,7 @@ class AddCategoryActivity : AppCompatActivity() {
         binding.btnAddcatAdd.setOnClickListener {
             validateForm()
             if(isValid()){
-                Toast.makeText(this,"Hi",Toast.LENGTH_LONG).show()
-                //addNewCategoryAPI()
+                addNewCategoryAPI()
             }
         }
         binding.imgAddmealUpcatimg.setOnClickListener {
@@ -121,6 +120,7 @@ class AddCategoryActivity : AppCompatActivity() {
     }
 
 
+    /**Add new category API*/
     private fun addNewCategoryAPI(){
         loadingDialog.show()
         val sendCategory = CategoryRequest()

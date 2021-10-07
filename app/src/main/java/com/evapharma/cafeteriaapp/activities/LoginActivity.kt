@@ -35,9 +35,7 @@ class LoginActivity : AppCompatActivity() {
         .setSpinKit("ThreeBounce")
 
         sessionManager = SessionManager(this@LoginActivity)
-
         initUI()
-
 
     }
 
