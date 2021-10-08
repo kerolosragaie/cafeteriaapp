@@ -88,4 +88,12 @@
 
 
 
+    <!--My account activity-->
+    <string name="personal_information">Personal Information</string>
+    <string name="my_reviews">My Reviews</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="lionfischer_gmail_com">lionfischer@gmail.com</string>
+    <string name="lion_fischer">Lion Fischer</string>
+
+
 </resources>

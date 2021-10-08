@@ -13,7 +13,8 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".activities.MyAccountActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".activities.UpdateDeleteProductActivity"
             android:exported="true" />
