@@ -5,9 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:id="@+id/error_nothing_found"
-    android:visibility="gone">
-
-    <!--TODO: continue design this search-->
+    android:visibility="visible">
 
    <LinearLayout
        app:layout_constraintTop_toTopOf="parent"
@@ -17,7 +15,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="vertical"
-       android:layout_margin="5dp"
+       android:layout_marginTop="20dp"
        android:gravity="center">
        <ImageView
            android:layout_width="100dp"
@@ -29,10 +27,10 @@
            android:layout_height="wrap_content"
            android:text="Nothing found!"
            android:textAllCaps="true"
-           android:layout_marginTop="4dp"
+           android:layout_marginTop="6dp"
            android:fontFamily="@font/runda_regular"
            android:textColor="@color/black"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:textAlignment="center"/>
    </LinearLayout>
 
