@@ -3,15 +3,11 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
-import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityMyAccountBinding
 import com.evapharma.cafeteriaapp.models.UserResponse
-import id.ionbit.ionalert.IonAlert
 
 class MyAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyAccountBinding

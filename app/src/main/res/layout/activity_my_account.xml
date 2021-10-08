@@ -54,13 +54,10 @@
 
                 <TextView
                     android:id="@+id/tv_myaccount_email"
-                    android:textColor="@color/black"
-                    android:id="@+id/textView15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/runda_regular"
                     android:text="@string/lionfischer_gmail_com"
-
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +73,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15">
+                    app:layout_constraintTop_toBottomOf="@+id/tv_myaccount_email">
 
                     <Button
                         android:id="@+id/button5"
@@ -138,10 +135,8 @@
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/background_blue"
                         android:elevation="3dp"
-                        android:text="@string/logout"
                         android:fontFamily="@font/runda_regular"
-                        android:text="Back to Main Page"
-
+                        android:text="@string/logout"
                         android:textColor="#ffffff"
                         android:textSize="18sp"
                         android:textStyle="bold" />

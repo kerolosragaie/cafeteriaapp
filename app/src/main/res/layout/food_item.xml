@@ -107,7 +107,6 @@
                     android:gravity="center"
                     android:fontFamily="@font/runda_regular"
                     android:maxEms="5"
-                    android:maxLines="1"
                     android:text="@string/food_price"
                     android:textColor="@color/black"
                     android:textSize="14sp"
