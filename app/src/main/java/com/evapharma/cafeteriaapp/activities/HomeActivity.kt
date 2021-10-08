@@ -3,20 +3,21 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
-import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.databinding.ActivityHomeBinding
 import com.evapharma.cafeteriaapp.fragments.*
 import com.evapharma.cafeteriaapp.models.UserResponse
 import com.evapharma.cafeteriaapp.api.SessionManager
 import id.ionbit.ionalert.IonAlert
+import com.evapharma.cafeteriaapp.R
+
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -26,6 +27,9 @@ class HomeActivity : AppCompatActivity() {
     private val mealsFragment = MealsFragment()
     private val offersFragment = OffersFragment()
 
+    //current user data:
+    lateinit var currentUserResponse :UserResponse
+
     //For navigation drawer:
     private lateinit var toggle: ActionBarDrawerToggle
 
@@ -34,25 +38,37 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Setting up the top action bar:
-        //TODO: add my account icon and remove drawer:
-        setSupportActionBar(binding.tbHome)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        //get user account data:
+        loadUserData()
+
+        //Setting up the top tool bar:
+        setUpToolBar()
 
         //For navigation drawer:
-        setUpDrawer()
+        //setUpDrawer()
 
         //Setting the functionality of bottom nav bar:
         setSelectedFragOnCreate()
         replaceFragment(homeFragment)
-
-        //get user account data:
-        loadUserData()
     }
 
-    //To setup drawer:
-    private fun setUpDrawer(){
-        toggle = ActionBarDrawerToggle(this,binding.drawerLayout,R.string.open,R.string.close)
+    //Setup top tool bar:
+    private fun setUpToolBar(){
+        //TODO: add my account icon and remove drawer:
+        setSupportActionBar(binding.tbHome.toolBar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        binding.tbHome.ivToolbarProfile.setOnClickListener {
+            val intent = Intent(this@HomeActivity, MyAccountActivity::class.java)
+            intent.putExtra(USER_DATA,currentUserResponse)
+            startActivity(intent)
+            Animatoo.animateSlideDown(this@HomeActivity)
+        }
+
+    }
+
+
+    /*private fun setUpDrawer(){
+        toggle = ActionBarDrawerToggle(this,binding.drawerLayout, R.string.open,R.string.close)
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -75,7 +91,7 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
-    }
+    }*/
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
@@ -124,14 +140,14 @@ class HomeActivity : AppCompatActivity() {
     private fun loadUserData(){
         val bundle:Bundle? = intent.extras
         if(bundle?.containsKey(USER_DATA)!=null){
-            val userResponse = intent.extras?.get(USER_DATA) as UserResponse
-            val navigationDrawerHeader : View = binding.nvHomeDrawer.getHeaderView(0)
+            currentUserResponse = intent.extras?.get(USER_DATA) as UserResponse
+            /*val navigationDrawerHeader : View = binding.nvHomeDrawer.getHeaderView(0)
             navigationDrawerHeader.findViewById<TextView>(R.id.tv_drawer_username).apply {
-                text = userResponse.username
+                text = currentUserResponse.username
             }
             navigationDrawerHeader.findViewById<TextView>(R.id.tv_drawer_email).apply {
-                text = userResponse.email
-            }
+                text = currentUserResponse.email
+            }*/
         }else{
             IonAlert(this@HomeActivity, IonAlert.ERROR_TYPE)
                 .setTitleText("ERROR")

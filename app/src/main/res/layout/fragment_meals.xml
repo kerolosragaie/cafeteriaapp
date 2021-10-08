@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/ll_topbar"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -16,12 +16,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:elevation="10dp"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/et_meals_search"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:background="@drawable/search_rounded_corner"
             android:drawableStart="@drawable/ic_search"
             android:hint="@string/search"
@@ -34,7 +35,7 @@
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_outline_white"/>
+            android:src="@drawable/ic_add_outline_black"/>
 
     </LinearLayout>
 

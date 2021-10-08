@@ -37,10 +37,10 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView9"
-                    app:srcCompat="@drawable/profile" />
+                    app:srcCompat="@drawable/profile"/>
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/tv_myaccount_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lion_fischer"
@@ -52,7 +52,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/tv_myaccount_email"
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_myaccount_username" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15">
+                    app:layout_constraintTop_toBottomOf="@+id/tv_myaccount_email">
 
                     <Button
                         android:id="@+id/button5"
@@ -124,20 +124,19 @@
 
 
                     <Button
-                        android:id="@+id/button6"
+                        android:id="@+id/btn_myaccount_logout"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/background_blue"
-
-
                         android:elevation="3dp"
-                        android:text="Back to Main Page"
+                        android:text="@string/logout"
                         android:textColor="#ffffff"
-
                         android:textSize="18sp"
                         android:textStyle="bold" />
+
+
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
