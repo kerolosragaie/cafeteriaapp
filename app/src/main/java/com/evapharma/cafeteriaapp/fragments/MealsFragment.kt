@@ -17,6 +17,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.activities.AddCategoryActivity
@@ -36,7 +37,7 @@ class MealsFragment: Fragment(){
     lateinit var categoryAdapter:CategoryAdapter
     lateinit var recyclerView: ShimmerRecyclerView
     private lateinit var categoryList:List<CategoryResponse>
-    private lateinit var errorSearch:CardView
+    private lateinit var errorSearch:View
     private lateinit var errorLayout: ConstraintLayout
     lateinit var etSearchForMenus:EditText
     private lateinit var fragContext:Context

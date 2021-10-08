@@ -98,16 +98,19 @@
     </LinearLayout>
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_addcat_add"
-        android:layout_width="270dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:background="@drawable/background_btn"
+        android:background="@drawable/btn_bb_corners_only"
         android:fontFamily="@font/runda_regular"
         android:text="@string/add_category"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:drawableStart="@drawable/ic_add_circle"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/colorPrimaryVariant"
+        android:textColor="@color/colorPrimaryVariant"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 

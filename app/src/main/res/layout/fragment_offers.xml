@@ -24,6 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        layout="@layout/error"/>
+        layout="@layout/error_handler"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

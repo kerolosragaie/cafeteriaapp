@@ -42,7 +42,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
         binding= ActivityUpdateDeleteCategoryBinding.inflate(layoutInflater)
 
         loadingDialog = IonAlert(this@UpdateDeleteCategoryActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
+            .setSpinColor("#053776").setSpinKit("ThreeBounce")
 
         categoryService = ApiClient(this@UpdateDeleteCategoryActivity).buildService(CategoryService::class.java)
 

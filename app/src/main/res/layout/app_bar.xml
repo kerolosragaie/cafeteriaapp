@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
-    android:id="@+id/toolBar"
     android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:layout_height="?attr/actionBarSize">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_toolbar_profile"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/profile"/>
-
-    <TextView
-        android:id="@+id/tv_toolbar_title"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/app_name"
-        android:textSize="22sp"
-        android:layout_gravity="center"/>
+        android:id="@+id/tool_bar"
+        app:layout_scrollFlags="scroll|enterAlways">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_toolbar_profile"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/profile"/>
 
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:fontFamily="@font/runda_regular"
+            android:layout_gravity="center"/>
 
+    </androidx.appcompat.widget.Toolbar>
 
-</androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>

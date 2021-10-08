@@ -23,8 +23,8 @@
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="Order #"
             android:background="@drawable/ctr_bg"
-            android:alpha="0.9"
-            >
+            android:fontFamily="@font/runda_regular"
+            android:alpha="0.9">
 
             <ImageView
                 android:layout_width="match_parent"

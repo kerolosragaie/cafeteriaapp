@@ -24,8 +24,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/search_rounded_corner"
+            android:textColorHint="@color/black"
             android:drawableStart="@drawable/ic_search"
+            android:drawableTint="@color/black"
             android:hint="@string/search"
+            android:textCursorDrawable="@null"
             android:maxLines="1"
             android:padding="5dp"
             android:layout_weight="1"/>
@@ -35,7 +38,8 @@
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_outline_black"/>
+            android:src="@drawable/ic_add_circle"
+            app:tint="@color/black"/>
 
     </LinearLayout>
 
@@ -44,10 +48,10 @@
         android:id="@+id/error_search_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        layout="@layout/error_search_nothing_found"
         app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        layout="@layout/error_nothing_found"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/rv_meals_category"
@@ -68,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        layout="@layout/error"/>
+        layout="@layout/error_handler"/>
 
 
 

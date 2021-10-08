@@ -40,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp"
-            android:layout_margin="6dp">
+            android:layout_marginHorizontal="6dp"
+            android:layout_marginBottom="2dp">
             <ImageView
                 android:background="#4f0e0d0e"
                 android:id="@+id/iv_meals_edit"

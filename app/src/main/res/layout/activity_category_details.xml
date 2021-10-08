@@ -27,7 +27,8 @@
         <EditText
             android:id="@+id/et_mealdetails_search"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
+            android:textCursorDrawable="@null"
             android:background="@drawable/search_rounded_corner"
             android:drawableStart="@drawable/ic_search"
             android:hint="@string/search"
@@ -40,7 +41,8 @@
             android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_outline_white"/>
+            android:src="@drawable/ic_add_circle"
+            app:tint="@color/white"/>
 
         <ImageView
             android:id="@+id/iv_mealdetails_sortmenu"
@@ -58,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        layout="@layout/error_nothing_found"/>
+        layout="@layout/error_search_nothing_found"/>
 
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/rv_mealdetails_meals"
@@ -78,7 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        layout="@layout/error"/>
+        layout="@layout/error_handler"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

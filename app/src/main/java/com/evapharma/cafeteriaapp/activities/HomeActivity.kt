@@ -52,7 +52,6 @@ class HomeActivity : AppCompatActivity() {
 
     //Setup top tool bar:
     private fun setUpToolBar(){
-        //TODO: add my account icon and remove drawer:
         setSupportActionBar(binding.tbHome.toolBar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         binding.tbHome.ivToolbarProfile.setOnClickListener {

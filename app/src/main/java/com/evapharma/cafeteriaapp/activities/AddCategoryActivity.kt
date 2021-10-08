@@ -37,7 +37,7 @@ class AddCategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadingDialog = IonAlert(this@AddCategoryActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
+            .setSpinColor("#053776").setSpinKit("ThreeBounce")
 
         initButtons()
         initEt()

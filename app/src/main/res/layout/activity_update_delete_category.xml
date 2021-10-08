@@ -103,30 +103,36 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_udcat_update"
-                android:layout_width="170dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/btn_background"
                 android:fontFamily="@font/runda_regular"
                 android:text="@string/update"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp"
+                android:background="@drawable/btn_bb_corners_only"
+                android:drawableStart="@drawable/ic_update"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimaryVariant"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_udcat_delete"
-                android:layout_width="170dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/btn_background"
+                android:background="@drawable/btn_bb_corners_only"
                 android:fontFamily="@font/runda_regular"
                 android:text="@string/delete"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp"
+                android:drawableStart="@drawable/ic_delete"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimaryVariant"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

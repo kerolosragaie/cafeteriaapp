@@ -6,18 +6,21 @@
         android:id="@+id/item_bottomnav_meals"
         android:icon="@drawable/ic_meals"
         android:title="MEALS"
+        android:fontFamily="@font/runda_regular"
         app:cnb_iconColor="@color/white" />
 
     <item
         android:id="@+id/item_bottomnav_home"
         android:icon="@drawable/ic_home"
         android:title="HOME"
+        android:fontFamily="@font/runda_regular"
         app:cnb_iconColor="@color/white"/>
 
     <item
         android:id="@+id/item_bottomnav_offers"
         android:icon="@drawable/ic_offers"
         android:title="OFFERS"
+        android:fontFamily="@font/runda_regular"
         app:cnb_iconColor="@color/white"/>
 
 

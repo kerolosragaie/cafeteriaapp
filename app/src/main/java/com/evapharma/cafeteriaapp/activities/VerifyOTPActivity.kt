@@ -34,6 +34,10 @@ class VerifyOTPActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityVerifyOtpactivityBinding.inflate(layoutInflater)
+
+        loadingDialog = IonAlert(this@VerifyOTPActivity, IonAlert.PROGRESS_TYPE)
+            .setSpinColor("#053776").setSpinKit("ThreeBounce")
+
         setContentView(binding.root)
         initButtons()
         initEditTexts()

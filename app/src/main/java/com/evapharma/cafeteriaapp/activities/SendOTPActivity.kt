@@ -26,7 +26,7 @@ class SendOTPActivity : AppCompatActivity() {
         binding = ActivitySendOtpactivityBinding.inflate(layoutInflater)
 
         loadingDialog = IonAlert(this@SendOTPActivity, IonAlert.PROGRESS_TYPE)
-            .setSpinColor("#FF6200EE").setSpinKit("ThreeBounce")
+            .setSpinColor("#053776").setSpinKit("ThreeBounce")
 
         setContentView(binding.root)
         initButtons()
