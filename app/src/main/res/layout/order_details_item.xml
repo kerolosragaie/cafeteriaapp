@@ -7,36 +7,36 @@
 
         <TextView
             android:id="@+id/tv_orderdetailsitem_itemname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_column="1"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/runda_regular"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/dummy_name"
-            android:textSize="16sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_orderdetailsitem_itemqty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_column="1"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/runda_regular"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/dummy_name"
-            android:textSize="16sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_orderdetailsitem_itemprice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_column="1"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/runda_regular"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/dummy_name"
-            android:textSize="16sp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:textSize="16sp" />
 
     </TableRow>
 

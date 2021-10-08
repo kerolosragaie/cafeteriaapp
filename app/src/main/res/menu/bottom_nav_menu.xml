@@ -6,7 +6,7 @@
         android:id="@+id/item_bottomnav_meals"
         android:icon="@drawable/ic_meals"
         android:title="MEALS"
-        app:cnb_iconColor="@color/white"/>
+        app:cnb_iconColor="@color/white" />
 
     <item
         android:id="@+id/item_bottomnav_home"

@@ -27,41 +27,44 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/runda_regular"
+            android:letterSpacing="0.03"
             android:text="@string/login"
             android:textColor="@color/colorPrimaryVariant"
             android:textSize="35sp"
-            android:letterSpacing="0.03"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/et_login_email"
-            android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/et_background"
+            android:fontFamily="@font/runda_regular"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textCursorDrawable="@null"
-            android:textColorHint="@color/colorPrimaryVariant"
-            android:textColor="@color/colorPrimaryVariant"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
             android:paddingHorizontal="20dp"
-            android:background="@drawable/et_background"/>
+            android:textColor="@color/colorPrimaryVariant"
+            android:textColorHint="@color/colorPrimaryVariant"
+            android:textCursorDrawable="@null"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/et_login_password"
-            android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/et_background"
+            android:fontFamily="@font/runda_regular"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textCursorDrawable="@null"
-            android:textColorHint="@color/colorPrimaryVariant"
-            android:textColor="@color/colorPrimaryVariant"
-            android:textStyle="bold"
-            android:layout_marginTop="25dp"
             android:paddingHorizontal="20dp"
-            android:background="@drawable/et_background"/>
+            android:textColor="@color/colorPrimaryVariant"
+            android:textColorHint="@color/colorPrimaryVariant"
+            android:textCursorDrawable="@null"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="290dp"
@@ -81,9 +84,10 @@
                 android:id="@+id/tv_login_forgetpass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/runda_regular"
                 android:text="@string/forget_password"
                 android:textColor="@color/colorPrimaryVariant"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -95,6 +99,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/btn_background"
+            android:fontFamily="@font/runda_regular"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="20sp"

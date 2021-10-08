@@ -32,22 +32,24 @@
                 android:id="@+id/tv_food_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/runda_regular"
                 android:paddingHorizontal="5dp"
                 android:text="@string/Hamburger"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_food_description"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/runda_regular"
                 android:paddingStart="5dp"
                 android:text="@string/description"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@id/tv_food_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_food_name"
-                android:textSize="14sp" />
+                app:layout_constraintTop_toBottomOf="@id/tv_food_name" />
 
             <ImageView
                 android:id="@+id/iv_food_offer"
@@ -99,12 +101,13 @@
                     android:id="@+id/tv_food_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/runda_regular"
+                    android:maxEms="5"
+                    android:maxLines="1"
                     android:text="@string/food_price"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    android:maxLines="1"
-                    android:maxEms="5"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -128,12 +131,13 @@
                     android:id="@+id/tv_food_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/rating_stars"
-                    android:maxLines="1"
+                    android:fontFamily="@font/runda_regular"
                     android:maxEms="2"
+                    android:maxLines="1"
+                    android:text="@string/rating_stars"
                     android:textColor="@color/yellow"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

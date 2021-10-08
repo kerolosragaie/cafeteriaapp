@@ -31,7 +31,8 @@
                 android:textColor="@color/white"
                 android:text="@string/app_name"
                 android:textSize="22sp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:fontFamily="@font/runda_regular"/>
 
 
         </androidx.appcompat.widget.Toolbar>

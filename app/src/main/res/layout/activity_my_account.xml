@@ -43,6 +43,7 @@
                     android:id="@+id/textView14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/runda_regular"
                     android:text="@string/lion_fischer"
                     android:textColor="@color/black"
                     android:textSize="25dp"
@@ -53,11 +54,12 @@
 
                 <TextView
                     android:id="@+id/textView15"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/runda_regular"
                     android:text="@string/lionfischer_gmail_com"
 
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +86,7 @@
                         android:drawableStart="@drawable/ic_1"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
+                        android:fontFamily="@font/runda_regular"
                         android:paddingStart="20dp"
                         android:text="@string/account_settings"
                         android:textAlignment="viewStart"
@@ -100,6 +103,7 @@
                         android:drawableStart="@drawable/ic_2"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
+                        android:fontFamily="@font/runda_regular"
                         android:paddingStart="20dp"
                         android:text="@string/my_reviews"
                         android:textAlignment="viewStart"
@@ -116,6 +120,7 @@
                         android:drawableStart="@drawable/ic_3"
                         android:drawablePadding="20dp"
                         android:elevation="3dp"
+                        android:fontFamily="@font/runda_regular"
                         android:paddingStart="20dp"
                         android:text="@string/personal_information"
                         android:textAlignment="viewStart"
@@ -133,9 +138,10 @@
 
 
                         android:elevation="3dp"
+                        android:fontFamily="@font/runda_regular"
                         android:text="Back to Main Page"
-                        android:textColor="#ffffff"
 
+                        android:textColor="#ffffff"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>

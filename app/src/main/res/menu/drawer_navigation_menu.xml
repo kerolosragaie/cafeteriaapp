@@ -4,7 +4,7 @@
     <item
         android:id="@+id/item_drawer_myaccount"
         android:icon="@drawable/ic_profile"
-        android:title="@string/myaccount"/>
+        android:title="@string/myaccount" />
 
     <item
         android:id="@+id/item_drawer_usersaccounts"

@@ -20,7 +20,8 @@
             android:exported="true" />
         <activity
             android:name=".activities.AddCategoryActivity"
-            android:exported="true" />
+            android:exported="true"
+            />
         <activity
             android:name=".activities.AddProductActivity"
             android:exported="true" />

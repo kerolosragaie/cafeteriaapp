@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="#4f0e0d0e"
+            android:fontFamily="@font/runda_regular"
             android:gravity="center"
             android:text="@string/drinks"
             android:textAllCaps="true"
