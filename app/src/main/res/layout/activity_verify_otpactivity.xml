@@ -22,25 +22,25 @@
             />
 
         <TextView
+            style="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/runda_regular"
             android:text="@string/otp_verification"
             android:textColor="@color/colorTextPrimary"
-            android:textSize="20sp"
-            style="bold"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
+            android:fontFamily="@font/runda_regular"
             android:gravity="center"
             android:text="@string/enter_the_otp_sent_to"
             android:textColor="@color/colorTextSecondary"
-            android:textSize="14sp"
-            />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_verifyotp_mobilenumber"
@@ -49,11 +49,12 @@
             android:layout_marginStart="50dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="50dp"
+            android:fontFamily="@font/runda_regular"
             android:gravity="center"
             android:textColor="@color/colorTextPrimary"
             android:textSize="14sp"
             android:textStyle="bold"
-            tools:text="01222222222"/>
+            tools:text="01222222222" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,6 +67,7 @@
                 android:id="@+id/et_verifyotp_code1"
                 android:layout_width="40dp"
                 android:layout_height="45dp"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -74,14 +76,14 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="LabelFor"
-                />
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/et_verifyotp_code2"
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -90,14 +92,14 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="LabelFor"
-                />
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/et_verifyotp_code3"
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -106,14 +108,14 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="LabelFor"
-                />
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/et_verifyotp_code4"
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -122,14 +124,14 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="LabelFor"
-                />
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/et_verifyotp_code5"
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
@@ -138,14 +140,14 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="LabelFor"
-                />
+                tools:ignore="LabelFor" />
 
             <EditText
                 android:id="@+id/et_verifyotp_code6"
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
@@ -154,8 +156,7 @@
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                tools:ignore="LabelFor"
-                />
+                tools:ignore="LabelFor" />
 
         </LinearLayout>
 
@@ -163,6 +164,7 @@
             android:id="@+id/tv_verifyotp_timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/runda_regular"
             android:text="0"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
@@ -176,21 +178,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/runda_regular"
                 android:text="@string/didn_t_receive_the_otp"
                 android:textColor="@color/colorTextSecondary"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_resendotp_verifyotp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
+                android:fontFamily="@font/runda_regular"
                 android:text="@string/resend_otp"
                 android:textColor="@color/colorAccent"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -200,11 +202,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
             android:background="@drawable/btn_background"
+            android:fontFamily="@font/runda_regular"
             android:text="@string/verify"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
 
     </LinearLayout>

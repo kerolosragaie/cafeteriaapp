@@ -13,14 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/runda_regular"
         android:padding="4dp"
         android:text="@string/cost_low_to_high"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:lrb_checkedColor="@color/colorPrimary"
-        app:lrb_unCheckedColor="@android:color/black"
         app:lrb_inAnimDuration="500"
-        app:lrb_outAnimDuration="550"/>
+        app:lrb_outAnimDuration="550"
+        app:lrb_unCheckedColor="@android:color/black" />
 
     <me.omidh.liquidradiobutton.LiquidRadioButton
         android:id="@+id/radio_high_to_low"
@@ -28,14 +29,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/runda_regular"
         android:padding="4dp"
         android:text="@string/cost_high_to_low"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:lrb_checkedColor="@color/colorPrimary"
-        app:lrb_unCheckedColor="@android:color/black"
         app:lrb_inAnimDuration="500"
-        app:lrb_outAnimDuration="550"/>
+        app:lrb_outAnimDuration="550"
+        app:lrb_unCheckedColor="@android:color/black" />
 
     <me.omidh.liquidradiobutton.LiquidRadioButton
         android:id="@+id/radio_rating"
@@ -43,13 +45,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/runda_regular"
         android:padding="4dp"
         android:text="@string/rating"
-        android:textSize="16sp"
         android:textColor="@color/black"
+        android:textSize="16sp"
         app:lrb_checkedColor="@color/colorPrimary"
-        app:lrb_unCheckedColor="@android:color/black"
         app:lrb_inAnimDuration="500"
-        app:lrb_outAnimDuration="550"/>
+        app:lrb_outAnimDuration="550"
+        app:lrb_unCheckedColor="@android:color/black" />
 
 </RadioGroup>

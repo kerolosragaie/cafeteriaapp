@@ -30,15 +30,16 @@
                 android:id="@+id/tv_review_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/runda_regular"
+                android:maxLines="1"
                 android:text="Kerollos Ragaie"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:maxLines="1"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="4dp"
                 app:layout_constraintStart_toEndOf="@id/iv_review_userimg"
-                app:layout_constraintTop_toTopOf="@id/iv_review_userimg"/>
+                app:layout_constraintTop_toTopOf="@id/iv_review_userimg" />
 
 
 
@@ -68,15 +69,16 @@
                 android:id="@+id/tv_review_description"
                 android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:text="A great meal."
                 android:layout_marginStart="6dp"
+                android:fontFamily="@font/runda_regular"
+                android:maxLines="3"
+                android:text="A great meal."
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:maxLines="3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_review_userimg"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_review_userimg" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -67,37 +67,37 @@
                 <TableRow>
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/runda_regular"
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/item_name"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content" />
+                        android:textStyle="bold" />
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/runda_regular"
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/qty"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content" />
+                        android:textStyle="bold" />
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/runda_regular"
                         android:gravity="center"
                         android:padding="10dp"
                         android:text="@string/price"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content" />
+                        android:textStyle="bold" />
 
                 </TableRow>
 
@@ -115,10 +115,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="@string/total_price"
+                android:fontFamily="@font/runda_regular"
                 android:gravity="center"
+                android:text="@string/total_price"
                 android:textSize="20sp"
-                android:fontFamily="@font/roboto_medium"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -136,20 +136,19 @@
         android:src="@drawable/ic_back" />
 
 
-
     <Button
         android:id="@+id/btn_orderdetails_orderready"
-        android:text="@string/order_is_ready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/ic_check"
-        app:fabSize="normal"
-        android:focusable="true"
-        app:layout_anchor="@id/appbar_orderdetails"
-        app:layout_anchorGravity="end|bottom"
         android:layout_marginRight="30dp"
         android:backgroundTint="@color/colorSuccess"
-        />
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/runda_regular"
+        android:src="@drawable/ic_check"
+        android:text="@string/order_is_ready"
+        app:fabSize="normal"
+        app:layout_anchor="@id/appbar_orderdetails"
+        app:layout_anchorGravity="end|bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

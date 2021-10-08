@@ -63,78 +63,78 @@
                 android:id="@+id/et_udproductitem_mealimgurl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/image_url"
-                android:inputType="text"
-                android:textCursorDrawable="@null"
-                android:textColorHint="@color/colorPrimaryVariant"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
                 android:background="@drawable/et_background"
                 android:drawableStart="@drawable/ic_image"
-                android:drawableTint="@color/colorPrimaryVariant"
                 android:drawablePadding="10dp"
+                android:drawableTint="@color/colorPrimaryVariant"
+                android:fontFamily="@font/runda_regular"
+                android:hint="@string/image_url"
+                android:inputType="text"
                 android:maxLines="1"
-                />
+                android:paddingHorizontal="20dp"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorHint="@color/colorPrimaryVariant"
+                android:textCursorDrawable="@null"
+                android:textStyle="bold" />
 
 
             <EditText
                 android:id="@+id/et_udproductitem_mealname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/meal_name"
-                android:inputType="text"
-                android:textCursorDrawable="@null"
-                android:textColorHint="@color/colorPrimaryVariant"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
                 android:background="@drawable/et_background"
                 android:drawableStart="@drawable/ic_meals"
-                android:drawableTint="@color/colorPrimaryVariant"
                 android:drawablePadding="10dp"
+                android:drawableTint="@color/colorPrimaryVariant"
+                android:fontFamily="@font/runda_regular"
+                android:hint="@string/meal_name"
+                android:inputType="text"
                 android:maxLines="1"
-                />
+                android:paddingHorizontal="20dp"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorHint="@color/colorPrimaryVariant"
+                android:textCursorDrawable="@null"
+                android:textStyle="bold" />
 
             <me.abhinay.input.CurrencyEditText
                 android:id="@+id/et_udproductitem_mealprice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/price"
-                android:inputType="number"
-                android:textCursorDrawable="@null"
-                android:textColorHint="@color/colorPrimaryVariant"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
                 android:background="@drawable/et_background"
                 android:drawableStart="@drawable/ic_pound"
-                android:drawableTint="@color/colorPrimaryVariant"
                 android:drawablePadding="10dp"
+                android:drawableTint="@color/colorPrimaryVariant"
+                android:fontFamily="@font/runda_regular"
+                android:hint="@string/price"
+                android:inputType="number"
                 android:maxLines="1"
-                />
+                android:paddingHorizontal="20dp"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorHint="@color/colorPrimaryVariant"
+                android:textCursorDrawable="@null"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/et_udproductitem_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/description2"
-                android:inputType="textMultiLine"
-                android:textCursorDrawable="@null"
-                android:textColorHint="@color/colorPrimaryVariant"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:paddingHorizontal="20dp"
                 android:background="@drawable/et_background"
                 android:drawableStart="@drawable/ic_description"
-                android:drawableTint="@color/colorPrimaryVariant"
                 android:drawablePadding="10dp"
+                android:drawableTint="@color/colorPrimaryVariant"
+                android:fontFamily="@font/runda_regular"
+                android:hint="@string/description2"
+                android:inputType="textMultiLine"
                 android:maxLines="5"
-                />
+                android:paddingHorizontal="20dp"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorHint="@color/colorPrimaryVariant"
+                android:textCursorDrawable="@null"
+                android:textStyle="bold" />
 
 
             <LinearLayout
@@ -147,10 +147,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/runda_regular"
                     android:text="Add to offers?"
-                    android:textSize="20sp"
                     android:textColor="@color/colorPrimaryVariant"
-                    android:layout_weight="1"/>
+                    android:textSize="20sp" />
 
                 <com.bitvale.switcher.SwitcherX
                     android:id="@+id/switcher_food_UpdDel"
@@ -170,6 +171,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="30dp">
+
             <Button
                 android:id="@+id/btn_udproduct_update"
                 android:layout_width="170dp"
@@ -177,6 +179,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/btn_background"
+                android:fontFamily="@font/runda_regular"
                 android:text="@string/update"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
@@ -189,11 +192,11 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/btn_background"
+                android:fontFamily="@font/runda_regular"
                 android:text="@string/delete"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
