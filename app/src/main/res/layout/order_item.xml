@@ -76,7 +76,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginBottom="28dp"
             android:fontFamily="@font/runda_regular"
             android:text="@string/cant_be_null"
             android:textColor="@color/black"
