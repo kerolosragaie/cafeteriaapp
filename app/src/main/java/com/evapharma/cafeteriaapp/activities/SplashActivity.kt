@@ -35,8 +35,8 @@ class SplashActivity : AppCompatActivity() {
      * */
     private fun splashEffect() {
             Timer("SettingUp", false).schedule(SPLASH_TIME_OUT) {
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-                //isLoggedInBefore()
+                //startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                isLoggedInBefore()
         }
     }
 
