@@ -2,8 +2,6 @@ package com.evapharma.cafeteriaapp.models
 
 import java.io.Serializable
 
-
-
 data class CategoryRequest(
     var imageUrl: String ?=null,
     var name: String ?=null

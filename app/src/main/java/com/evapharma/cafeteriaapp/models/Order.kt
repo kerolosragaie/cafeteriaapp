@@ -15,8 +15,6 @@ data class OrderRequest(
     var isReady: Boolean?=null
 )
 
-
-
 data class OrderItems(
     val id: Int,
     val order: Any,
