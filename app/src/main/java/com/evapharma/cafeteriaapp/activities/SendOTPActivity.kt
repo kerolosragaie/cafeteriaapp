@@ -8,6 +8,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivitySendOtpactivityBinding
+import com.evapharma.cafeteriaapp.functions.shortToast
 import com.evapharma.cafeteriaapp.models.PhoneResponse
 import com.evapharma.cafeteriaapp.models.SendPhoneRequest
 import com.evapharma.cafeteriaapp.services.ResetPasswordService

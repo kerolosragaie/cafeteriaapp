@@ -8,9 +8,9 @@ import android.widget.Toast
 object UserHelper {
 
     /**
-     *To validate input data
+     *To validate login input data
      * */
-    fun validateData(_context: Context?, _email:EditText?, _password: EditText?):Boolean{
+    fun validateLogin(_context: Context?, _email:EditText?, _password: EditText?):Boolean{
         when{
             _email?.text!!.trim().isEmpty() && _password?.text!!.isEmpty() -> {
                 _email.error="Email cannot be empty!"

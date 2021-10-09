@@ -13,6 +13,7 @@ import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityAddProductItemBinding
+import com.evapharma.cafeteriaapp.functions.isValidUrl
 import com.evapharma.cafeteriaapp.models.*
 import com.evapharma.cafeteriaapp.services.ProductService
 import id.ionbit.ionalert.IonAlert

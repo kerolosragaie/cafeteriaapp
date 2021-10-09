@@ -42,12 +42,11 @@ class LoginActivity : AppCompatActivity() {
      * Set up views UI:
      * */
     private fun initUI(){
-
         //!Login button
         binding.btnLoginLogin.setOnClickListener {
             binding.btnLoginLogin.isActivated = false
             //first validate the fields:
-            if(UserHelper.validateData(this@LoginActivity, binding.etLoginEmail, binding.etLoginPassword)){
+            if(UserHelper.validateLogin(this@LoginActivity, binding.etLoginEmail, binding.etLoginPassword)){
                 loadingDialog.show()
                 //second check if email or password are correct:
                 val userRequest = UserRequest(binding.etLoginEmail.text.toString(),binding.etLoginPassword.text.toString())

@@ -1,6 +1,5 @@
 package com.evapharma.cafeteriaapp.services
 
-import android.database.Observable
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
 import retrofit2.Call

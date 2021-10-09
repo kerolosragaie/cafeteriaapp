@@ -2,7 +2,6 @@ package com.evapharma.cafeteriaapp.api
 
 import android.content.Context
 import com.evapharma.cafeteriaapp.models.UserResponse
-import com.evapharma.cafeteriaapp.services.LoginService
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response

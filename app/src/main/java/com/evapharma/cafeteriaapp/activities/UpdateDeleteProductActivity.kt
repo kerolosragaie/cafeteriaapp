@@ -12,6 +12,7 @@ import com.evapharma.cafeteriaapp.*
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityUpdateDeleteProductBinding
+import com.evapharma.cafeteriaapp.functions.isValidUrl
 import com.evapharma.cafeteriaapp.models.ProductRequest
 import com.evapharma.cafeteriaapp.models.ProductResponse
 import com.evapharma.cafeteriaapp.services.ProductService

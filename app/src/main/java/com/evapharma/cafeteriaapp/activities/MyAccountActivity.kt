@@ -7,8 +7,8 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityMyAccountBinding
+import com.evapharma.cafeteriaapp.functions.shortToast
 import com.evapharma.cafeteriaapp.models.UserResponse
-import com.evapharma.cafeteriaapp.shortToast
 
 class MyAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyAccountBinding

@@ -102,7 +102,7 @@
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_send_otpactivity.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_splash.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_test.xml" value="0.26927083333333335" />
-        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_update_delete_category.xml" value="0.152" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_update_delete_category.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_update_delete_product.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/activity_verify_otpactivity.xml" value="0.24558587479935795" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/app_bar.xml" value="0.264" />
@@ -123,7 +123,7 @@
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/offer_item.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/offer_item_shimmered.xml" value="0.2" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/offers_item.xml" value="0.536" />
-        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_details_item.xml" value="0.2046875" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_details_item.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_item.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_item_shimmered.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/profile_icon_layout.xml" value="0.2046875" />

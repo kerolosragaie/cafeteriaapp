@@ -1,11 +1,7 @@
 package com.evapharma.cafeteriaapp.api
 
 import android.content.Context
-import com.evapharma.cafeteriaapp.helpers.ProductAdapter
-import com.evapharma.cafeteriaapp.services.ProductService
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

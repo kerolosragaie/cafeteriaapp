@@ -8,7 +8,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.evapharma.cafeteriaapp.CATEGORY_DATA
 import com.evapharma.cafeteriaapp.R
@@ -40,16 +39,6 @@ class CategoryDetailsActivity : AppCompatActivity() {
 
 
     //init some variables for sorting option:
-    //sort according to ratings
-    /* var ratingComparator = Comparator<ProductResponse> { rest1, rest2 ->
-
-        if (rest1.rate.compareTo(rest2.rate) == 0) {
-            rest1.name.compareTo(rest2.name)
-        } else {
-            rest1.rate.compareTo(rest2.rate)
-        }
-    }*/
-
     //sort according to cost(decreasing)
     var costComparator = Comparator<ProductResponse> { rest1, rest2 ->
         rest1.price!!.compareTo(rest2.price!!)

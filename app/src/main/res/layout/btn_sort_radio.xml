@@ -40,6 +40,7 @@
         app:lrb_unCheckedColor="@android:color/black" />
 
     <me.omidh.liquidradiobutton.LiquidRadioButton
+        android:visibility="gone"
         android:id="@+id/radio_rating"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

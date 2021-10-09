@@ -1,4 +1,5 @@
-package com.evapharma.cafeteriaapp
+package com.evapharma.cafeteriaapp.functions
+
 import android.content.Context
 import android.widget.Toast
 

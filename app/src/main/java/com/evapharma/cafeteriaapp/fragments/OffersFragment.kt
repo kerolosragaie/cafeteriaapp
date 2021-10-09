@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.api.ApiClient
-import com.evapharma.cafeteriaapp.helpers.CategoryAdapter
 import com.evapharma.cafeteriaapp.helpers.OffersAdapter
-import com.evapharma.cafeteriaapp.models.CategoryResponse
 import com.evapharma.cafeteriaapp.models.ProductResponse
 import com.evapharma.cafeteriaapp.services.ProductService
 import retrofit2.Call

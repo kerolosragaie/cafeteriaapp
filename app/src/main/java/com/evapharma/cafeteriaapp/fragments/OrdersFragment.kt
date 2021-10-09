@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.cooltechworks.views.shimmer.ShimmerRecyclerView
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.helpers.OrdersAdapter
 import com.evapharma.cafeteriaapp.orders

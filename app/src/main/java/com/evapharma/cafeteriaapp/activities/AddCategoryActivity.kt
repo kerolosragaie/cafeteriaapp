@@ -10,10 +10,10 @@ import com.bumptech.glide.Glide
 import com.evapharma.cafeteriaapp.IMG_HEIGHT
 import com.evapharma.cafeteriaapp.IMG_WIDTH
 import com.evapharma.cafeteriaapp.R
-import com.evapharma.cafeteriaapp.isValidUrl
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityAddCategoryBinding
+import com.evapharma.cafeteriaapp.functions.isValidUrl
 import com.evapharma.cafeteriaapp.models.CategoryRequest
 import com.evapharma.cafeteriaapp.models.CategoryResponse
 import com.evapharma.cafeteriaapp.services.CategoryService

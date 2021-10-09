@@ -15,22 +15,6 @@ import com.evapharma.cafeteriaapp.models.Order
 class OrdersAdapter(private val orders: MutableList<Order>) :
     RecyclerView.Adapter<OrderViewHolder>() {
 
-    /* *In the fragment do this:
-    override fun onResume() {
-        super.onResume()
-        val adapter = OrdersAdapter(orders)
-        adapter.updateData(orders.reversed())
-        adapter.notifyDataSetChanged()
-    }
-    ?cannot used notifyDataSetChanged() Only
-     */
-
-    fun updateData(newOrders: List<Order>){
-        orders.clear()
-        orders.addAll(newOrders)
-        notifyDataSetChanged()
-    }
-
     override fun getItemCount(): Int {
         return orders.size
     }
