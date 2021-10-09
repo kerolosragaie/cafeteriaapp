@@ -29,12 +29,12 @@ import java.util.*
 
 
 class MealsFragment: Fragment(){
-    lateinit var categoryAdapter:CategoryAdapter
-    lateinit var recyclerView: ShimmerRecyclerView
+    private lateinit var categoryAdapter:CategoryAdapter
+    private lateinit var recyclerView: ShimmerRecyclerView
     private lateinit var categoryList:List<CategoryResponse>
     private lateinit var errorSearch:View
     private lateinit var errorLayout: ConstraintLayout
-    lateinit var etSearchForMenus:EditText
+    private lateinit var etSearchForMenus:EditText
     private lateinit var fragContext:Context
     private lateinit var addNewCatImage:ImageView
 

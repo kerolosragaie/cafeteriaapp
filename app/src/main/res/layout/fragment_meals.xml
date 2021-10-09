@@ -21,7 +21,7 @@
 
         <EditText
             android:id="@+id/et_meals_search"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="40dp"
             android:background="@drawable/search_rounded_corner"
             android:drawableStart="@drawable/ic_search"
@@ -67,7 +67,7 @@
         android:id="@+id/error_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_topbar"
+        app:layout_constraintTop_toBottomOf="@id/ll_topbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

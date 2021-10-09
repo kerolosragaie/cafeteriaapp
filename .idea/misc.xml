@@ -40,7 +40,7 @@
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/layout/review_item.xml" value="0.4" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14583333333333334" />
         <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/menu/drawer_navigation_menu.xml" value="0.14583333333333334" />
-        <entry key="..\:/AndroidStudioProjects/cafeteriaapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.26666666666666666" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable-v24/ic_lock_sign.xml" value="0.225" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/drawable/background_blue.xml" value="0.225" />
@@ -110,6 +110,7 @@
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/btn_sort_radio.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/drawer_navigation_header.xml" value="0.4" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/error.xml" value="0.264" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/error_handler.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/error_nothing_found.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/error_search_nothing_found.xml" value="0.2" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/food_item.xml" value="0.4" />
@@ -117,7 +118,7 @@
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_meals.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_my_account.xml" value="0.3796875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_offers.xml" value="0.2046875" />
-        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_orders.xml" value="0.2" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_orders.xml" value="0.264" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/fragment_profile.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/loading_layout.xml" value="0.2" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/meals_item.xml" value="0.152" />
@@ -125,7 +126,7 @@
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/offer_item_shimmered.xml" value="0.2" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/offers_item.xml" value="0.536" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_details_item.xml" value="0.4" />
-        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_item.xml" value="0.4" />
+        <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_item.xml" value="0.4993924665856622" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/order_item_shimmered.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/profile_icon_layout.xml" value="0.2046875" />
         <entry key="..\:/Documents/AndroidProjects/CafeteriaApp/app/src/main/res/layout/review_item.xml" value="0.4" />

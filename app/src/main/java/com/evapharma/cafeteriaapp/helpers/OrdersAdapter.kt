@@ -1,19 +1,27 @@
 package com.evapharma.cafeteriaapp.helpers
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.evapharma.cafeteriaapp.ORDER_DATA
+import com.evapharma.cafeteriaapp.PRODUCT_DATA
 import com.evapharma.cafeteriaapp.R
+import com.evapharma.cafeteriaapp.activities.OrderDetailsActivity
+import com.evapharma.cafeteriaapp.activities.UpdateDeleteProductActivity
 import com.evapharma.cafeteriaapp.models.Order
+import java.io.Serializable
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 
-class OrdersAdapter(private val orders: MutableList<Order>) :
+class OrdersAdapter(private val orders: List<Order>) :
     RecyclerView.Adapter<OrderViewHolder>() {
+
+    private lateinit var localDateTime: LocalDateTime
 
     override fun getItemCount(): Int {
         return orders.size
@@ -21,26 +29,29 @@ class OrdersAdapter(private val orders: MutableList<Order>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-            val view: View = inflater.inflate(R.layout.order_item, parent, false)
-            return  OrderViewHolder(view).apply {
-                    orderview.setOnClickListener {
-                        Toast.makeText(it.context, "item tapped on", Toast.LENGTH_LONG).show()
-                    }
-                }
-            }
+        val view: View = inflater.inflate(R.layout.order_item, parent, false)
+        return OrderViewHolder(view)
+    }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        val order: Order = orders[position]
-        holder.orderID.text = order.orderID.toString()
-        holder.employeeName.text = order.employeeName
-        holder.employeeDepartment.text = order.employeeDepartment
+        val singleOrder: Order = orders[position]
+        holder.orderID.text = singleOrder.id.toString()
+        localDateTime = LocalDateTime.parse(singleOrder.orderDate)
+        holder.orderTime.text = "${localDateTime.hour}: ${localDateTime.minute}/ ${localDateTime.dayOfMonth}-${localDateTime.monthValue}-${localDateTime.year}"
+        holder.userID.text = singleOrder.userId
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, OrderDetailsActivity::class.java)
+            intent.putExtra(ORDER_DATA, singleOrder as Serializable)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
+        }
+
     }
 
 }
 
 class OrderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    var orderview:ConstraintLayout = view.findViewById(R.id.view_home_orderview)
     var orderID: TextView = view.findViewById(R.id.tv_home_orderid)
-    var employeeName: TextView = view.findViewById(R.id.tv_home_empname)
-    var employeeDepartment: TextView = view.findViewById(R.id.tv_home_depname)
+    var orderTime: TextView = view.findViewById(R.id.tv_home_ordertime)
+    var userID: TextView = view.findViewById(R.id.tv_home_userid)
 }

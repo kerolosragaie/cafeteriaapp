@@ -8,24 +8,26 @@ var PHONE_NUMBER:String=""
 const val IMG_HEIGHT:Int=130
 const val IMG_WIDTH:Int =139
 
-var orderDetailsList = mutableListOf<OrderDetailsItem>().apply{
-    add(OrderDetailsItem(item_name = "Tea", qty = 1, price = 5.0))
-    add(OrderDetailsItem(item_name = "Pepsi", qty =1 , price = 3.0))
-    add(OrderDetailsItem(item_name = "Fries", qty = 1, price = 10.0))
-    add(OrderDetailsItem(item_name = "Burger", qty = 3, price = 15.0))
-    add(OrderDetailsItem(item_name = "Pizza", qty = 3, price = 20.0))
+var orderDetailsList = mutableListOf<OrderDetailsItemLocal>().apply{
+    add(OrderDetailsItemLocal(item_name = "Tea", qty = 1, price = 5.0))
+    add(OrderDetailsItemLocal(item_name = "Pepsi", qty =1 , price = 3.0))
+    add(OrderDetailsItemLocal(item_name = "Fries", qty = 1, price = 10.0))
+    add(OrderDetailsItemLocal(item_name = "Burger", qty = 3, price = 15.0))
+    add(OrderDetailsItemLocal(item_name = "Pizza", qty = 3, price = 20.0))
 }
 
-var orders = mutableListOf<Order>().apply{
-    add(Order(orderID = 109, employeeName = "Ahmed Rabie", employeeDepartment = "Pharma"))
-    add(Order(orderID = 209, employeeName = "Mohammed Abusarie", employeeDepartment = "IT"))
-    add(Order(orderID = 311, employeeName = "Maryam Maher", employeeDepartment = "IT"))
-    add(Order(orderID = 322, employeeName = "Ibrahiem Yousef", employeeDepartment = "IT"))
-    add(Order(orderID = 355, employeeName = "Mazen Mostafa", employeeDepartment = "Pharma"))
-    add(Order(orderID = 377, employeeName = "Hosaam Adly", employeeDepartment = "IT"))
-    add(Order(orderID = 111, employeeName = "Raghad Ahmed", employeeDepartment = "Pharma"))
-    add(Order(orderID = 122 ,employeeName = "Sam David", employeeDepartment = "Pharma"))
+/*
+var orders = mutableListOf<OrderLocal>().apply{
+    add(OrderLocal(orderID = 109, employeeName = "Ahmed Rabie", employeeDepartment = "Pharma"))
+    add(OrderLocal(orderID = 209, employeeName = "Mohammed Abusarie", employeeDepartment = "IT"))
+    add(OrderLocal(orderID = 311, employeeName = "Maryam Maher", employeeDepartment = "IT"))
+    add(OrderLocal(orderID = 322, employeeName = "Ibrahiem Yousef", employeeDepartment = "IT"))
+    add(OrderLocal(orderID = 355, employeeName = "Mazen Mostafa", employeeDepartment = "Pharma"))
+    add(OrderLocal(orderID = 377, employeeName = "Hosaam Adly", employeeDepartment = "IT"))
+    add(OrderLocal(orderID = 111, employeeName = "Raghad Ahmed", employeeDepartment = "Pharma"))
+    add(OrderLocal(orderID = 122 ,employeeName = "Sam David", employeeDepartment = "Pharma"))
 }
+*/
 
 
 
@@ -48,6 +50,7 @@ var menusList = mutableListOf<Menu>().apply{
 
 const val CATEGORY_DATA = "CATEGORY_DATA"
 const val PRODUCT_DATA = "PRODUCT_DATA"
+const val ORDER_DATA = "ORDER_DATA"
 
 
 //? Constants of activities:

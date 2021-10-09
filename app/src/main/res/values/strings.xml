@@ -44,8 +44,8 @@
     <!--Order item layout-->
     <string name="cant_be_null">*****:</string>
     <string name="order_id">Order ID:</string>
-    <string name="employee_name">Employee Name:</string>
-    <string name="department_name">Department Name:</string>
+    <string name="order_time">Time:</string>
+    <string name="user_id">User ID:</string>
     <string name="total_number_of_orders">Total orders:</string>
     <string name="total_price">Total Price:</string>
 

@@ -39,7 +39,6 @@ class OffersAdapter(val context: Context, private val offeredProducts: List<Prod
 
         //go to edit page:
         holder.editOffer.setOnClickListener {
-            //TODO: go to page which update/delete product
             val intent = Intent(holder.itemView.context, UpdateDeleteProductActivity::class.java)
             intent.putExtra(PRODUCT_DATA, singleProduct as Serializable)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
