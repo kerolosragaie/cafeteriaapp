@@ -14,7 +14,6 @@ import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityUpdateDeleteProductBinding
 import com.evapharma.cafeteriaapp.models.ProductRequest
 import com.evapharma.cafeteriaapp.models.ProductResponse
-import com.evapharma.cafeteriaapp.services.CategoryService
 import com.evapharma.cafeteriaapp.services.ProductService
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
@@ -93,7 +92,7 @@ class UpdateDeleteProductActivity : AppCompatActivity() {
         binding.etUdproductitemMealimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
                 .load(text.toString()) // image url
-                .placeholder(R.drawable.ic_meal) // any placeholder to load at start
+                .placeholder(R.drawable.im_meal) // any placeholder to load at start
                 .error(R.drawable.ic_error_sign)  // any image in case of error
                 .override(IMG_WIDTH, IMG_HEIGHT) // resizing
                 .centerCrop()

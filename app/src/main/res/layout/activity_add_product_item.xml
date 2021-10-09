@@ -28,7 +28,7 @@
                 android:layout_height="130dp"
                 android:contentDescription="@string/app_name"
 
-                android:src="@drawable/ic_meal"
+                android:src="@drawable/im_meal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/et_background"
-                android:drawableStart="@drawable/ic_pound"
+                android:drawableStart="@drawable/im_pound"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/colorPrimaryVariant"
                 android:fontFamily="@font/runda_regular"
