@@ -3,7 +3,6 @@ package com.evapharma.cafeteriaapp.activities
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
@@ -47,7 +46,7 @@ class AddCategoryActivity : AppCompatActivity() {
         binding.etAddcatCatimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
                 .load(text.toString())
-                .placeholder(R.drawable.ic_meal)
+                .placeholder(R.drawable.im_meal)
                 .error(R.drawable.ic_error_sign)
                 .override(IMG_WIDTH, IMG_HEIGHT)
                 .centerCrop()

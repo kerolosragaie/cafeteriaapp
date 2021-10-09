@@ -133,7 +133,7 @@ class AddProductActivity : AppCompatActivity() {
         binding.etAddproductitemMealimgurl.doOnTextChanged { text, start, before, count ->
             Glide.with(this)
                 .load(text.toString()) // image url
-                .placeholder(R.drawable.ic_meal) // any placeholder to load at start
+                .placeholder(R.drawable.im_meal) // any placeholder to load at start
                 .error(R.drawable.ic_error_sign)  // any image in case of error
                 .override(IMG_WIDTH, IMG_HEIGHT) // resizing
                 .centerCrop()
