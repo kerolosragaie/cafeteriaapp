@@ -8,6 +8,7 @@ var PHONE_NUMBER:String=""
 const val IMG_HEIGHT:Int=130
 const val IMG_WIDTH:Int =139
 
+/*
 var orderDetailsList = mutableListOf<OrderDetailsItemLocal>().apply{
     add(OrderDetailsItemLocal(item_name = "Tea", qty = 1, price = 5.0))
     add(OrderDetailsItemLocal(item_name = "Pepsi", qty =1 , price = 3.0))
@@ -16,7 +17,6 @@ var orderDetailsList = mutableListOf<OrderDetailsItemLocal>().apply{
     add(OrderDetailsItemLocal(item_name = "Pizza", qty = 3, price = 20.0))
 }
 
-/*
 var orders = mutableListOf<OrderLocal>().apply{
     add(OrderLocal(orderID = 109, employeeName = "Ahmed Rabie", employeeDepartment = "Pharma"))
     add(OrderLocal(orderID = 209, employeeName = "Mohammed Abusarie", employeeDepartment = "IT"))

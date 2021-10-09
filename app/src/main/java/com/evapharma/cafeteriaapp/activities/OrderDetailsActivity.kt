@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.ORDER_DATA
@@ -16,7 +15,6 @@ import com.evapharma.cafeteriaapp.databinding.ActivityOrderDetailsBinding
 import com.evapharma.cafeteriaapp.helpers.OrderDetailsItemsAdapter
 import com.evapharma.cafeteriaapp.models.*
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
-import com.evapharma.cafeteriaapp.orderDetailsList
 import com.evapharma.cafeteriaapp.services.OrderService
 import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
@@ -142,7 +140,7 @@ class OrderDetailsActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                loadingDialog.dismiss()
+                loadingDialog.hide()
                 IonAlert(this@OrderDetailsActivity, IonAlert.ERROR_TYPE)
                     .setTitleText("ERROR")
                     .setContentText("Something went wrong, $t")
@@ -200,7 +198,7 @@ class OrderDetailsActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<OrderItems>>, t: Throwable) {
-                loadingDialog.dismiss()
+                loadingDialog.hide()
                 IonAlert(this@OrderDetailsActivity, IonAlert.ERROR_TYPE)
                     .setTitleText("ERROR")
                     .setContentText("Something went wrong, $t")
