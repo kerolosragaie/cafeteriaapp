@@ -213,7 +213,7 @@ class OrderDetailsActivity : AppCompatActivity() {
     private fun sumPrice(list:List<OrderItems>): Double {
         var total=0.0
         list.forEach {
-            total+= it.product.price!!
+            total+= it.product.price!! * it.quantity
         }
         return total
     }
