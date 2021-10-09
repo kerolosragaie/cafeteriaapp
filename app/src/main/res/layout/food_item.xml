@@ -48,27 +48,15 @@
                 android:fontFamily="@font/runda_regular"
                 android:text="@string/description"
                 android:textSize="12sp"
-                android:maxLines="4"
+                android:maxLines="5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_food_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_food_name" />
+                app:layout_constraintTop_toBottomOf="@id/tv_food_name"/>
 
 
 
 
-            <TextView
-                android:id="@+id/tv_food_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:fontFamily="@font/runda_regular"
-                android:maxEms="5"
-                android:text="@string/food_price"
-                android:textSize="14sp"
-                android:maxLines="1"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -105,6 +93,7 @@
                     android:src="@drawable/ic_edit"
                     android:paddingHorizontal="5dp"/>
 
+
             </LinearLayout>
 
             <LinearLayout
@@ -135,6 +124,22 @@
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_food_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/runda_regular"
+                android:maxEms="5"
+                android:text="@string/food_price"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

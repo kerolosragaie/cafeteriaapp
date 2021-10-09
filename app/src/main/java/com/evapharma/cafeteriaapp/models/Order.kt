@@ -8,7 +8,7 @@ data class Order(
     val isReady: Boolean,
     val orderDate: String,
     val orderItems: List<Any>,
-    val userId: String
+    val userId: String,
 ):Serializable
 
 data class OrderRequest(

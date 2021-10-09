@@ -38,7 +38,8 @@ class OrdersAdapter(private val orders: List<Order>) :
         holder.orderID.text = singleOrder.id.toString()
         localDateTime = LocalDateTime.parse(singleOrder.orderDate)
         holder.orderTime.text = "${localDateTime.hour}: ${localDateTime.minute}/ ${localDateTime.dayOfMonth}-${localDateTime.monthValue}-${localDateTime.year}"
-        holder.userID.text = singleOrder.userId
+        //TODO: waiting API to send back user name:
+        //holder.userID.text = singleOrder.userId
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, OrderDetailsActivity::class.java)

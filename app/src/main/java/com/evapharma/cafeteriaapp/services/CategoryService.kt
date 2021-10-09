@@ -15,11 +15,10 @@ interface CategoryService {
     /*
     @GET("Category/getCategories")
     fun getCategories() : Call<List<CategoryResponse>>
-     */
 
     /**Get single category by ID*/
     @GET("Category/getCategory")
-    fun getSingleCategory(@Query("id") id:Int):Call<CategoryResponse>
+    fun getSingleCategory(@Query("id") id:Int):Call<CategoryResponse>*/
 
     /**Create new category*/
     @POST("Category/createCategory")

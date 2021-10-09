@@ -7,12 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface LoginService {
-    companion object {
-        const val TOKEN_ENDPOINT = "auth/login"
-    }
-
-    //Add new destiny
-    //we will need body (object) to be added to destination list
-    @POST(TOKEN_ENDPOINT)
+    @POST("auth/login")
     fun userLogin(@Body userRequest: UserRequest) : Call<UserResponse>
 }

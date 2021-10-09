@@ -85,7 +85,6 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener{
                     }
                     totalNumOrders.text = "TOTAL ORDERS: "+ordersList.size.toString()
                 } else {
-                    //TODO: add handler if not logged in user:
                     rvRefresher.isRefreshing=false
                     val errorCode:String = when(response.code()){
                         404 -> {

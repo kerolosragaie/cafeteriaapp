@@ -48,7 +48,9 @@ class SendOTPActivity : AppCompatActivity() {
         requestCall.enqueue(object: Callback<PhoneResponse>{
             override fun onResponse(call: Call<PhoneResponse>, response: Response<PhoneResponse>) {
                 if(response.isSuccessful){
-                    //TODO: go to verify OTP and send with it phone (intent)
+                    /*
+                    TODO: go to verify OTP and send with it phone (intent), waiting backend to finish it
+                     */
                     loadingDialog.dismiss()
                     binding.btnGetotpSendotp.isActivated=true
                     val intent = Intent(this@SendOTPActivity, VerifyOTPActivity::class.java)
