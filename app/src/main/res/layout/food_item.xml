@@ -25,6 +25,7 @@
             android:src="@drawable/im_default_image_restaurant" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginStart="5dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.6">
@@ -34,7 +35,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/runda_regular"
-                android:paddingHorizontal="5dp"
                 android:text="@string/Hamburger"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -43,13 +43,13 @@
 
             <TextView
                 android:id="@+id/tv_food_description"
-                android:layout_width="160dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/runda_regular"
-                android:paddingHorizontal="5dp"
                 android:text="@string/description"
                 android:textSize="12sp"
-                android:maxLines="5"
+                android:maxLines="4"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_food_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_food_name" />
 
@@ -62,11 +62,11 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:fontFamily="@font/runda_regular"
-                android:paddingHorizontal="5dp"
                 android:maxEms="5"
                 android:text="@string/food_price"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:maxLines="1"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 

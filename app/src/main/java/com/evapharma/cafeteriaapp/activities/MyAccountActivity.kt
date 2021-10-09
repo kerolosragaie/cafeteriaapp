@@ -8,6 +8,7 @@ import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.api.SessionManager
 import com.evapharma.cafeteriaapp.databinding.ActivityMyAccountBinding
 import com.evapharma.cafeteriaapp.models.UserResponse
+import com.evapharma.cafeteriaapp.shortToast
 
 class MyAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyAccountBinding
@@ -27,17 +28,25 @@ class MyAccountActivity : AppCompatActivity() {
     }
 
     private fun initButtons(){
+
+        binding.btnInformationMyaccount.setOnClickListener {
+            shortToast(this@MyAccountActivity,"Coming soon...")
+        }
+
+        binding.btnReviewsMyaccount.setOnClickListener {
+            shortToast(this@MyAccountActivity,"Coming soon...")
+        }
+
+        binding.btnSettingsMyaccount.setOnClickListener {
+            shortToast(this@MyAccountActivity,"Coming soon...")
+        }
+
         binding.btnMyaccountLogout.setOnClickListener {
             SessionManager(this@MyAccountActivity).deleteAccessToken()
             startActivity(Intent(this@MyAccountActivity, LoginActivity::class.java))
             Animatoo.animateCard(this@MyAccountActivity)
             finishAffinity()
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        Animatoo.animateSlideUp(this@MyAccountActivity)
     }
 
 

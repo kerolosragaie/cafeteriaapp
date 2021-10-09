@@ -1,6 +1,5 @@
 package com.evapharma.cafeteriaapp.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged

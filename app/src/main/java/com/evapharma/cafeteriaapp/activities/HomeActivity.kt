@@ -58,7 +58,6 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this@HomeActivity, MyAccountActivity::class.java)
             intent.putExtra(USER_DATA,currentUserResponse)
             startActivity(intent)
-            Animatoo.animateSlideDown(this@HomeActivity)
         }
 
     }
@@ -159,5 +158,6 @@ class HomeActivity : AppCompatActivity() {
                 .show()
         }
     }
+
 
 }

@@ -31,7 +31,7 @@
             android:letterSpacing="0.03"
             android:text="@string/login"
             android:textColor="@color/colorPrimaryVariant"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <EditText
