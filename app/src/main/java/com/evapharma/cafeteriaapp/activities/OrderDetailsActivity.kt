@@ -61,8 +61,8 @@ class OrderDetailsActivity : AppCompatActivity() {
     }
 
     private fun initTotalPrice(){
-        val tv_total:TextView=findViewById<TextView>(R.id.tv_orderdetails_totalprice)
-        tv_total.text= tv_total.text.toString() +"  "+ sumPrice(orderDetailsList).toString()
+        val tvtotal:TextView=findViewById<TextView>(R.id.tv_orderdetails_totalprice)
+        tvtotal.text= tvtotal.text.toString() +"  "+ sumPrice(orderDetailsList).toString()
     }
 
     private fun sumPrice(list:List<OrderDetailsItem>): Double {

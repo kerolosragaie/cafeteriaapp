@@ -2,7 +2,6 @@ package com.evapharma.cafeteriaapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import com.bumptech.glide.Glide
 import android.content.Intent
 import android.net.Uri
@@ -20,7 +19,6 @@ import retrofit2.*
 
 
 class AddProductActivity : AppCompatActivity() {
-    var mealsEditTextList = mutableListOf<EditText>()
     private lateinit var binding:ActivityAddProductItemBinding
     private var SELECT_PICTURE = 200
 
