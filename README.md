@@ -27,3 +27,6 @@
 
 ![](images/5-add-remove-offers.gif)
 
+6- The app can handle any error connection from internet/server:
+
+![](images/6-handle-api-connection.gif)
