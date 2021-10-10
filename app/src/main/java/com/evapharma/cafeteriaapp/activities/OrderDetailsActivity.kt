@@ -20,6 +20,7 @@ import id.ionbit.ionalert.IonAlert
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.abs
 
 
 class OrderDetailsActivity : AppCompatActivity() {
@@ -52,8 +53,8 @@ class OrderDetailsActivity : AppCompatActivity() {
 
     private fun initCollapsingToolbar(){
         binding.ctOrderdetails.apply{
-            setExpandedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor);
-            setCollapsedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor);
+            setExpandedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor)
+            setCollapsedTitleTextAppearance(R.style.collapsingToolbarLayoutTitleColor)
         }
     }
     private fun initButtons(){
@@ -68,7 +69,7 @@ class OrderDetailsActivity : AppCompatActivity() {
     private fun initAppBar(){
         binding.appbarOrderdetails.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
             val btnready:Button=binding.btnOrderdetailsOrderready
-            if (Math.abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
+            if (abs(verticalOffset) - appBarLayout.totalScrollRange == 0) {
                 //  Collapsed
                 btnready.visibility= View.INVISIBLE
             } else {
