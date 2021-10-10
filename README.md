@@ -1,4 +1,4 @@
-<h1 align="center">EVA Cafeteria Manager App</h1>
+<h1 align="center">EVA CAFETERIA MANAGER APP</h1>
 
 
 
