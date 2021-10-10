@@ -1,4 +1,10 @@
-<h1 align="center">EVA CAFETERIA MANAGER APP</h1>
+<h1 align="center">
+    <p align="center">
+        <img src="app/src/main/res/drawable/logo.png" width="110">
+    </p>
+EVA CAFETERIA MANAGER APP
+</h1>
+
 
 
 
