@@ -1,5 +1,11 @@
-# EVA Cafeteria Manager App
-![](images/launcher.png)
+<h1 align="center">EVA Cafeteria Manager App</h1>
+
+
+
+<p align="center">
+    <img src="images/launcher.png">
+</p>
+
 
 1- Manager can login and receive orders, after finishing orders can confirm order is ready:
 
