@@ -63,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
                                 loadingDialog.dismiss()
                                 binding.btnLoginLogin.isActivated = true
                                 IonAlert(this@LoginActivity, IonAlert.ERROR_TYPE)
-                                    .setTitleText("ERROR!")
+                                    .setTitleText("ERROR")
                                     .setContentText("Only admins can login.")
                                     .show()
                             }
@@ -85,7 +85,7 @@ class LoginActivity : AppCompatActivity() {
                             loadingDialog.dismiss()
                             binding.btnLoginLogin.isActivated = true
                             IonAlert(this@LoginActivity, IonAlert.ERROR_TYPE)
-                                .setTitleText("ERROR!")
+                                .setTitleText("ERROR")
                                 .setContentText(errorCode)
                                 .show()
                         }

@@ -184,6 +184,7 @@ class UpdateDeleteCategoryActivity : AppCompatActivity() {
                         .setTitleText("UPDATED")
                         .setContentText("Current category updated successfully.")
                         .setConfirmClickListener {
+                            it.hide()
                             finish()
                         }
                         .show()

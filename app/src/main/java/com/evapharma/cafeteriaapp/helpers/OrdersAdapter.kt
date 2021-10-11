@@ -8,13 +8,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.evapharma.cafeteriaapp.ORDER_DATA
-import com.evapharma.cafeteriaapp.PRODUCT_DATA
 import com.evapharma.cafeteriaapp.R
 import com.evapharma.cafeteriaapp.activities.OrderDetailsActivity
-import com.evapharma.cafeteriaapp.activities.UpdateDeleteProductActivity
 import com.evapharma.cafeteriaapp.models.Order
 import java.io.Serializable
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 
@@ -29,7 +26,7 @@ class OrdersAdapter(private val orders: List<Order>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val view: View = inflater.inflate(R.layout.order_item, parent, false)
+        val view: View = inflater.inflate(R.layout.item_order, parent, false)
         return OrderViewHolder(view)
     }
 

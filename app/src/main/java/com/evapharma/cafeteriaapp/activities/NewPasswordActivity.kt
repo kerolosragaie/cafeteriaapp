@@ -6,7 +6,6 @@ import androidx.core.widget.doOnTextChanged
 import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.evapharma.cafeteriaapp.MIN_PASSWORD_LENGTH
 import com.evapharma.cafeteriaapp.PHONE_RESPONSE
-import com.evapharma.cafeteriaapp.USER_DATA
 import com.evapharma.cafeteriaapp.api.ApiClient
 import com.evapharma.cafeteriaapp.databinding.ActivityNewPasswordBinding
 import com.evapharma.cafeteriaapp.models.ResetPasswordRequest
@@ -86,7 +85,7 @@ class NewPasswordActivity : AppCompatActivity() {
     private fun getPhoneResponse():String?{
         val bundle:Bundle? = intent.extras
         if(bundle?.containsKey(PHONE_RESPONSE)!!) {
-            return intent.extras?.get(USER_DATA) as String
+            return intent.extras?.get(PHONE_RESPONSE) as String
         }
         return null
     }
@@ -115,13 +114,14 @@ class NewPasswordActivity : AppCompatActivity() {
                             .setTitleText("PASSWORD CHANGED")
                             .setContentText("Password changed successfully, please login.")
                             .setConfirmClickListener {
+                                it.hide()
                                 finish()
-                                Animatoo.animateSlideLeft(this@NewPasswordActivity)
+                                Animatoo.animateSlideRight(this@NewPasswordActivity)
                             }
                             .show()
                     }else{
                         IonAlert(this@NewPasswordActivity, IonAlert.ERROR_TYPE)
-                            .setTitleText("ERROR!")
+                            .setTitleText("ERROR")
                             .setContentText("Wrong password format.")
                             .show()
                     }
@@ -140,8 +140,8 @@ class NewPasswordActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     binding.btnNewpasswordUpdate.isActivated=true
                     IonAlert(this@NewPasswordActivity, IonAlert.ERROR_TYPE)
-                        .setTitleText("ERROR!")
-                        .setContentText(response.code().toString())
+                        .setTitleText("ERROR")
+                        .setContentText(errorCode)
                         .show()
                 }
 

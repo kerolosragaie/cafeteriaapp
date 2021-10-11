@@ -194,6 +194,13 @@ class OrderDetailsActivity : AppCompatActivity() {
                     IonAlert(this@OrderDetailsActivity, IonAlert.ERROR_TYPE)
                         .setTitleText("ERROR")
                         .setContentText(errorCode.toString())
+                        .setConfirmText("Retry")
+                        .setConfirmClickListener {
+                            it.hide()
+                            getCurrentOrderItems()
+                        }
+                        .setCancelText("Cancel")
+                        .setCancelClickListener { finish() }
                         .show()
                 }
             }
@@ -203,6 +210,13 @@ class OrderDetailsActivity : AppCompatActivity() {
                 IonAlert(this@OrderDetailsActivity, IonAlert.ERROR_TYPE)
                     .setTitleText("ERROR")
                     .setContentText("Something went wrong, $t")
+                    .setConfirmText("Retry")
+                    .setConfirmClickListener {
+                        it.hide()
+                        getCurrentOrderItems()
+                    }
+                    .setCancelText("Cancel")
+                    .setCancelClickListener { finish() }
                     .show()
             }
 

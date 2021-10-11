@@ -27,6 +27,7 @@ class VerifyOTPActivity : AppCompatActivity() {
     private lateinit var binding: ActivityVerifyOtpactivityBinding
     private var listOfet: List<EditText> = listOf()
     private var sizeofets:Int=0
+    private var phoneNumber:String?=null
 
     //to show or hide loading:
     private lateinit var loadingDialog : IonAlert
@@ -43,6 +44,7 @@ class VerifyOTPActivity : AppCompatActivity() {
         initEditTexts()
         setViewPhonenumber()
         setUpTimer()
+        getPhoneResponse()
     }
 
     //when back pressed animate backward:
@@ -65,6 +67,7 @@ class VerifyOTPActivity : AppCompatActivity() {
                     .setContentText("OTP expired, please request new one.")
                     .setConfirmText("Ok")
                     .setConfirmClickListener {
+                        it.hide()
                         finish()
                         Animatoo.animateSlideRight(this@VerifyOTPActivity)
                     }.show()
@@ -73,17 +76,15 @@ class VerifyOTPActivity : AppCompatActivity() {
     }
 
     //to phone response from last page use if needed:
-    private fun getPhoneResponse():String?{
+    private fun getPhoneResponse(){
         val bundle:Bundle? = intent.extras
         if(bundle?.containsKey(PHONE_RESPONSE)!!) {
-            return intent.extras?.get(USER_DATA) as String
+            phoneNumber = intent.extras?.get(PHONE_RESPONSE) as String
         }
-        return null
     }
 
     private fun apiGetOTP(){
         if(isEtValid()){
-            //call api and get the otp code of the user
             callApi()
         }
     }
@@ -102,7 +103,7 @@ class VerifyOTPActivity : AppCompatActivity() {
         loadingDialog.show()
         binding.btnOnverifyVerifyotp.isActivated=false
         val resetPasswordService:ResetPasswordService = ApiClient(this@VerifyOTPActivity).buildService(ResetPasswordService::class.java)
-        val requestCall: Call<SendOtpResponse> = resetPasswordService.sendOtp(SendOtpRequest(getInput(),binding.tvResendotpVerifyotp.text.toString()))
+        val requestCall: Call<SendOtpResponse> = resetPasswordService.sendOtp(SendOtpRequest(getInput(),phoneNumber!!.toString()))
         requestCall.enqueue(object: Callback<SendOtpResponse>{
             override fun onResponse(call: Call<SendOtpResponse>, response: Response<SendOtpResponse>) {
                 if(response.isSuccessful){
@@ -110,13 +111,13 @@ class VerifyOTPActivity : AppCompatActivity() {
                     binding.btnOnverifyVerifyotp.isActivated=true
                     if(response.body()!!.isCorrect){
                         val intent = Intent(this@VerifyOTPActivity,NewPasswordActivity::class.java)
-                        intent.putExtra(PHONE_RESPONSE,getPhoneResponse())
-                        startActivity(Intent(this@VerifyOTPActivity,NewPasswordActivity::class.java))
+                        intent.putExtra(PHONE_RESPONSE,phoneNumber)
+                        startActivity(intent)
                         Animatoo.animateSlideLeft(this@VerifyOTPActivity)
                         finish()
                     }else{
                         IonAlert(this@VerifyOTPActivity, IonAlert.ERROR_TYPE)
-                            .setTitleText("ERROR!")
+                            .setTitleText("ERROR")
                             .setContentText("Wrong OTP, try again.")
                             .show()
                     }
@@ -135,8 +136,8 @@ class VerifyOTPActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     binding.btnOnverifyVerifyotp.isActivated=true
                     IonAlert(this@VerifyOTPActivity, IonAlert.ERROR_TYPE)
-                        .setTitleText("ERROR!")
-                        .setContentText(response.code().toString())
+                        .setTitleText("ERROR")
+                        .setContentText(errorCode+"/n"+response.errorBody())
                         .show()
                 }
             }
@@ -145,7 +146,7 @@ class VerifyOTPActivity : AppCompatActivity() {
                 loadingDialog.dismiss()
                 binding.btnOnverifyVerifyotp.isActivated=true
                 IonAlert(this@VerifyOTPActivity, IonAlert.ERROR_TYPE)
-                    .setTitleText("ERROR!")
+                    .setTitleText("ERROR")
                     .setContentText("$t")
                     .show()
             }
@@ -154,7 +155,7 @@ class VerifyOTPActivity : AppCompatActivity() {
     }
 
     private fun setViewPhonenumber(){
-        binding.tvVerifyotpMobilenumber.text=PHONE_NUMBER
+      //  binding.tvVerifyotpMobilenumber.text=phoneNumber.toString()
     }
     private fun initEditTexts(){
          listOfet=listOf(
@@ -191,14 +192,17 @@ class VerifyOTPActivity : AppCompatActivity() {
         return result
     }
 
+/*
     private fun isVerifiedOTP(input:String, otp:String):Boolean{
         return input==otp
     }
+*/
 
 
     private fun initButtons(){
         binding.btnOnverifyVerifyotp.setOnClickListener {
-            apiGetOTP()
+            //apiGetOTP()
+            callApi()
         }
 
         binding.tvResendotpVerifyotp.setOnClickListener {

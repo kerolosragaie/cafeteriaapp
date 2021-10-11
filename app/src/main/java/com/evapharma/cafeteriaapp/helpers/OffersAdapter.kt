@@ -29,7 +29,7 @@ class OffersAdapter(val context: Context, private val offeredProducts: List<Prod
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.offer_item, parent, false)
+            .inflate(R.layout.item_offer, parent, false)
         return ProductViewHolder(view)
     }
 

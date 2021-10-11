@@ -51,19 +51,22 @@ var menusList = mutableListOf<Menu>().apply{
 const val CATEGORY_DATA = "CATEGORY_DATA"
 const val PRODUCT_DATA = "PRODUCT_DATA"
 const val ORDER_DATA = "ORDER_DATA"
+const val USER_DATA = "USER_DATA"
+const val PHONE_RESPONSE = "PHONE_RESPONSE"
 
 
 //? Constants of activities:
-//! Splash activity
-const val SPLASH_TIME_OUT: Long = 2500
-//! Login activity
-const val USER_DATA:String="USER_DATA"
-//! New password activity
+//! Splash ASH_TIME_OUT: Long = 2500
+const val SPLASH_TIME_OUT :Long = 2500
+////! Login activity
+//const val USER_DATA:String="USER_DATA"
+////! New password activity
 const val MIN_PASSWORD_LENGTH=8
-//! Send OTP activity
+////! Send OTP activity
 const val STARTER:String="0"
 const val PHONE_LENGTH:Int=11
-const val PHONE_RESPONSE:String="PHONE_RESPONSE"
+//const val PHONE_RESPONSE:activity
+const val SPLString="PHONE_RESPONSE"
 
 //------------------------------------------------------
 //? Constants of helpers:

@@ -152,6 +152,7 @@ class UpdateDeleteProductActivity : AppCompatActivity() {
                  .setConfirmText("Yes")
                  .setCancelText("Cancel")
                  .setConfirmClickListener {
+                     it.hide()
                      deleteAPI()
                  }
                  .show()
@@ -198,6 +199,7 @@ class UpdateDeleteProductActivity : AppCompatActivity() {
                         .setTitleText("UPDATED")
                         .setContentText("Current product updated successfully.")
                         .setConfirmClickListener {
+                            it.hide()
                             finish()
                         }
                         .show()

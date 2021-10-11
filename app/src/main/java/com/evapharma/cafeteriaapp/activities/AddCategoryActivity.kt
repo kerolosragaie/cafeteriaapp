@@ -136,6 +136,7 @@ class AddCategoryActivity : AppCompatActivity() {
                         .setTitleText("ADDED")
                         .setContentText("Current category added successfully.")
                         .setConfirmClickListener {
+                            it.hide()
                             finish()
                         }
                         .show()

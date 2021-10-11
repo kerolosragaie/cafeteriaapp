@@ -39,6 +39,46 @@ class SendOTPActivity : AppCompatActivity() {
     private fun isCorrectLength(phone:String,target_length:Int):Boolean{
         return phone.length==target_length
     }
+
+    private fun getOtp(phone:String):Boolean{
+       if ( !isFormatPhone(phone)){
+           shortToast(this,"Wrong phone format.")
+           return false
+       }
+        if ( !isCorrectLength(phone, PHONE_LENGTH)){
+            shortToast(this,"Wrong Phone number length.")
+            return false
+        }
+
+        return true
+    }
+
+    private fun initEditTexts(){
+        binding.etSendotpInputmobile.doOnTextChanged { text, start, before, count ->
+            PHONE_NUMBER= text.toString()
+        }
+    }
+
+    //when back pressed animate backward:
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Animatoo.animateSlideRight(this@SendOTPActivity)
+    }
+
+    //init buttons and call API
+    private fun initButtons(){
+        binding.btnGetotpSendotp.setOnClickListener {
+            if(binding.etSendotpInputmobile.text.isNotEmpty() && binding.etSendotpInputmobile.text.length==PHONE_LENGTH){
+                callAPI(binding.etSendotpInputmobile.text.toString())
+            }else{
+                IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
+                    .setTitleText("ERROR")
+                    .setContentText("Wrong phone format.")
+                    .show()
+            }
+        }
+    }
+
     private fun callAPI(phone:String){
         //call api here:
         loadingDialog.show()
@@ -48,15 +88,12 @@ class SendOTPActivity : AppCompatActivity() {
         requestCall.enqueue(object: Callback<PhoneResponse>{
             override fun onResponse(call: Call<PhoneResponse>, response: Response<PhoneResponse>) {
                 if(response.isSuccessful){
-                    /*
-                    TODO: go to verify OTP and send with it phone (intent), waiting backend to finish it
-                     */
                     loadingDialog.dismiss()
                     binding.btnGetotpSendotp.isActivated=true
                     val intent = Intent(this@SendOTPActivity, VerifyOTPActivity::class.java)
-                    intent.putExtra(PHONE_RESPONSE,binding.etSendotpInputmobile.text)
+                    intent.putExtra(PHONE_RESPONSE,binding.etSendotpInputmobile.text.toString())
                     startActivity(intent)
-                    Animatoo.animateSlideRight(this@SendOTPActivity)
+                    Animatoo.animateSlideLeft(this@SendOTPActivity)
                     finish()
                 }else{
                     val errorCode:String = when(response.code()){
@@ -76,7 +113,7 @@ class SendOTPActivity : AppCompatActivity() {
                     loadingDialog.dismiss()
                     binding.btnGetotpSendotp.isActivated=true
                     IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
-                        .setTitleText("ERROR!")
+                        .setTitleText("ERROR")
                         .setContentText(errorCode)
                         .show()
                 }
@@ -86,48 +123,12 @@ class SendOTPActivity : AppCompatActivity() {
                 loadingDialog.dismiss()
                 binding.btnGetotpSendotp.isActivated=true
                 IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
-                    .setTitleText("ERROR!")
+                    .setTitleText("ERROR")
                     .setContentText("$t")
                     .show()
             }
 
         })
-    }
-    private fun getOtp(phone:String):Boolean{
-       if ( !isFormatPhone(phone)){
-           shortToast(this,"Wrong phone format.")
-           return false
-       }
-        if ( !isCorrectLength(phone, PHONE_LENGTH)){
-            shortToast(this,"Wrong Phone number length.")
-            return false
-        }
-
-        return true
-    }
-    private fun initButtons(){
-        binding.btnGetotpSendotp.setOnClickListener {
-            if(binding.etSendotpInputmobile.text.isNotEmpty() && binding.etSendotpInputmobile.text.length==PHONE_LENGTH){
-                callAPI(binding.etSendotpInputmobile.text.toString())
-
-            }else{
-                IonAlert(this@SendOTPActivity, IonAlert.ERROR_TYPE)
-                    .setTitleText("ERROR!")
-                    .setContentText("Wrong phone format.")
-                    .show()
-            }
-        }
-    }
-    private fun initEditTexts(){
-        binding.etSendotpInputmobile.doOnTextChanged { text, start, before, count ->
-            PHONE_NUMBER= text.toString()
-        }
-    }
-
-    //when back pressed animate backward:
-    override fun onBackPressed() {
-        super.onBackPressed()
-        Animatoo.animateSlideRight(this@SendOTPActivity)
     }
 
 }

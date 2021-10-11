@@ -19,7 +19,7 @@ class OrderDetailsItemsAdapter(private val orderDetailsItems: List<OrderItems>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderDetailsItemDetailsViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-            val view: View = inflater.inflate(R.layout.order_details_item, parent, false)
+            val view: View = inflater.inflate(R.layout.item_order_details, parent, false)
             return  OrderDetailsItemDetailsViewHolder(view)
             }
 

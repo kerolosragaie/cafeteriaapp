@@ -106,7 +106,7 @@
                 android:id="@+id/rv_orderdetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/order_details_item"
+                tools:listitem="@layout/item_order_details"
                 tools:itemCount="6"/>
 
             <TextView

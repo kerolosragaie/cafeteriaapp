@@ -30,7 +30,7 @@ class CategoryAdapter(val context:Context, private var categoryList:List<Categor
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealsViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.meals_item, parent, false)
+            .inflate(R.layout.item_meals, parent, false)
         return MealsViewHolder(view)
     }
 
