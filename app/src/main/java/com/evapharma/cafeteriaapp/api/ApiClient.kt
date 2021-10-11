@@ -15,15 +15,15 @@ class ApiClient(context: Context) {
     //create logger:
     private val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-
+/*
     //To get token and attach it to interceptor:
     private val sessionManager = SessionManager(context)
 
     /**
-     * Create custom interceptor to apply Headers application wide
-     * Note: for every call (CRUD) the interceptor will show headers
-     * */
-    /*private val headerInterceptor: Interceptor = Interceptor { chain ->
+      Create custom interceptor to apply Headers application wide
+      Note: for every call (CRUD) the interceptor will show headers
+      */
+    private val headerInterceptor: Interceptor = Interceptor { chain ->
         var request: Request = chain.request()
         request = request.newBuilder()
             .addHeader("Authorization", "Bearer "+"${sessionManager.fetchAccessToken()!!.token?:"Null"}")
