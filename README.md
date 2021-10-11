@@ -1,4 +1,10 @@
-<h1 align="center">EVA CAFETERIA MANAGER APP</h1>
+<h1 align="center">
+    <p align="center">
+        <img src="app/src/main/res/drawable/logo.png" width="110">
+    </p>
+EVA CAFETERIA MANAGER APP
+</h1>
+
 
 
 
@@ -27,3 +33,6 @@
 
 ![](images/5-add-remove-offers.gif)
 
+6- The app can handle any error connection from internet/server:
+
+![](images/6-handle-api-connection.gif)
