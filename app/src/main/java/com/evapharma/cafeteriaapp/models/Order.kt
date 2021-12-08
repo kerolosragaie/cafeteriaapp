@@ -2,7 +2,6 @@ package com.evapharma.cafeteriaapp.models
 
 import java.io.Serializable
 
-
 data class Order(
     val id: Int,
     val isReady: Boolean,

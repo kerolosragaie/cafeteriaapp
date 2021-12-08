@@ -1,7 +1,5 @@
 package com.evapharma.cafeteriaapp
 
-import com.evapharma.cafeteriaapp.models.*
-
 //? Constants of fragments:
 //! Orders fragment
 var PHONE_NUMBER:String=""
@@ -66,7 +64,7 @@ const val MIN_PASSWORD_LENGTH=8
 const val STARTER:String="0"
 const val PHONE_LENGTH:Int=11
 //const val PHONE_RESPONSE:activity
-const val SPLString="PHONE_RESPONSE"
+//const val SPLString="PHONE_RESPONSE"
 
 //------------------------------------------------------
 //? Constants of helpers:
