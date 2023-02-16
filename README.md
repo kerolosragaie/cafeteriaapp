@@ -1,13 +1,9 @@
-<h1 align="center">
-CAFETERIA MANAGER APP
-</h1>
-
-
-
-
 <p align="center">
     <img src="images/launcher.png">
 </p>
+<h1 align="center">
+CAFETERIA MANAGER APP
+</h1>
 
 
 1- Manager can login and receive orders, after finishing orders can confirm order is ready:
